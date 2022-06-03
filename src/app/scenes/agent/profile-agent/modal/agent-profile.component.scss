@@ -1,0 +1,33 @@
+    @import 'variables';
+    @import 'modal';
+    @import 'button';
+    .user-identity-container {
+        display: flex;
+        .profile-picture-container {
+            position: relative;
+            // width: 120px;
+            img {
+                width: 79px;
+                height: 79px;
+                border-radius: 50%;
+            }
+            .status-bubble {
+                width: 23px;
+                height: 23px;
+                border-radius: 50%;
+                border: solid 4px $primaryColors;
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
+                &.add-pp {
+                    background: url('/assets/img/add_pp_btn.svg');
+                    background-size: cover;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+        #profile-picture-agent {
+            display: none;
+        }
+    }

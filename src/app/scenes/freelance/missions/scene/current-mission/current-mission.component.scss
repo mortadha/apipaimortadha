@@ -1,0 +1,61 @@
+@import 'scene';
+@import 'variables';
+@import 'schedule';
+.app-container {
+    .main-menu {
+        margin-top: 30px;
+    }
+}
+
+.body-container {
+    margin-top: 70px;
+    .page-container {
+        text-align: center;
+        background: #fff;
+        padding: 30px;
+        .title {
+            font-size: 25px;
+            color: $primaryColors;
+            margin: 10px 0;
+        }
+    }
+}
+
+.white-btn {
+    &:hover {
+        label.docs {
+            color: $primaryColors;
+        }
+    }
+}
+
+label.docs {
+    color: $whiteGrey;
+    margin: 0;
+    cursor: pointer;
+    .upload-docs {
+        border: 1px dashed $whiteGrey;
+        opacity: 0.5;
+        border-radius: 3px;
+        padding: 18px;
+        font-size: 11px;
+        text-align: center;
+        margin-top: 27px;
+        cursor: pointer;
+        p {
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 2px;
+        }
+        span {
+            text-transform: inherit;
+            color: $whiteGrey;
+            span {
+                text-decoration: underline;
+            }
+        }
+    }
+    #inputGroupFile {
+        display: none;
+    }
+}

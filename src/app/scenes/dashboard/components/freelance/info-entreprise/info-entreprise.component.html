@@ -1,0 +1,35 @@
+<div class="bloc-container">
+  <h6 i18n>Mon entreprise</h6>
+
+  <div class="infos-bloc infos-entreprise">
+      <dl class="dl-horizontal">
+          <dt>Nom</dt>
+          <dd *ngIf="freelance.legal.companyName">{{ freelance.legal.companyName }} <i class="alert-green fas fa-check"></i></dd>
+          <dd *ngIf="!freelance.legal.companyName">Non renseigné <i class="alert-red fas fa-times"></i></dd>
+      </dl>
+      <dl class="dl-horizontal">
+          <dt>Forme juridique</dt>
+          <dd *ngIf="freelance.legal.companyName">{{ legalStatus }}<i class="alert-green fas fa-check"></i></dd>
+          <dd *ngIf="!freelance.legal.companyName"> Non renseigné <i class="alert-red fas fa-times"></i></dd>
+      </dl>
+      <dl class="dl-horizontal">
+          <dt>Coordonnées bancaires</dt>
+          <dd *ngIf="freelanceBank && freelanceBank.rib">Renseignées <i class="alert-green fas fa-check"></i></dd>
+          <dd *ngIf="freelanceBank && !freelanceBank.rib">Non renseignées <i class="alert-red fas fa-times"></i></dd>
+      </dl>
+      <dl class="dl-horizontal">
+          <dt>Mes documents légaux</dt>
+          <dd *ngIf='socialChargePdf === true'>Votre attestation de vigilance est à jour <i class="alert-green fas fa-check"></i></dd>
+          <dd *ngIf='socialChargePdf === false'>Votre attestation de vigilance n'est pas à jour <i class="alert-red fas fa-times"></i></dd>
+
+          <dd *ngIf='kbisPdf === true'>Votre kbis est à jour <i class="alert-green fas fa-check"></i></dd>
+          <dd *ngIf='kbisPdf === false'>Votre kbis n'est pas à jour <i class="alert-red fas fa-times"></i></dd>
+
+          <dd *ngIf='insurancePdf === true'>Votre assurance est à jour <i class="alert-green fas fa-check"></i></dd>
+          <dd *ngIf='insurancePdf === false'>Votre assurance n'est pas à jour <i class="alert-red fas fa-times"></i></dd>
+        </dl>
+  </div>
+    <a routerLink="/freelance/entreprise">
+        <button class="light" i18n>Modifier mes informations</button>
+    </a>
+</div>

@@ -1,0 +1,29 @@
+@import 'card';
+@import 'variables';
+@import 'button';
+
+.card-container {
+  .infos-container {
+    padding: 40px 33px 28px;
+    min-height: 315px;
+
+    .more-button {
+      right: 30px;
+      top: 40px;
+      .mat-select-arrow-wrapper {
+        display: none;
+      }
+
+    }
+
+    .green {
+      color: $winStatus;
+      background: transparent;
+    }
+
+    .red {
+      color: $lostStatus;
+      background: transparent;
+    }
+  }
+}

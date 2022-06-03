@@ -1,0 +1,35 @@
+<div class="card-docmission card-container" *ngIf="documentsFiles && documentsFiles.length > 0; else noDocs">
+    <div class="infos-container">
+        <table class="table table-hover">
+            <thead class="doc-head">
+                <tr>
+                    <th scope="col">Nom Doc</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Ddl</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let document of documentsFiles">
+                    <th scope="row">{{ document?.fileName }}</th>
+                    <td><i class="far fa-file-word"></i></td>
+                    <td>{{ document?.createDate | date:'MMMM yyyy' }}</td>
+                    <td><i class="fas fa-circle alert-green"></i></td>
+                    <td>
+                        <a [href]="document?.url" target="_blank" title="Télécharger">
+                            <i class="fas fa-download ml-auto"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<ng-template #noDocs>
+    <div class="title">
+        Vous n'avez pas encore de documents associés
+    </div>
+</ng-template>

@@ -1,0 +1,56 @@
+<div class="freelance-mission-container card-container">
+  <div class="infos-container">
+    <div class="row">
+      <div class="col-md-12">
+        <img [src]="freelanceNeed.need.companyLogo.url" class="pp client-logo" *ngIf="hasPicture()" />
+        <img src="/assets/img/blank_cc.svg" class="pp client-logo" *ngIf="!hasPicture()" />
+        <div class="mission-title card-name">{{ freelanceNeed.need.jobTitle || '' }}</div>
+        <div class="client-title mission-infos"><i class="fas fa-map-marker-alt"></i>
+          {{ freelanceNeed.need.companyTitle }},
+          <span *ngIf="freelanceNeed.need.companyCity">
+            {{ freelanceNeed.need.companyCity }}
+          </span>
+           &nbsp;
+           <span *ngIf="freelanceNeed.need.workingRemotely"><i class="fas fa-home"></i>Remote</span>
+            - &nbsp;
+           <span><i class="far fa-clock"></i> {{ freelanceNeed.need.createDate | dateFromNow }}</span>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="mission-stat">
+          <div class="alert alert-orange" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.NEW && freelanceNeed.companyStatus === companyStatus.NEW"><i class="fas fa-hourglass-start"></i> Nous attendons votre réponse</div>
+          <div class="alert alert-orange" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.INTERESTED && freelanceNeed.companyStatus === companyStatus.NEW"><i class="fas fa-hourglass-half"></i> Nous attendons la réponse de l'entreprise</div>
+          <div class="alert alert-green" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.NEW && freelanceNeed.companyStatus === companyStatus.INTERESTED"><i class="fas fa-building"></i> L'entreprise est intéressé par votre profil</div>
+          <div class="alert alert-orange" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.INTERESTED && freelanceNeed.companyStatus === companyStatus.INTERESTED"><i class="fas fa-calendar"></i> Planification en cours</div>
+          <div class="alert alert-red" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.NOT_INTERESTED || freelanceNeed.freelanceStatus === freelanceStatus.REFUSED"><i class="fas fa-times-circle"></i> Projet refusé</div>
+          <div class="alert alert-red" *ngIf="freelanceNeed.companyStatus === companyStatus.NOT_INTERESTED || freelanceNeed.companyStatus === companyStatus.REFUSED"><i class="fas fa-times-circle"></i> Projet annulé par l'entreprise</div>
+          <div class="alert alert-green" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.MEETING_PLANNED"><i class="fas fa-calendar"></i> Entretien planifié</div>
+          <!-- <div class="alert alert-red" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.MEETING_REALISED"><i class="fas fa-rocket"></i> Acceptez vous la mission ?</div> -->
+          <div class="alert alert-orange" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.ACCEPTED && freelanceNeed.companyStatus === companyStatus.ACCEPTED"><i class="fas fa-hourglass-half"></i> Finalisation du process en cours</div>
+          <div class="alert alert-orange" *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.ACCEPTED && freelanceNeed.companyStatus === companyStatus.MEETING_REALISED"><i class="fas fa-hourglass-half"></i> Nous attendons le retour de l'entreprise</div>
+        </div>
+        <div class="mission-details">
+          <div class="row">
+            <div class="col-md-7 techs">
+              <label>Technos</label>
+              <span *ngFor="let skill of freelanceNeed.need.skills">
+                <img [src]=[skill.tech.techPictureMediaUrl] ngbTooltip="{{skill.tech.name}}" />
+              </span>
+            </div>
+            <div class="col-md-5">
+                <label>&nbsp;</label>
+              <div class="action-buttons" *ngIf="freelanceNeed.freelanceStatus !== freelanceStatus.MEETING_REALISED">
+                <button class="dark" i18n (click)="showMissionDetails()" >Voir plus</button>
+              </div>
+              <div class="action-buttons" *ngIf="freelanceNeed.freelanceStatus == freelanceStatus.MEETING_REALISED && freelanceNeed.companyStatus !== companyStatus.REFUSED">
+                  <p>L'entretien vous a-t-il convaincu ?</p>
+                  <button class="light" (click)="refused()" i18n>Non</button>
+                  <button class="dark" (click)="accepted()" i18n>Oui</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

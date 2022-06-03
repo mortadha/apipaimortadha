@@ -1,0 +1,58 @@
+<mat-dialog-content *ngIf="!notifyModal">
+  <div class="modal-content">
+    <div class="confirm-month-modal">
+    <div class="modal-header">
+      <h4 class="modal-title" i18n>Refus</h4>
+      <button mat-button
+      (click)="closeReason(true)"
+      class="close"
+      aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        Il semble que vous n’ayez pas été convaincu par le profil proposé.
+        Aidez-nous à mieux appréhender vos attentes, faites-nous part de votre retour.
+      <div class="data-block">
+        <label for="reasonSelect" i18n>Raison de votre refus</label> <br>
+        <select id="reasonSelect" [(ngModel)]="reason">
+          <option i18n value="" selected="selected" disabled hidden>Veuillez sélectionner une raison</option>
+          <option i18n value="Le TJM dépasse le budget prévu">Le TJM dépasse le budget prévu</option>
+          <option i18n value="Les compétences ne correspondent pas au projet">Les compétences ne correspondent pas au projet</option>
+          <option i18n value="Le niveau d’expérience est insuffisant">Le niveau d’expérience est insuffisant</option>
+          <option i18n value="Autre">Autre</option>
+        </select>
+        <br>
+        <div *ngIf="reason === 'Autre'">
+          <textarea  [formControl]="textControl" [(ngModel)]="writenReason" class="full-width full"></textarea>
+          <span class="counter">
+            {{ reasonLength | async }} / 400
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+      <button class="light" (click)="closeReason(true)" i18n>Annuler</button>
+      <button class="dark"  (click)="closeReason(false)" i18n>Valider</button>
+  </div>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="notifyModal">
+  <div class="modal-content">
+    <div class="confirm-month-modal">
+    <div class="modal-header">
+      <h4 class="modal-title" i18n>Merci</h4>
+      <button mat-button
+      (click)="closeNotify()"
+      class="close"
+      aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      Nous avons bien pris en compte les raisons de votre refus.
+    </div>
+  </div>
+  <div class="modal-footer">
+      <button class="dark"  (click)="closeNotify()" i18n>Ok</button>
+  </div>
+</div>
+</mat-dialog-content>

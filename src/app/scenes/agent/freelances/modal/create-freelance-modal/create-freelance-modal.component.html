@@ -1,0 +1,38 @@
+<div mat-dialog-content>
+    <div class="modal-content">
+      <div class="create-freelance-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Nouveau freelance</h4>
+        <button mat-button [mat-dialog-close]="false" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="data-block">
+            <label for="account-email">Email*</label>
+            <input id="account-email" class="no-border" type="email" required email [(ngModel)]="account.email" name="email" placeholder="john@doe.fr" i18n-placeholder="john@doe.fr"/>
+          </div>
+        <div class="data-block" *ngIf="env === false">
+          <label for="account-password">Mot de passe*</label>
+          <input id="account-password" class="no-border" type="password" required minlength="8" [(ngModel)]="account.password" name="password" placeholder="********" i18n-placeholder="********"/>
+        </div>
+        <div class="data-block">
+          <label for="account-firstName">Prénom*</label>
+          <input id="account-firstName" class="no-border" type="text" required minlength="3" [(ngModel)]="account.firstName" name="prenom" placeholder="John" i18n-placeholder="John"/>
+        </div>
+        <div class="data-block">
+          <label for="account-lastName">Nom*</label>
+          <input id="account-lastName" class="no-border" type="text" required minlength="3" [(ngModel)]="account.lastName" name="nom" placeholder="Doe" i18n-placeholder="Doe"/>
+        </div>
+        <div class="data-block">
+          <label for="account-phone">Téléphone*</label>
+          <input id="account-phone" class="no-border" type="tel" required telephone [(ngModel)]="account.phone" name="telephone" placeholder="0623456789" i18n-placeholder="0623456789"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span><sup>*</sup>Champs obligatoires</span>
+        <button type="button" i18n class="dark" (click)="submit()" id="submit">
+          Créer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

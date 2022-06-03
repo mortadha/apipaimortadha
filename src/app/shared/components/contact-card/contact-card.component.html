@@ -1,0 +1,32 @@
+<div class="contact-card card-container">
+    <div class="infos-container">
+        <div class="pp-container">
+            <img *ngIf="hasPicture()" class="user-pp" [src]="account.profile-picture.url" />
+            <img src="/assets/img/blank_pp.svg" class="user-pp pp" *ngIf="!hasPicture()" />
+        </div>
+        <div class="identity card-name">
+            {{ account.firstName }} {{ account.lastName }}
+        </div>
+        <div class="card-role">
+            {{ account.title }}
+        </div>
+        <div class="card-email">
+            <i class="fas fa-envelope"></i> {{ account.email | truncate:30 }}
+        </div>
+        <div class="card-phone">
+            <i class="fas fa-phone"></i> {{ account.phone }}
+        </div>
+        <div *ngIf="account.activated" class="card-location"> 
+            <span class="green"> <i class="fas fa-check"></i> Activé </span>
+        </div>
+        <div *ngIf="!account.activated" class="card-location"> 
+            <span class="red"> <i class="fas fa-times"></i> Non activé </span>
+        </div>
+        <div class="more-button animated fadeIn" (click)="openDropdown()">
+            <mat-select #freelanceSelector>
+                <mat-option value="option1"><a (click)="edit()">Modifier le contact</a></mat-option>
+                <mat-option value="option2"><a (click)="confirmDelete()">Supprimer le contact</a></mat-option>
+            </mat-select>
+        </div>
+    </div>
+</div>

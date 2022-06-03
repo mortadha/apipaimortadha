@@ -1,0 +1,15 @@
+<!-- experiences listing start -->
+<div class="profile-experiences-container">
+  <h6>Expériences</h6>
+  <div *ngIf="freelance">
+    <div class="empty-block" *ngIf="user.type !== 'Company' && freelance.experiences.length === 0" (click)="addNewExperience()">
+      <button class="add"></button> &nbsp; <span i18n>Ajouter votre première expérience</span>
+    </div>
+    <button *ngIf="user.type !== 'Company' && freelance.experiences.length > 0" (click)="addNewExperience()" class="add main"></button>
+    <div *ngFor="let experience of freelance.experiences; let i = index">
+      <app-profile-experience [experience]="experience"></app-profile-experience>
+      <hr *ngIf="i < freelance.experiences.length - 1"/>
+    </div>
+  </div>
+</div>
+<!-- end of experiences listing -->

@@ -1,0 +1,56 @@
+<mat-dialog-content>
+    <div class="modal-content">
+        <div class="edit-profile-main-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" i18n>Coordonnées professionnelles</h4>
+                <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="data-block" *ngIf="freelance.legal.status !== statusEnum.AE">
+                    <label for="freelance-companyName" i18n>Raison social</label>
+                    <input id="freelance-companyName" class="no-border" type="text" placeholder="Nom de votre entreprise..." [(ngModel)]="freelance.legal.companyName" />
+                </div>
+                <div class="data-block">
+                    <label i18n>Forme juridique</label>
+                    <select [(ngModel)]="freelance.legal.status">
+            <option i18n [ngValue]="statusEnum.AE">Auto-entreprise</option>
+            <option i18n [ngValue]="statusEnum.EI">EI (entreprise individuelle)</option>
+            <option i18n [ngValue]="statusEnum.EIRL">EIRL</option>
+            <option i18n [ngValue]="statusEnum.MDA">MDA</option>
+            <option i18n [ngValue]="statusEnum.SARL">SARL</option>
+            <option i18n [ngValue]="statusEnum.EURL">EURL</option>
+            <option i18n [ngValue]="statusEnum.SAS">SAS/SASU</option>
+          </select>
+                </div>
+                <div class="data-block">
+                    <label for="freelance-siret" i18n>Numéro siret*</label>
+                    <input id="freelance-siret" class="no-border" type="text" placeholder="Numéro siret..." [(ngModel)]="freelance.legal.siret" />
+                </div>
+                <div class="data-block">
+                    <label for="freelance-streetPro" i18n>Adresse</label>
+                    <input id="freelance-streetPro" class="no-border" type="text" i18n-placeholder="Adresse..." placeholder="Adresse..." [(ngModel)]="freelance.legal.street" />
+                </div>
+
+                <div class="data-block-none row">
+                    <div class="col-md-4 pr-md-1">
+                        <div class="data-block sm-container">
+                            <label for="freelance-zipcode" i18n>Code Postal</label>
+                            <input id="freelance-zipcode" class="no-border" type="text" i18n-placeholder="Code Postal..." placeholder="Code Postal..." [(ngModel)]="freelance.legal.zipcode" />
+                        </div>
+                    </div>
+                    <div class="col-md-8 pl-md-2">
+                        <div class="data-block md-container">
+                            <label for="freelance-city" i18n>Ville</label>
+                            <input id="freelance-city" class="no-border" type="text" i18n-placeholder="Ville..." placeholder="Ville..." [(ngModel)]="freelance.legal.city" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <span><sup>*</sup>Champs obligatoires</span>
+                <button type="button" i18n class="dark" (click)="submit()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

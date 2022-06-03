@@ -1,0 +1,56 @@
+<mat-dialog-content>
+  <div class="create-contact-modal">
+    <div class="modal-content">
+      <div class="create-freelance-modal">
+        <div class="modal-header">
+          <h4 *ngIf='data.isNew; else editContactTitle' class="modal-title" i18n>Nouveau Contact</h4>
+          <ng-template #editContactTitle>
+            <h4 class="modal-title" i18n>Editer un contact</h4>
+          </ng-template>
+
+          <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="data-block col-md-12">
+            <label for="account-firstName">Prénom*</label>
+            <input id="account-firstName" class="no-border" type="text" [(ngModel)]="account.firstName" required placeholder="Prénom" i18n-placeholder="firstname" />
+          </div>
+          <div class="data-block col-md-12">
+            <label for="account-lastName">Nom*</label>
+            <input id="account-lastName" class="no-border" type="text" [(ngModel)]="account.lastName" required placeholder="Nom" i18n-placeholder="lastname" />
+          </div>
+          <div class="data-block col-md-12">
+            <label for="account-title">Fonction*</label>
+            <input id="account-title" class="no-border" type="text" [(ngModel)]="account.title" required placeholder="Fonction" i18n-placeholder="fonction" />
+          </div>
+          <div class="data-block col-md-12">
+            <label for="account-phone">Téléphone*</label>
+            <input id="account-phone" class="no-border" type="text" [(ngModel)]="account.phone" required placeholder="Téléphone" i18n-placeholder="mobile" />
+          </div>
+          <div class="data-block col-md-12">
+            <label for="account-email">Email*</label>
+            <input id="account-email" class="no-border" type="text" [(ngModel)]="account.email" required placeholder="Email" i18n-placeholder="email" />
+          </div>
+          <div class="data-block col-md-12" *ngIf="data.isNew && env === false">
+            <label for="account-password">Mot de passe*</label>
+            <input id="account-password" class="no-border" type="password" [(ngModel)]="account.password" required placeholder="Mot de passe" i18n-placeholder="password" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span><sup>*</sup>Champs obligatoires</span>
+        <button *ngIf="!data.isNew" class="dark" (click)="resendMail()">
+          Envoyer le mail d'activation
+        </button>
+        <button *ngIf='data.isNew; else editContactButton' type="button" i18n class="dark" [disabled]="!this.isFormValid()" (click)="submit()">
+          Créer
+        </button>
+        <ng-template #editContactButton>
+            <button type="button" i18n class="dark" [disabled]="!this.isFormValid()" (click)="submit()">
+                Enregistrer
+            </button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

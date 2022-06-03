@@ -1,0 +1,16 @@
+@import 'scene';
+@import 'variables';
+@import 'schedule';
+.app-container {
+    .main-menu {
+        margin-top: 30px;
+    }
+}
+
+.body-container {
+    margin-top: 45px;
+    .page-container {
+        background: #fff;
+        padding: 30px;
+    }
+}

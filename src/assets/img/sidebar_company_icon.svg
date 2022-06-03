@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Picto factures</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Agent" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Agent_listing-freelance-Tous" transform="translate(-35.000000, -289.000000)">
+            <g id="Menu-latéral">
+                <g id="Factures" transform="translate(35.000000, 288.000000)">
+                    <g id="Picto-factures" transform="translate(0.000000, 1.000000)">
+                        <rect id="Rectangle-5" fill="#6C6C6E" x="9" y="6" width="6" height="9"></rect>
+                        <rect id="Rectangle-5" fill="#6C6C6E" x="0" y="0" width="8" height="15"></rect>
+                        <rect id="Rectangle-3" fill="#FFFFFF" x="2" y="3" width="2" height="2"></rect>
+                        <rect id="Rectangle-3-Copy" fill="#FFFFFF" x="4" y="6" width="2" height="2"></rect>
+                        <rect id="Rectangle-3-Copy-3" fill="#FFFFFF" x="12" y="7" width="2" height="2"></rect>
+                        <rect id="Rectangle-3-Copy" fill="#FFFFFF" x="0" y="12" width="8" height="1"></rect>
+                        <rect id="Rectangle-3-Copy-2" fill="#FFFFFF" x="9" y="12" width="6" height="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

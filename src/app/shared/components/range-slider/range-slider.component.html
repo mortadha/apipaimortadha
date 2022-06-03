@@ -1,0 +1,11 @@
+<div class="row range-slider-container">
+  <div class="col-md-9">
+    <ion-range-slider #sliderElement [min]="min" [max]="max" to="40" grid="false" [step]="step" [from]="defaultValue" [disable]="disabled" (onChange)="updateValue($event)" (onFinish)="doneValue($event)" decorate_both="false">
+    </ion-range-slider>
+  </div>
+  <div class="col-md-3 value">
+    {{ value / step }}
+    <span *ngIf="(value < max && maxLabel === '') || (value < max && maxLabel !== '') || (value === max && maxLabel === '')">{{ unit }}</span>
+    <span *ngIf="value === max && maxLabel !== ''">{{ maxLabel }}</span>
+  </div>
+</div>

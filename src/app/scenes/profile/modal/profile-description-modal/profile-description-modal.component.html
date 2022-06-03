@@ -1,0 +1,24 @@
+<mat-dialog-content>
+    <div class="modal-content">
+        <div class="edit-profile-main-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" i18n>Informations générales</h4>
+                <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="data-block" id="description-container">
+                    <label for="freelance-bio" i18n>Description*</label>
+                    <textarea id="freelance-bio" class="no-border full-width full" [(ngModel)]="freelance.bio" [formControl]="textControl" i18n-placeholder="Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum...">
+                        Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum...</textarea>
+                    <span class="counter">
+                            {{ descriptionLength | async }} / 1000
+                    </span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span><sup>*</sup>Champs obligatoires</span>
+                <button type="button" i18n class="dark" (click)="submit()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

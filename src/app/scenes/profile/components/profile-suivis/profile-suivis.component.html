@@ -1,0 +1,13 @@
+<div class="profile-suivis-container">
+    <h6>Suivi</h6>
+    <div *ngIf="freelance">
+        <button (click)="addNewSuivi()" class="add main" *ngIf="freelance.comments.length > 0"></button>
+        <div class="empty-block" (click)="addNewSuivi()" *ngIf="freelance.comments.length === 0">
+            <button class="add"></button> &nbsp; <span i18n>Ajouter un suivi</span>
+        </div>
+      <div *ngFor="let comment of freelance.comments; let i = index">
+        <app-profile-suivi [comment]="comment" [user]="user"></app-profile-suivi>
+        <hr *ngIf="i < freelance.comments.length - 1"/>
+      </div>
+    </div>
+</div>

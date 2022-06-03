@@ -1,0 +1,22 @@
+@import 'button';
+@import 'card';
+
+.card-container {
+  .infos-container {
+    min-height: 275px;
+    .card-name {
+      margin-bottom: 0;
+    }
+    .action-buttons {
+      margin-top: 0;
+
+      .light {
+        margin-bottom: 10px;
+      }
+
+      .dark {
+        margin-right: 0;
+      }
+    }
+  }
+}

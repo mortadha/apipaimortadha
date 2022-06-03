@@ -1,0 +1,10 @@
+@import 'variables';
+
+.range-slider-container {
+  .value {
+    margin-top: 14px;
+    font-size: 15px;
+    text-align: right;
+    color: $slateGrey;
+  }
+}

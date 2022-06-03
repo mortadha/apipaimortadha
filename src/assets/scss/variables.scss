@@ -1,0 +1,180 @@
+@import 'responsive.scss';
+
+/**
+  DIMENSIONS
+ */
+
+$sidebarWidth: 230px;
+
+/**
+  COLORS
+ */
+
+$darkblueGrey: #1c1e52;
+// $blueEgg: #03dac6;
+$blueEgg: #59ddf4;
+$brightCyan: lighten( $blueEgg, 5%);
+// $brightCyan: #33ffdd;
+$primaryColors: $darkblueGrey;
+$secondaryColors: $blueEgg;
+
+/** Secondary Colors **/
+
+$almostBlack: #06060f;
+$charcoalGrey: #302f3a;
+$slateGrey: #6c6c6e;
+$silverGrey: #c6c6c9;
+$whiteGrey: #ebebeb;
+$quartzGrey: #d1d1dc;
+
+/** Opacity Colors **/
+
+
+/** Message Colors **/
+
+$strawBerry: #f4272e;
+$blueBerry: #3c408a;
+$redPunch: #dc3545;
+
+/** Freelances Status Colors **/
+
+$redFree: #d1152b;
+$orangeFree: #ffa500;
+$greenFree: #8fd246;
+
+/** Neads Status Labels **/
+
+$winStatus: #0cce6b;
+$lostStatus: #f4272e;
+
+/** Neads Boarding Faction **/
+
+$sunglow: #ffcc33;
+$grenadier: #e03500;
+$scampi: #6567a5;
+
+/** Loader Elements **/
+
+$spinnerGrey: #808e95;
+
+/** Alert Status **/
+
+// $alert-primary : ;
+// $alert-success : ;
+// $alert-danger : ;
+$alert-warning: #ffc857;
+$alert-info: #10c3d9;
+$alert-success: #28a745;
+$alert-danger: #dc3545;
+$alert-valid: #6f42c1;
+// $theme-colors: ( "warning": $alert-warning;
+// "info": $alert-info;
+// );
+
+/**
+  MODALS
+ */
+
+@mixin datablock {
+    background: #fff;
+    padding: 20px 20px 30px 20px;
+    margin-top: 10px;
+    position: relative;
+    word-wrap: break-word;
+}
+
+
+/**
+MEDIA-QUERIES
+*/
+
+@media (min-width:320px) {
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+
+@media (min-width:480px) {
+    /* smartphones, Android phones, landscape iPhone */
+}
+
+@media (min-width:600px) {
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+
+@media (min-width:801px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+    /* hi-res laptops and desktops */
+}
+
+
+/**
+  FONTS
+
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("/assets/fonts/OpenSans-Regular.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-Regular.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url("/assets/fonts/OpenSans-Bold.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-Bold.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans Bold Italic";
+  src: url("/assets/fonts/OpenSans-BoldItalic.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-BoldItalic.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans Extra Bold";
+  src: url("/assets/fonts/OpenSans-ExtraBold.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-ExtraBold.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans Extra Bold Italic";
+  src: url("/assets/fonts/OpenSans-ExtraBoldItalic.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-ExtraBoldItalic.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans Italic";
+  src: url("/assets/fonts/OpenSans-Italic.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-Italic.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans Light";
+  src: url("/assets/fonts/OpenSans-Light.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-Light.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans Light Italic";
+  src: url("/assets/fonts/OpenSans-LightItalic.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-LightItalic.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans SemiBold";
+  src: url("/assets/fonts/OpenSans-SemiBold.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-SemiBold.ttf")  format('truetype');
+}
+
+@font-face {
+  font-family: "Open Sans SemiBold Italic";
+  src: url("/assets/fonts/OpenSans-SemiBoldItalic.eot") format('embedded-opentype'),
+  url("/assets/fonts/OpenSans-SemiBoldItalic.ttf")  format('truetype');
+}
+
+*/

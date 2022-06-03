@@ -1,0 +1,20 @@
+<div class="profile-suivis-container">
+    <h6>Infos entreprise</h6>
+    <div class="infos-bloc infos-entreprise">
+        <dl class="dl-horizontal">
+            <dt>Forme juridique</dt>
+            <dd *ngIf="freelance.legal.companyName && freelance.legal.status !== statusEnum.AE">
+                {{ freelance.legal.companyName }}<i class="alert-green fas fa-check"></i>
+            </dd>
+            <dd *ngIf="freelance.legal.status === statusEnum.AE">
+                Auto-entreprise <i class="alert-green fas fa-check"></i>
+            </dd>
+            <dd *ngIf="!freelance.legal.companyName && freelance.legal.status !== statusEnum.AE">
+                Non renseigné <i class="alert-red fas fa-times"></i>
+            </dd>
+        </dl>
+    </div>
+    <div class="comment-edit">
+        <button class="edit" (click)="showProDetails()"></button>
+    </div>
+</div>

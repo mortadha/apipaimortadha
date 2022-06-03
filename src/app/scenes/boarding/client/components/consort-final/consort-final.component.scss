@@ -1,0 +1,10 @@
+@import '../../scene/boarding-client.component.scss';
+
+.msgfinal {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    p {
+        font-size: 3rem;
+    }
+}

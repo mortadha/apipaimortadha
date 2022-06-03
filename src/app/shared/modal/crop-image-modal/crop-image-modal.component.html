@@ -1,0 +1,59 @@
+<mat-dialog-content>
+    <div class="modal-content">
+        <div class="crop-image-modal">
+
+            <div class="modal-header">
+                <h4 class="modal-title" i18n>Nouvelle Image</h4>
+                <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="data-block">
+                    <div class="custom-file mb-3">
+                        <label for="custom-input">Charger une photo</label>
+                        <input #input id="custom-input" type="file" (change)="fileChangeListener($event)" class="input-image" accept=".jpg, .jpeg, .png" />
+                        <img-cropper #cropper [image]="data1" [settings]="cropperSettings1" (onCrop)="cropped($event)"></img-cropper>
+                    </div>
+
+                    <div class="row">
+                        <!-- <div class="row" *ngIf="user.type === accountType.Freelance"> -->
+                        <div class="col-md-6">
+                            <label>Exemple de photo</label>
+                            <div class="d-flex justify-content-between">
+                                <img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_90,q_100/v1554133365/boarding/Design.jpg" class="img-fluid" alt="">
+                                <img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_90,q_100/v1554128383/boarding/Web.jpg" class="img-fluid" alt="">
+                                <img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_90,q_100/v1554128375/boarding/Agile.jpg" class="img-fluid" alt="">
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <div>
+                                <label>La photo idéale en 3 étapes !</label>
+                                <dl class="dl-horizontal">
+                                    <!-- <dt><i class="fas fa-comments"></i></dt> -->
+                                    <dd><span>1.</span> Pas de lunettes de soleil</dd>
+                                </dl>
+                                <dl class="dl-horizontal">
+                                    <!-- <dt><i class="far fa-calendar-check"></i></dt> -->
+                                    <dd><span>2.</span> Un seul visage</dd>
+                                </dl>
+                                <dl class="dl-horizontal">
+                                    <!-- <dt><i class="fab fa-rocketchat"></i></dt> -->
+                                    <dd><span>3.</span> Visage et regard face à l'objectif</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <span>Format : JPEG, JPG, PNG - Poids : 5Mo max</span>
+                <button type="button" i18n class="dark" (click)="submit(data1.image)">Créer</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

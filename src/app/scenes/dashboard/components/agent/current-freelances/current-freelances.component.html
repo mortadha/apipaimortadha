@@ -1,0 +1,32 @@
+<div class="bloc-container">
+  <h6 i18n>Mes missions <span>({{total}} missions en cours)</span></h6>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Freelance</th>
+        <th scope="col">Client</th>
+        <th scope="col">Date de fin Mission</th>
+        <th scope="col">Date de fin Mission</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mission of missions">
+        <td>{{ mission.freelance.account.firstName }} {{ mission.freelance.account.lastName }}</td>
+        <td>Non mais regarde pas lui, il ne marche pas</td>
+        <!-- todo : dynamiser cette ligne, en attente du back  -->
+        <td>Depuis le {{ mission.start | date:'dd.MM.yyyy' }}</td>
+        <td>
+          Sort le {{ mission.end | date:'dd.MM.yyyy' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-md-12">
+      <button class="light" i18n routerLink="/agent/freelances">Voir tous mes freelances</button>
+    </div>
+  </div>
+
+</div>

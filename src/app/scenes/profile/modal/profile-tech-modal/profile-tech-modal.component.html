@@ -1,0 +1,39 @@
+<mat-dialog-content>
+    <div class="modal-content">
+        <div class="edit-profile-main-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" i18n>Informations générales</h4>
+                <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="data-block" id="skills-container">
+                    <label for="search-skill" i18n>Compétences*</label>
+
+                    <input id="search-skill" type="text" placeholder="Rechercher une compétence..." aria-label="Skill" class="search" matInput [matAutocomplete]="auto" [formControl]="myControl" />
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="inputDisplay">
+                        <mat-option *ngFor="let tech of filteredOptions | async" [value]="tech">
+                            {{ tech.name }}
+                        </mat-option>
+                    </mat-autocomplete>
+                    <div class="skill-container" *ngFor="let skill of freelance.skills">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <button class="delete" (click)="removeSkill(skill.tech.id)"></button>
+                            </div>
+                            <div class="col-md-3 skill-title">
+                                {{ skill.tech.name }}
+                            </div>
+                            <div class="col-md-8 slider-container">
+                                <app-range-slider (valueChanged)="freelanceSkillLevelChanged($event, skill)" [defaultValue]="skill.level" step="10" unit="an(s)" [maxLabel]="'ans+'"></app-range-slider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span><sup>*</sup>Champs obligatoires</span>
+                <button type="button" i18n class="dark" (click)="submit()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

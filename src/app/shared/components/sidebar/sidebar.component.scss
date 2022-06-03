@@ -1,0 +1,50 @@
+@import 'variables';
+.app-sidebar-container {
+    // max-width: $sidebarWidth;
+    background: #fff;
+    height: 100vh;
+    // position: fixed;
+    box-shadow: 0 4px 10px 0 rgba(6, 6, 15, 0.12);
+    .navigation {
+        list-style-type: none;
+        text-transform: uppercase;
+        font-family: "Open Sans", sans-serif;
+        letter-spacing: 2px;
+        color: $slateGrey;
+        font-size: 11px;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        li {
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+            a {
+                color: $slateGrey;
+                padding: 20px;
+                padding-left: 34px;
+                display: block;
+                height: 54px;
+            }
+            &:hover,
+            &.active {
+                background-color: rgba(28, 30, 82, 0.12);
+                a {
+                    color: $primaryColors;
+                }
+            }
+            &:hover {
+                background-color: rgba(28, 30, 82, 0.05);
+            }
+        }
+        img {
+            position: relative;
+            top: -1px;
+        }
+    }
+    .logo {
+        // margin: 50px 63px;
+        padding: 50px 0;
+    }
+}

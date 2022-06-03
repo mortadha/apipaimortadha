@@ -1,0 +1,183 @@
+<!-- profile header -->
+<div class="header-container mb-lg-5">
+    <div class="profile-header-container">
+        <div class="profil-container">
+            <div class="profile-picture-container" *ngIf="user.type !== accountType.Company">
+                <div class="profile-picture">
+                    <div class="first-letter" *ngIf="user.type === accountType.Company && freelance && freelance.account">
+                        {{ freelance.account.firstName }}</div>
+                    <img *ngIf="user.type !== accountType.Company && hasProfilePicture()" [src]="freelance.account.profilePicture.url" />
+                    <img src="/assets/img/blank_pp.svg" *ngIf="user.type !== accountType.Company && !hasProfilePicture()" />
+                </div>
+                <label for="profile-picture-uploader">
+                    <div class="status-bubble"
+                        [class.orange]="(freelance?.availabilityType === availibilityType.StartFrom && !freelance?.availabilityDate) || (freelance?.availabilityType === availibilityType.StartFrom && freelance.availabilityDate)"
+                        [class.green]="freelance?.availabilityType === availibilityType.Available"
+                        [class.red]="freelance?.availabilityType === availibilityType.Unavailable"
+                        [class.edit-pp]="hasProfilePicture() && user.type !== accountType.Company"
+                        [class.add-pp]="!hasProfilePicture()"></div>
+                    <button id="profile-picture-uploader" (click)="cropImageModal()"></button>
+                </label>
+            </div>
+            <div class="profile-identity">
+                <div class="profile-name" *ngIf="user.type !== accountType.Company && freelance && freelance.account">
+                    {{ freelance?.account.firstName}} {{ freelance?.account.lastName }}
+                    <sup>
+                        <span *ngIf="freelance.status === statusEnum.Qualified">
+                            <i class="fas fa-award"></i>Qualifié(e)
+                        </span>
+
+                        <span *ngIf="freelance.status === statusEnum.Registered">
+                            <i class="far fa-calendar-check"></i>Inscrit(e)
+                        </span>
+
+                        <span *ngIf="freelance.status === statusEnum.Confirmed">
+                            <i class="far fa-check-circle"></i>Validé(e)
+                        </span>
+
+                        <span *ngIf="freelance.status === statusEnum.Refused">
+                            <i class="far fa-times-circle"></i>Refusé(e)
+                        </span>
+
+                        <span *ngIf="freelance.status === statusEnum.Desactivated">
+                            <i class="fas fa-ban"></i>Désactivé(e)
+                        </span>
+                    </sup>
+                </div>
+                <div class="profile-name" *ngIf="user.type === accountType.Company && freelance && freelance.account">
+                    {{freelance?.account.trigram}}
+                </div>
+                <div class="profile-more-infos" *ngIf="freelance">
+                    {{ freelance?.headline }}
+                    <span class="blank-info" *ngIf="!freelance.headline">Intitulé du poste : <a (click)="updateInfos()">à renseigner</a></span>
+                </div>
+
+                <div class="profile-more-infos" *ngIf="freelance">
+                    <i class="fas fa-map-marker-alt"></i><span *ngIf="freelance?.city">{{ freelance?.city }} - </span>
+                    <span class="blank-info" *ngIf="!freelance.city && user.type !== accountType.Company"><a (click)="showDetails()">à renseigner</a> - </span>
+
+                    <span>
+                        <span *ngIf="freelance.workingRemotely === remoteEnum.RemoteNone">
+                            <i class="fas fa-building"></i>Chez le client
+                        </span>
+                    <span *ngIf="freelance.workingRemotely === remoteEnum.RemotePartial">
+                            <i class="fas fa-exchange-alt"></i>Remote partiel
+                        </span>
+                    <span *ngIf="freelance.workingRemotely === remoteEnum.RemoteOnly">
+                            <i class="fas fa-home"></i>Remote
+                        </span> -
+                    </span>
+                    <!-- </div>
+
+                <div class="profile-more-infos availibilty-free"> -->
+                    <span>Disponibilité : </span>
+                    <span class="blank-info" *ngIf="freelance?.availabilityType === availibilityType.Unknown">
+                        <a (click)="updateInfos()">Non renseigné</a>
+                    </span>
+                    <span class="date" *ngIf="freelance?.availabilityType === availibilityType.StartFrom && freelance.availabilityDate">
+                    Dès {{ freelance.availabilityDate | date:'MMMM' | titlecase}} {{ freelance.availabilityDate | date:'yyy'}}</span>
+                    <span class="date" *ngIf="freelance?.availabilityType === availibilityType.Available">Disponible</span>
+                    <span class="date" *ngIf="freelance?.availabilityType === availibilityType.Unavailable">Indisponible</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="header-container-options my-sm-2" *ngIf="freelance">
+        <!-- <div class="profile-activation activate" (click)="clickOnProfileCompletion()" *ngIf="user.type === accountType.Agent">
+            <i class="fas fa-check" *ngIf="freelance.activate == activateType.Activated"></i> {{freelance.activate == activateType.Activated ? 'ACTIVÉ' : 'ACTIVER'}}
+        </div> -->
+        <div class="profile-completion" *ngIf="user.type !== accountType.Company">
+            <span class="percentage">{{ freelance.completion }}%</span><br />
+            <div class="completed-label" i18n>complété</div>
+            <img src="/assets/img/profile_completion_{{ freelance.completion }}.svg" />
+        </div>
+        <div class="availability-box" *ngIf="user.type === accountType.Agent">
+            <div class="ddl">
+                <button class="download" (click)="downloadPdf()"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of profile header -->
+
+<div class="menu-container my-4">
+    <ul class="main-menu" *ngIf="user.type === accountType.Agent">
+        <li [class.active]="activeTab === tabsType.main" data-target="#tabsType.main" (click)="selectTab(tabsType.main);">Infos</li>
+        <li [class.active]="activeTab === tabsType.experience" data-target="#tabsType.experience" (click)="selectTab(tabsType.experience);">Profil</li>
+    </ul>
+</div>
+<!-- profile infos -->
+<div class="row" *ngIf="(user.type === accountType.Agent && activeTab === tabsType.main) || user.type !== accountType.Agent">
+    <div [className]="user.type === accountType.Agent ? 'col-md-12 col-lg-8' : 'col-md-12'">
+        <div class="main-profile-infos-container flex-wrap justify-content-between">
+            <div class="data-container">
+                <h6 i18n>{{ user.type === accountType.Agent ? 'Cjm' : 'Tjm' }}</h6>
+                <div class="data" *ngIf="freelance && freelance.tjm">{{ freelance.tjm }}€</div>
+                <div class="data" *ngIf="freelance && !freelance.tjm">...</div>
+            </div>
+            <div class="data-container">
+                <h6 i18n>Expérience</h6>
+                <div class="data" i18n *ngIf="freelance && freelance.experienceLevel">{{ freelanceExperienceLevel() }}</div>
+                <div class="data" i18n *ngIf="freelance && !freelance.experienceLevel">...</div>
+            </div>
+            <div class="data-container">
+                <h6 i18n>Durée de mission</h6>
+                <div class="data" i18n *ngIf="freelance && freelance.missionDuration === 1">Courte durée</div>
+                <div class="data" i18n *ngIf="freelance && freelance.missionDuration === 2">Moyenne durée</div>
+                <div class="data" i18n *ngIf="freelance && freelance.missionDuration === 3">Longue durée</div>
+                <div class="data" i18n *ngIf="freelance && freelance.missionDuration === 4">Ouvert</div>
+                <div class="data" i18n *ngIf="freelance && !freelance.missionDuration">...</div>
+            </div>
+            <div class="data-container" *ngIf="false">
+                <h6 i18n>Note</h6>
+                <div class="data" i18n *ngIf="freelance && freelance.testNote">B(75%)</div>
+                <div class="data" i18n *ngIf="freelance && !freelance.testNote">...</div>
+            </div>
+            <div class="comment-edit">
+                <button class="edit" (click)="updateInfos()"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12> col-lg-4" *ngIf="(user.type === accountType.Agent && activeTab === tabsType.main)">
+        <app-profile-contact></app-profile-contact>
+    </div>
+</div>
+<!-- end of profile infos -->
+<div class="row" *ngIf="(user.type === accountType.Agent && activeTab === tabsType.main) || user.type !== accountType.Agent">
+    <div class="col-md-12 col-lg-7" id="profile-desc">
+        <!-- description -->
+        <div class="profile-description-container" *ngIf="freelance">
+            <h6>{{ freelance.firstname }} <span i18n>en quelques mots</span></h6>
+            <div class="empty-block" *ngIf="user.type !== accountType.Company && !freelance.bio" (click)="updateBio()">
+                <button class="add"></button> &nbsp; <span i18n>Ajouter une description</span>
+            </div>
+            <p class="description" *ngIf="freelance.bio">{{ freelance.bio }}</p>
+            <button class="edit" *ngIf="user.type !== accountType.Company && freelance.bio" (click)="updateBio()"></button>
+        </div>
+        <!-- end of description -->
+    </div>
+    <div class="col-md-12 col-lg-5" id="profile-skills">
+        <!-- skills -->
+        <div class="profile-skills-container">
+            <h6 i18n>Compétences</h6>
+            <div *ngIf="freelance">
+                <a (click)="updateTechs()" *ngIf="user.type !== accountType.Company && freelance.skills.length === 0">
+                    <div class="empty-block">
+                        <button class="add"></button> &nbsp; <span i18n>Ajouter une compétence</span>
+                    </div>
+                </a>
+                <div *ngFor="let skill of freelance.skills">
+                    <div class="skill-title">{{ skill.tech.name }}</div>
+                    <app-range-slider [disabled]="true" [defaultValue]="skill.level" step="10" unit="an(s)" [maxLabel]="'ans+'">
+                    </app-range-slider>
+                </div>
+                <a (click)="updateTechs()" *ngIf="user.type !== accountType.Company && freelance.skills.length > 0">
+                    <button class="edit"></button>
+                </a>
+            </div>
+        </div>
+        <!-- end of skills -->
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<!-- <div class="docs-wrapper">
+    <div class="row-fluid">
+        <div class="accordion-toggle d-flex justify-content-between">
+            <div class="col-1">
+                <label>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            </div>
+            <div class="col-3 client" data-toggle="collapse" data-target="#collapseOne">{{ mission.need.companyTitle }}</div>
+            <div class="col-3 title" data-toggle="collapse" data-target="#collapseOne">{{ mission.need.jobTitle }}</div>
+            <div class="col-2 amount"> - </div>
+            <div class="col-2 date">15.07.2019</div>
+            <div class="col-1 action" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-chevron-down"></i> <a href="" title="Télécharger"><i class="fas fa-download ml-auto"></i></a></div>
+        </div>
+    </div>
+
+    <div id="collapseOne" class="row collapse show mb-0">
+        <div class="col-12" *ngFor="let document of documents">
+            <div class="fill-name d-flex">
+                <div class="col-1">
+                    <label>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                </div>
+                <div class="col-4 doc"><a href="" title="facture-FA03861">{{ document.fileName }}</a></div>
+                <div class="col-2 file-type">
+                    <i class="far fa-file-word"></i> -->
+<!--<i class="far fa-file-pdf"></i>
+                <i class="fas fa-file-signature"></i>
+                <i class="fas fa-file-invoice"></i>
+                <i class="fas fa-file-contract"></i> -->
+<!-- </div>
+                <div class="col-2 amount">-</div>
+                <div class="col-2 date">{{ document.createDate | date: 'dd.MM.yyyy' }}</div>
+                <div class="col-1 action">
+                    <a [href]="document.url" target="_blank" title="Télécharger">
+                        <i class="fas fa-download ml-auto"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- 
+
+<tr>
+    <th scope="row">kdlfjsnkgdmf</th>
+    <td class="file-type"><i class="far fa-file-word"></i></td>
+    <td class="date">15.07.2019</td>
+    <td><i class="fas fa-circle alert-green"></i></td>
+    <td class="action">
+        <a target="_blank" title="Télécharger">
+            <i class="fas fa-download ml-auto"></i>
+        </a>
+    </td>
+</tr> -->
+
+<tr *ngFor="let document of documents">
+    <th scope="row">{{ document.fileName }}</th>
+    <td class="file-type"><i class="far fa-file-word"></i></td>
+    <td class="date">{{ document.createDate | date: 'dd.MM.yyyy' }}</td>
+    <td><i class="fas fa-circle alert-green"></i></td>
+    <td class="action">
+        <a [href]="document.url" target="_blank" title="Télécharger">
+            <i class="fas fa-download ml-auto"></i>
+        </a>
+    </td>
+</tr>

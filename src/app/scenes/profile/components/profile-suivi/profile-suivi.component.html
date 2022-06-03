@@ -1,0 +1,18 @@
+<!-- comments listing start -->
+<div class="row profile-comment-container">
+    <div class="agent-profil-container profile-picture">
+            <img [src]="comment.agent.profilePicture.url"
+            *ngIf="hasProfilePicture()" />
+            <img src="/assets/img/blank_pp.svg"
+            *ngIf="!hasProfilePicture()"/>
+    </div>
+    <div class="comment-description">
+        <div class="comment-date">{{ comment.createDate | date: 'd MMMM yyy' }}</div>
+        <div class="comment-name">{{ comment.agent.firstName }} {{ comment.agent.lastName }}</div>
+        <div class="comment-details">{{ comment.content}}</div>
+    </div>
+    <div class="comment-edit">
+        <button class="edit" (click)="updateSuivi()"></button>
+    </div>
+</div>
+<!-- end of comments listing -->

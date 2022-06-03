@@ -1,0 +1,32 @@
+<div class="app-container">
+  <div class="header-container">
+    <div class="page-header" i18n>Finalisez votre demande</div>
+  </div>
+  <div class="bloc-container">
+    <h5>Renseignez votre adresse email afin d’accéder à vos solutions</h5>
+    <form [formGroup]="form">
+      <div class="data-block">
+        <div class="sm-container">
+          <label for="account-email" i18n>Adresse professionnelle</label>
+          <input id="account-email" class="no-border" type="email" placeholder="Email" formControlName="email">
+        </div>
+      </div>
+    </form>
+    
+    <div *ngIf="emailForm.errors && submitted && !yopmail" class="error">
+    <div *ngIf="emailForm.errors.required">
+        <i class="fas fa-times"></i> Champs non complété
+    </div>
+    <div *ngIf="emailForm.errors.email">
+        <i class="fas fa-times"></i> L'adresse mail renseignée doit-être valide
+    </div>
+  </div>
+  <div *ngIf="yopmail" class="error">
+    <i class="fas fa-times"></i> Merci de renseigner une adresse professionnelle valide
+  </div>  
+    <div class="modal-footer">
+      <button class="light" [routerLink]="['/boarding/entreprise', { outlets: { etape: '3' } }]">Revenir</button>
+      <button (click)="next()" class="dark" >Envoyer</button>
+    </div>
+  </div>
+</div>

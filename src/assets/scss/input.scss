@@ -1,0 +1,132 @@
+@import 'variables';
+
+.label {
+  font-weight: 800;
+  color: $slateGrey;
+  font-size: 11px;
+  text-align: left;
+}
+
+input[type=text],
+input[type=date],
+input[type=email],
+input[type=month],
+input[type=phone],
+input[type=number],
+input[type=password],
+input[type=tel],
+input[matinput] {
+  height: 40px;
+  border: 1px solid $silverGrey;
+  border-radius: 4px;
+  outline: none;
+  padding: 16px 10px;
+
+  &.no-border {
+    border: none;
+    font-size: 22px;
+    color: $primaryColors;
+    font-weight: 300;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    padding: 0;
+    width: 100%;
+  }
+
+  &.search {
+    background: url('/assets/img/search_input_icon.svg') $whiteGrey;
+    background-repeat: no-repeat;
+    background-position: left 19px center;
+    border-radius: 2px;
+    border: none;
+    width: 300px;
+    padding-left: 50px;
+    font-size: 13px;
+  }
+}
+
+select {
+  background: #fff;
+  border: 1px solid $silverGrey;
+  border-radius: 4px;
+  outline: none;
+  padding: 7px 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('/assets/img/select_dropdown_arrow.svg');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+
+textarea {
+  margin-top: 8px;
+
+  &.no-border {
+    border: none;
+    font-size: 15px;
+    color: $primaryColors;
+    font-weight: 300;
+    outline: none;
+    -webkit-appearance: none;
+    padding: 0;
+  }
+
+  &.full {
+    height: 40px;
+  }
+}
+
+input[type=checkbox].switch  {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label.switch {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 42px;
+	height: 20px;
+	background: $whiteGrey;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+
+label.switch:after {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input.switch:checked + label {
+  background-image: linear-gradient(-90deg, $primaryColors 0%, $secondaryColors 100%);
+}
+
+input.switch:checked + label:after {
+	left: calc(100% - 3px);
+	transform: translateX(-100%);
+}
+
+label.switch:active:after {
+	width: 16px;
+}
+
+/* Remove controls from Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Removes leftover margin */
+}
+
+/* Remove controls from Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

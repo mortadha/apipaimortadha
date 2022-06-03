@@ -1,0 +1,32 @@
+<div class="app-container">
+  <div class="header-container">
+    <div class="page-header" i18n>
+      Lien utile
+    </div>
+  </div>
+  <div class="bloc-container" [formGroup]=form>
+    
+    <!-- <div class="data-block">
+      <label for="account-cv">CV*</label>
+      <input id="account-cv" class="no-border" type="file"/>
+    </div> -->
+
+    <div class="data-block">
+      <label for="account-linkedin">Lien LinkedIn / Portfolio / Autres</label>
+      <input id="account-linkedin" class="no-border" type="text" name="LinkedIn"
+      placeholder="https://www.linkedin.com/in/john-doe-1a2345678/" formControlName="linkedin"
+      i18n-placeholder="https://www.linkedin.com/in/john-doe-1a2345678/"/>
+      <div *ngIf="linkedinForm.errors && submitted" class="error">
+        <i class="fas fa-times"></i>
+        Lien linkedin trop long
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="light" (click)="previous()">Revenir</button>
+      <button class="dark" (click)="skip()">Passer</button>
+      <button class="dark" (click)="next()">Envoyer</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="83px" height="82px" viewBox="0 0 83 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="10.5438232%" y1="21.4019775%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#33FFDD" offset="0%"></stop>
+            <stop stop-color="#1C1E52" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop/vignette-freelance-candidats" transform="translate(-24.000000, -32.000000)">
+            <g id="Group-2" transform="translate(26.000000, 34.000000)">
+                <path d="M40,78 C61.5391052,78 79,60.5391052 79,39 C79,17.4608948 61.5391052,0 40,0 C18.4608948,0 1,17.4608948 1,39 C1,60.5391052 18.4608948,78 40,78 Z" id="Combined-Shape" stroke="#EBEBEB" stroke-width="4" stroke-linecap="round" stroke-dasharray="311,650" transform="translate(40.000000, 39.000000) rotate(-180.000000) translate(-40.000000, -39.000000) "></path>
+                <path d="M23.9944681,77.9620205 C45.5335733,77.9620205 69.5899436,57.5838343 61.9640451,28.9647482 C58.1612548,14.6933303 36.9418114,-11.6550374 3.57716632,5.74201227 C-3.53504775,9.45047494 4.3812621,9.97349984 3.57716632,16.1896717 C0.609107572,39.1346537 20.8549927,77.9620205 23.9944681,77.9620205 Z" id="Combined-Shape" stroke="url(#linearGradient-1)" stroke-width="4" stroke-linecap="round" stroke-dasharray="181,650" transform="translate(31.997234, 38.981010) rotate(-180.000000) translate(-31.997234, -38.981010) "></path>
+                <circle id="Oval-2" fill="#FFFFFF" cx="40" cy="39" r="37"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

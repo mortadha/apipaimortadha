@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="103px" height="103px" viewBox="0 0 103 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Pourcentage de complétion Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Agent" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Agent_Profil-vierge" transform="translate(-1158.000000, -133.000000)">
+            <g id="Couverture" transform="translate(228.000000, 0.000000)">
+                <g id="Pourcentage-de-complétion-Copy" transform="translate(930.000000, 133.000000)">
+                    <circle id="Oval-3" stroke="#59DDF4" stroke-width="3" fill="#59DDF4" opacity="0.103794643" cx="51.5" cy="51.5" r="50"></circle>
+                    <circle id="Oval-3" stroke="#59DDF4" stroke-width="3" cx="51.5" cy="51.5" r="50"></circle>
+                    <text id="Activé" font-family="OpenSans-Semibold, Open Sans" font-size="11" font-weight="500" letter-spacing="2" fill="#59DDF4">
+                        <tspan x="27.2060547" y="67">ACTIVÉ</tspan>
+                    </text>
+                    <polyline id="Path-3" stroke="#59DDF4" stroke-width="1.47368421" stroke-linecap="round" stroke-linejoin="round" points="45 41.2565396 50.4511668 47 59 33"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

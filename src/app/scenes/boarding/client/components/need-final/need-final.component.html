@@ -1,0 +1,32 @@
+
+<div class="app-container">
+    <div class="header-container">
+      <div class="page-header" i18n>Neadz vous accompagne</div>
+    </div>
+    <div class="bloc-container">
+
+        <div class="data-block-none">
+          <div class="data-block col-md-5">
+            <img src="{{ agent.imageurl }}" />
+          </div>
+          <div class="data-block col-md-7">
+              <p>{{ agent.name }}, {{ agent.position }}, est désormais en charge de votre projet.</p>
+              <ul>
+                  <li>
+                    <i class="fas fa-mug-hot"></i>
+                    <a href="mailto:{{ agent.mail }}?subject=Demande%20de%20rdv">Planifier un meeting</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:{{ agent.mail }}?subject=Demande%20d'informations">{{ agent.mail }}</a>
+                  </li>
+                  <li>
+                    <i class="fab fa-linkedin"></i>
+                    <a target="_blank" href="{{ agent.linkedin }}">{{ agent.linkedinLabel }}</a>
+                  </li>
+              </ul>
+          </div>
+        </div>
+        <p class="h6">N'hésitez pas à la contacter directement afin d'initier un accompagnement personnalisé</p>
+    </div>
+</div>

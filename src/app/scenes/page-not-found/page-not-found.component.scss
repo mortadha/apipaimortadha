@@ -1,0 +1,38 @@
+@import 'scene';
+@import 'button';
+@import 'input';
+@import 'variables';
+
+
+.body-container {
+  margin-top: 45px;
+  .page-not-found-container {
+      text-align: center;
+      background: #fff;
+      padding: 30px 26px;
+      .title {
+          font-size: 22px;
+          color: $primaryColors;
+          margin-bottom: 25px;
+      }
+
+      h6 {
+          margin-bottom: 35px;
+      }
+
+      p {
+          line-height: 1.5em;
+          margin-bottom: 15px;
+      }
+
+      .choose-perso {
+          font-size: 18px;
+          color: $slateGrey;
+          margin-bottom: 25px;
+      }
+
+      img {
+          margin: 25px auto;
+      }
+  }
+}

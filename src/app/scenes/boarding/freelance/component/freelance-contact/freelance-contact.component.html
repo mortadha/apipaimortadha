@@ -1,0 +1,81 @@
+<div class="app-container">
+    <div class="header-container">
+        <div class="page-header" i18n>
+            Complétez vos informations
+        </div>
+    </div>
+    <div class="bloc-container">
+        <form [formGroup]=form>
+            <div class="data-block-none row">
+                <div class="col-md-6 pr-md-1">
+                    <div class="data-block">
+                        <label for="account-lastName">Nom*</label>
+                        <input id="account-lastName" class="no-border" type="text" required minlength="2" name="nom" placeholder="Doe" i18n-placeholder="Doe" formControlName="lastName" />
+                        <div *ngIf="lastNameForm.errors && submitted" class="error">
+                            <i class="fas fa-times"></i> Veuillez renseigner nom valable
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pl-md-2">
+                    <div class="data-block">
+                        <label for="account-firstName">Prénom*</label>
+                        <input id="account-firstName" class="no-border" type="text" required minlength="3" name="prenom" placeholder="John" i18n-placeholder="John" formControlName="firstName" />
+                        <div *ngIf="firstNameForm.errors && submitted" class="error">
+                            <i class="fas fa-times"></i> Veuillez renseigner un prénom valable
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-block">
+                <label for="account-phone">Téléphone*</label>
+                <input id="account-phone" class="no-border" type="tel" required telephone name="telephone" placeholder="0623456789" i18n-placeholder="0623456789" formControlName="phone" />
+                <div *ngIf="phoneForm.errors && submitted" class="error">
+                    <i class="fas fa-times"></i> Veuillez renseigner un numéro de téléphone valable
+                </div>
+            </div>
+
+            <div class="data-block">
+                <label for="account-email">Email*</label>
+                <input id="account-email" class="no-border" type="email" required email name="email" placeholder="john@doe.fr" i18n-placeholder="john@doe.fr" formControlName="email" />
+                <div *ngIf="emailForm.errors && submitted" class="error">
+                    <i class="fas fa-times"></i> Veuillez renseigner une adresse mail valable
+                </div>
+            </div>
+
+            <div class="data-block-none row">
+                <div class="col-md-6 pr-md-1">
+                    <div class="data-block">
+                        <label for="account-password">Mot de passe*</label>
+                        <input id="account-password" class="no-border" type="password" required name="password" placeholder="Mot de passe" i18n-placeholder="Mot de passe" formControlName="password" autocomplete/>
+                        <div *ngIf="passwordForm.errors && submitted" class="error">
+                            <i class="fas fa-times"></i> Le mot de passe doit contenir au moins 8 caractères et 1 chiffre
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pl-md-2">
+                    <div class="data-block">
+                        <label for="account-password-confirm">Confirmation mot de passe*</label>
+                        <input id="account-password-confirm" class="no-border" type="password" required name="password-confirm" placeholder="Mot de passe" i18n-placeholder="Mot de passe" formControlName="passwordConfirm" autocomplete/>
+                        <div *ngIf="submitted" class="error">
+                            <div *ngIf="passwordConfirmForm.errors">
+                                <i class="fas fa-times"></i> Veuillez renseigner un mot de passe valable
+                            </div>
+                            <div *ngIf="passwordForm.value != passwordConfirmForm.value && !passwordConfirmForm.errors">
+                                <i class="fas fa-times"></i> Les mots de passe ne correspondent pas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </form>
+
+        <div class="modal-footer">
+            <button class="light" (click)="previous()">Revenir</button>
+            <button class="dark" (click)="next()">Continuer</button>
+        </div>
+    </div>
+</div>

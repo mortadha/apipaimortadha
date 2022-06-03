@@ -1,0 +1,28 @@
+@import 'variables';
+.analytics {
+    // width: 300px;
+    // float: right;
+    color: #fff;
+    margin: 0;
+    .analytic {
+        text-align: center;
+        .num {
+            font-size: 56px;
+            color: $secondaryColors;
+            font-weight: 300;
+            position: relative;
+            top: 5px;
+        }
+        @media all and (max-device-width: 768px) {
+            .num {
+                font-size: 30px;
+                line-height: 1.2em;
+            }
+        }
+        span {
+            font-size: 13px;
+            color: $silverGrey;
+            line-height: 1.69;
+        }
+    }
+}

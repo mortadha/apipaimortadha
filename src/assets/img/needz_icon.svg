@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>bubble_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Entreprise" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Entreprises_Besoins_en-cours" transform="translate(-35.000000, -234.000000)">
+            <g id="Menu-latéral">
+                <g id="Besoin" transform="translate(0.000000, 214.000000)">
+                    <g id="Missions" transform="translate(35.000000, 20.000000)">
+                        <g id="bubble_icon">
+                            <path d="M12.7473107,1.73532901 C10.2462396,-0.0875112113 5.16452031,-0.875801228 2.09513445,1.38672408 C-0.372954461,3.20601755 -0.731047628,8.34786365 1.5827011,10.5569021 C3.65667343,12.5370106 6.27643115,13.3015797 9.09909126,12.83343 C9.84338391,13.1674508 13.0120119,15.3168713 12.7473107,14.9602093 C12.5844888,14.7407696 11.8409288,12.4427504 11.8088853,12.0997622 C16.2995692,10.2233363 15.6570375,3.85601058 12.7473107,1.73532901 Z" id="Shape" fill="#6C6C6E" fill-rule="nonzero"></path>
+                            <circle id="Oval-5" fill="#FFFFFF" cx="6" cy="7" r="1"></circle>
+                            <circle id="Oval-5-Copy" fill="#FFFFFF" cx="9" cy="7" r="1"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

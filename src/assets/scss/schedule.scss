@@ -1,0 +1,813 @@
+    @import 'variables';
+    @import 'button';
+    #mission-date {
+        padding-left: 35px;
+        background-image: url('/assets/img/schedule_icon.svg');
+        background-repeat: no-repeat;
+        background-position: left 0 center;
+        select {
+            background: none;
+            border: none;
+            outline: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('/assets/img/select_schedule_dropdown_arrow.svg');
+            background-repeat: no-repeat;
+            background-position: right 0 center;
+            // padding-right: 20px;
+            // padding-right: 20px;
+            padding: 0 30px 0 5px;
+            .first-month {
+                // font-size: 22px;
+            }
+        }
+    }
+    
+    .confirm-popover {
+        width: 250px;
+        height: 133px;
+        background: $slateGrey;
+        border-radius: 3px;
+        position: absolute;
+        display: flex;
+        padding: 25px 30px 40px 30px;
+        text-align: center;
+        box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+         ::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: calc(50% - 10px);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 10px 0 10px;
+            border-color: $slateGrey transparent transparent transparent;
+        }
+        .date-container {
+            display: flex;
+            .day-container {
+                width: 50%;
+            }
+            .day-start {
+                font-weight: 800;
+                color: $whiteGrey;
+                letter-spacing: 2px;
+                font-size: 11px;
+                text-transform: uppercase;
+            }
+            .day-num {
+                font-weight: 400;
+                color: #fff;
+                font-size: 22px;
+                margin-top: 6px;
+            }
+            .day-year {
+                font-weight: 800;
+                color: $whiteGrey;
+                letter-spacing: 2px;
+                font-size: 11px;
+                margin-top: 6px;
+            }
+            .separator {
+                color: #fff;
+                font-size: 22px;
+                padding-top: 26px;
+                width: 50px;
+            }
+        }
+        .triangle {
+            background-image: url("/assets/img/popover_not_confirmed_triangle.png");
+            width: 21px;
+            height: 10px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: absolute;
+            left: 50%;
+            top: 133px;
+        }
+        &.confirm {
+            width: 250px;
+            height: 213px;
+            background: #fff;
+            border-radius: 3px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            padding: 25px 30px;
+            text-align: center;
+            margin-top: -85px;
+            box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+             ::after {
+                border-color: #fff transparent transparent transparent;
+            }
+            .date-container {
+                display: flex;
+                .day-container {
+                    width: 50%;
+                }
+                .day-start {
+                    font-weight: 800;
+                    color: $whiteGrey;
+                    letter-spacing: 2px;
+                    font-size: 11px;
+                    text-transform: uppercase;
+                }
+                .day-num {
+                    font-weight: 400;
+                    color: $charcoalGrey;
+                    font-size: 22px;
+                    margin-top: 6px;
+                }
+                .day-year {
+                    font-weight: 800;
+                    color: $whiteGrey;
+                    letter-spacing: 2px;
+                    font-size: 11px;
+                    margin-top: 6px;
+                }
+                .separator {
+                    color: $charcoalGrey;
+                    font-size: 22px;
+                    padding-top: 26px;
+                    width: 50px;
+                }
+                .triangle {
+                    background-image: url("/assets/img/popover_confirm_triangle.png");
+                    width: 21px;
+                    height: 10px;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    position: absolute;
+                    left: 40%;
+                    top: 93px;
+                }
+            }
+            .buttons {
+                // position: absolute;
+                // left: 33%;
+                // top: 120px;
+                display: flex;
+                margin-top: 15px;
+                button {
+                    margin-right: 3px;
+                     :last-child {
+                        margin-left: 3px;
+                        margin-right: 0;
+                    }
+                }
+            }
+            .validate {
+                // background: black;
+                // border-radius: 3px;
+                // padding: 9px 16px;
+                // color: #fff;
+                // font-weight: 600;
+                // letter-spacing: 2px;
+                // font-size: 11px;
+                // text-transform: uppercase;
+                // border: none;
+            }
+            .cancel {
+                // background: none;
+                // border: none;
+                // padding: 9px 16px;
+                // outline: none;
+            }
+        }
+    }
+    
+    .calendar-container {
+        // width: 100%;
+        margin-top: 70px;
+        padding-left: 30px;
+        // padding-right: 98px;
+        color: $whiteGrey;
+        .calendar-header {
+            display: flex;
+            margin: 40px 0 10px 0;
+            color: $slateGrey;
+            label {
+                font-size: .8em;
+            }
+            .mat-form-field-wrapper {
+                padding-bottom: 0 !important;
+                .mat-form-field-infix {
+                    border-top: 0 !important;
+                }
+            }
+            button {
+                margin-left: auto;
+            }
+            .wrapper-button {
+                // margin-left: auto;
+                color: $almostBlack;
+                font-size: 11px;
+                .validate-wait {
+                    font-style: italic;
+                    margin-right: 1em;
+                }
+                .validate-month-stat {
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    border-radius: 3px;
+                    padding: 9px 16px;
+                    background: transparent;
+                    border: 1px solid $silverGrey;
+                    margin: 10px;
+                    outline: none;
+                    // cursor: pointer;
+                    background: $silverGrey;
+                    display: inline-block;
+                }
+            }
+        }
+        .calendar-statut {
+            margin: 10px 0 40px 0;
+            .alert {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                align-items: center;
+                .msg {
+                    font-style: italic;
+                }
+                .validate-wait {
+                    font-size: .8em;
+                }
+                div {
+                    // display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .validate-month-stat {
+                        padding: 9px 18px;
+                        border: 1px solid;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        border-radius: 3px;
+                        font-size: 11px;
+                    }
+                    .validate-month {
+                        background: none;
+                        border: 1px solid;
+                        text-transform: uppercase;
+                        &:hover {
+                            background: #fff;
+                        }
+                    }
+                }
+                .light.alert-valid {
+                    color: $whiteGrey;
+                }
+            }
+        }
+        input {
+            background: none;
+            border: none;
+            color: $charcoalGrey;
+            font-weight: 600;
+            font-size: 22px;
+        }
+        .input-calendar-icon {
+            position: relative;
+            top: -5px;
+        }
+        .calendar-month .mat-calendar-period-button {
+            pointer-events: none;
+        }
+        .calendar-month .mat-calendar-arrow {
+            display: none;
+        }
+        table {
+            width: 100%;
+            height: 100%;
+            thead {
+                color: $slateGrey;
+                font-weight: 400;
+                font-size: 11px;
+                text-align: center;
+                opacity: 0.57;
+                line-height: 3em;
+                border-bottom: 1px solid rgba($silverGrey, 0.4);
+            }
+            tbody {
+                &:before {
+                    // content: "-";
+                    // display: block;
+                    // line-height: 1em;
+                    // color: transparent;
+                }
+                tr {
+                    &:first-child {}
+                    th {
+                        width: 103px;
+                        height: 103px;
+                        border-bottom: 1px solid rgba($silverGrey, 0.4);
+                        border-right: 1px solid rgba($silverGrey, 0.4);
+                        color: $charcoalGrey;
+                        font-weight: 600;
+                        box-sizing: border-box;
+                        position: relative;
+                        .day {
+                            position: absolute;
+                            font-size: 14px;
+                            right: 17px;
+                            bottom: 10px;
+                            -webkit-touch-callout: none;
+                            -webkit-user-select: none;
+                            -moz-user-select: none;
+                            -ms-user-select: none;
+                            user-select: none;
+                            &.prev-month,
+                            &.next-month {
+                                opacity: 0.29;
+                            }
+                        }
+                        .half-day-top,
+                        .half-day-bot {
+                            position: relative;
+                        }
+                        .half-day-top {
+                            border-bottom: 1px solid rgba(#fff, 0.3);
+                        }
+                        .cancel,
+                        .cancel-bot {
+                            display: none;
+                            cursor: pointer;
+                            position: absolute;
+                            top: 5px;
+                            left: 5px;
+                        }
+                        &.disabled {
+                            pointer-events: none;
+                            cursor: not-allowed;
+                            opacity: 0.29;
+                        }
+                        &.half-day {
+                            background: none !important;
+                            padding: 0;
+                            .half-day-fill {
+                                background-color: $alert-info;
+                                height: 51px;
+                                // width: calc(100% - 2px);
+                                width: 100%;
+                                position: absolute;
+                                bottom: 0;
+                            }
+                        }
+                        &:last-child {
+                            border-right: none;
+                        }
+                        &.first {
+                            border-left: 6px solid rgba($silverGrey, 30);
+                            pointer-events: none;
+                        }
+                        &.last {
+                            border-right: 6px solid rgba($silverGrey, 30);
+                        }
+                        &.selected {
+                            background-color: $secondaryColors;
+                            // color: #fff;
+                            &:hover {
+                                .cancel {
+                                    display: block;
+                                }
+                            }
+                            .half-day-fill {
+                                background-color: $secondaryColors;
+                                &:hover {
+                                    .cancel-bot {
+                                        display: block;
+                                    }
+                                }
+                            }
+                            &.disabled-calendar {
+                                opacity: 0.2;
+                            }
+                        }
+                        &.locked {
+                            background-color: rgba($alert-warning, 0.5);
+                            .half-day-fill {
+                                background-color: rgba($alert-warning, 0.5);
+                            }
+                        }
+                        &.not-confirmed {
+                            background-color: rgba($silverGrey, 0.3);
+                        }
+                        &.confirmed-by-company,
+                        &.accepted {
+                            background-color: $alert-info;
+                        }
+                        &.signed {
+                            background-color: rgba($alert-valid, 0.5);
+                            .half-day-fill {
+                                background-color: rgba($alert-valid, 0.5);
+                            }
+                        }
+                        &.declined {
+                            background-color: rgba($alert-danger, 0.5);
+                            .half-day-fill {
+                                background-color: rgba($alert-danger, 0.5);
+                            }
+                        }
+                        &.validated {
+                            background-color: rgba($alert-success, 0.5);
+                            .half-day-fill {
+                                background-color: rgba($alert-success, 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .mission-and-calendar-container {
+        // display: flex;
+        margin-top: 40px;
+    }
+    
+    .contrats {
+        margin-left: $sidebarWidth + 95;
+        margin-right: 95px;
+        margin-top: 150px;
+        iframe {
+            width: 100%;
+            height: 900px;
+        }
+        .needz-header {
+            font-size: 22px;
+        }
+        .needz-num {
+            color: $silverGrey;
+            font-size: 22px;
+        }
+        select#year-select {
+            background: transparent url('/assets/img/calendar_datepicker_icon.svg');
+            background-repeat: no-repeat;
+            background-position: center left;
+            border: none;
+            padding-left: 35px;
+            width: 200px;
+            font-size: 22px;
+        }
+        .date-arrow {
+            position: relative;
+            left: -20px;
+            top: -3px;
+        }
+        .header-btns {
+            position: absolute;
+            right: 80px;
+            margin-top: -110px;
+            .header-btn {
+                width: 44px;
+                height: 44px;
+                border: none;
+                margin-right: 10px;
+                outline: none;
+                background: none;
+                &.delete {
+                    background-image: url('/assets/img/delete_header_btn.svg');
+                }
+                &.copy {
+                    background-image: url('/assets/img/copy_header_btn.svg');
+                }
+                &.download {
+                    background-image: url('/assets/img/download_header_btn.svg');
+                }
+            }
+        }
+        table {
+            width: 100%;
+            border-spacing: 20px;
+            border-collapse: collapse;
+            margin-top: 40px;
+            /* Customize the label (the container) */
+            .container {
+                display: block;
+                position: relative;
+                padding-left: 35px;
+                margin-bottom: 12px;
+                cursor: pointer;
+                font-size: 22px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            /* Hide the browser's default checkbox */
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+            /* Create a custom checkbox */
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 16px;
+                width: 16px;
+                background-color: transparent;
+                border: 1px solid $silverGrey;
+                border-radius: 3px;
+            }
+            /* On mouse-over, add a grey background color */
+            .container:hover input~.checkmark {
+                background-color: transparent;
+            }
+            /* When the checkbox is checked, add a blue background */
+            .container input:checked~.checkmark {
+                background-color: $primaryColors;
+            }
+            /* Create the checkmark/indicator (hidden when not checked) */
+            .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+            /* Show the checkmark when checked */
+            .container input:checked~.checkmark:after {
+                display: block;
+            }
+            /* Style the checkmark/indicator */
+            .container .checkmark:after {
+                left: 4px;
+                top: 1px;
+                width: 5px;
+                height: 10px;
+                border: solid #fff;
+                border-width: 0 1px 1px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+            thead {
+                color: $slateGrey;
+                text-transform: uppercase;
+                font-size: 11px;
+                letter-spacing: 2px;
+                padding-bottom: 25px;
+                tr {
+                    th {
+                        &:first-child {
+                            padding-left: 30px;
+                        }
+                        &:nth-child(n+2) {
+                            opacity: 0.57;
+                        }
+                    }
+                }
+            }
+            tbody {
+                &:before {
+                    content: "-";
+                    display: block;
+                    line-height: 1em;
+                    color: transparent;
+                }
+                tr th {
+                    padding: 40px 0;
+                    background: #fff;
+                    &.link {
+                        font-size: 12px;
+                        color: $slateGrey;
+                        text-decoration: underline;
+                        font-weight: 600;
+                    }
+                    &.date {
+                        color: $slateGrey;
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
+                    &.contract-name {
+                        color: $primaryColors;
+                    }
+                    &:first-child {
+                        padding-left: 30px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .bills {
+        margin-left: $sidebarWidth + 95;
+        margin-top: 150px;
+        margin-right: 95px;
+        .needz-header {
+            font-size: 22px;
+        }
+        .needz-num {
+            color: $silverGrey;
+            font-size: 22px;
+        }
+        select#year-select {
+            background: transparent url('/assets/img/calendar_datepicker_icon.svg');
+            background-repeat: no-repeat;
+            background-position: center left;
+            border: none;
+            padding-left: 35px;
+            width: 200px;
+            font-size: 22px;
+        }
+        .date-arrow {
+            position: relative;
+            left: -20px;
+            top: -3px;
+        }
+        .header-btns {
+            position: absolute;
+            right: 80px;
+            margin-top: -110px;
+            .header-btn {
+                width: 44px;
+                height: 44px;
+                border: none;
+                margin-right: 10px;
+                outline: none;
+                background: none;
+                &.delete {
+                    background-image: url('/assets/img/delete_header_btn.svg');
+                }
+                &.copy {
+                    background-image: url('/assets/img/copy_header_btn.svg');
+                }
+                &.download {
+                    background-image: url('/assets/img/download_header_btn.svg');
+                }
+            }
+        }
+        table {
+            width: 100%;
+            border-spacing: 20px;
+            border-collapse: collapse;
+            margin-top: 40px;
+            /* Customize the label (the container) */
+            .container {
+                display: block;
+                position: relative;
+                padding-left: 35px;
+                margin-bottom: 12px;
+                cursor: pointer;
+                font-size: 22px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            /* Hide the browser's default checkbox */
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+            /* Create a custom checkbox */
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 16px;
+                width: 16px;
+                background-color: transparent;
+                border: 1px solid $silverGrey;
+                border-radius: 3px;
+            }
+            /* On mouse-over, add a grey background color */
+            .container:hover input~.checkmark {
+                background-color: transparent;
+            }
+            /* When the checkbox is checked, add a blue background */
+            .container input:checked~.checkmark {
+                background-color: $primaryColors;
+            }
+            /* Create the checkmark/indicator (hidden when not checked) */
+            .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+            /* Show the checkmark when checked */
+            .container input:checked~.checkmark:after {
+                display: block;
+            }
+            /* Style the checkmark/indicator */
+            .container .checkmark:after {
+                left: 4px;
+                top: 1px;
+                width: 5px;
+                height: 10px;
+                border: solid #fff;
+                border-width: 0 1px 1px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+            thead {
+                color: $slateGrey;
+                text-transform: uppercase;
+                font-size: 11px;
+                letter-spacing: 2px;
+                padding-bottom: 25px;
+                tr {
+                    th {
+                        &:first-child {
+                            padding-left: 30px;
+                        }
+                        &:nth-child(n+2) {
+                            opacity: 0.57;
+                        }
+                    }
+                }
+            }
+            tbody {
+                &:before {
+                    content: "-";
+                    display: block;
+                    line-height: 1em;
+                    color: transparent;
+                }
+                tr th {
+                    padding: 40px 0;
+                    background: #fff;
+                    &.link {
+                        font-size: 12px;
+                        color: $slateGrey;
+                        text-decoration: underline;
+                        font-weight: 300;
+                    }
+                    &.date {
+                        color: $slateGrey;
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
+                    &:first-child {
+                        padding-left: 30px;
+                    }
+                }
+                th.freelance {
+                    img {
+                        width: 100%;
+                    }
+                    .profile-picture {
+                        width: 10%;
+                        float: left;
+                        margin-right: 5%;
+                        margin-left: 3%;
+                    }
+                    .freelance-identity {
+                        width: 82%;
+                    }
+                    .freelance-name {
+                        color: $primaryColors;
+                        font-size: 14px;
+                        margin-top: 5px;
+                    }
+                    .file-name {
+                        color: $slateGrey;
+                        font-size: 12px;
+                        font-weight: 600;
+                        text-decoration: underline;
+                        margin-top: 2px;
+                    }
+                }
+                th.amount,
+                th.days,
+                th.date {
+                    font-weight: 300;
+                    color: $primaryColors;
+                }
+                th.date {
+                    color: $slateGrey;
+                }
+                th.state {
+                    padding-left: 15px !important;
+                    .dot {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        &.red {
+                            background-color: red;
+                        }
+                        &.orange {
+                            background-color: $alert-warning;
+                        }
+                        &.green {
+                            background-color: #0CCE6B;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @media all and (max-device-width: 768px) {
+        .calendar-container {
+            margin-top: 0;
+            padding-left: 15px;
+        }
+    }

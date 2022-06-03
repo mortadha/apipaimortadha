@@ -1,0 +1,214 @@
+<mat-dialog-content *ngIf="!notificationModal">
+    <div class="create-need-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" i18n>{{ modalTitle }}</h4>
+                <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="data-block">
+                    <label for="need-jobTitle" i18n>Intitulé du poste*</label>
+                    <input id="need-jobTitle" [formControl]="titleTextControl" type="text" class="no-border full-width"
+                        i18n-placeholder="Ex : Lead développeur Android" [(ngModel)]="need.jobTitle"
+                        placeholder="Ex : Lead développeur Android"/>
+                    <span class="counter" *ngIf="editable === true">
+                        {{ jobTitleLength | async }} / 255
+                    </span>
+                    <div class="action-buttons" *ngIf="user.type === accountType.Agent && !data.isNew">
+                        <button class="set-need-state light lost" (click)="updateStatus(2)"
+                            [class.selected]="need.status == 2"><i class="alert-red fas fa-times"></i> Perdu</button>
+                        &nbsp;
+                        <button class="set-need-state light win" (click)="updateStatus(1)"
+                            [class.selected]="need.status == 1"><i class="fas fa-check"></i> Gagné</button>
+                    </div>
+                </div>
+
+                <div class="data-block-none row">
+                    <div class="col-md-4 pr-md-1" *ngIf="user.type !== accountType.Freelance">
+                        <div class="data-block sm-container">
+                            <label for="need-tjm" i18n>Budget</label>
+                            <input id="need-tjm" class="no-border" type="number" placeholder="600"
+                                [(ngModel)]="need.tjm" *ngIf="editable === true" />
+                            <span *ngIf="editable === false">{{need.tjm}}</span>
+                            <span i18n>€ / jour</span>
+                        </div>
+                    </div>
+                    <div class="col-md-8 pl-md-2">
+                        <div class="data-block md-container">
+                            <label i18n>Niveau expérience*</label>
+                            <div class="xp-levels">
+                                <button class="light" [class.active]="need.experienceLevel === 2"
+                                    (click)="need.experienceLevel = 2" [disabled]="editable === false">Junior</button>
+                                <button class="light" [class.active]="need.experienceLevel === 4"
+                                    (click)="need.experienceLevel = 4" [disabled]="editable === false">Confirmé</button>
+                                <button class="light" [class.active]="need.experienceLevel === 8"
+                                    (click)="need.experienceLevel = 8" [disabled]="editable === false">Expert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-block description-container">
+                    <label for="need-description" i18n>Description</label>
+                    <textarea id="need-description" class="no-border full-width full"
+                        i18n-placeholder="Décrivez la mission ou coller la fiche de poste..."
+                        placeholder="Décrivez la mission ou coller la fiche de poste..." [formControl]="descTextControl"
+                        [(ngModel)]="need.description">
+                    </textarea>
+                    <span class="counter" *ngIf="editable === true">
+                        {{ descriptionLength | async }} / 10000
+                    </span>
+                </div>
+                <div class="data-block availability" id="starting-date">
+                    <label for="need-availabilityType" i18n>Date potentielle de démarrage</label>
+                    <select id="need-availabilityType" [(ngModel)]="needAvailabilityType"
+                        (change)="availabilityTypeChanged()" [disabled]="editable === false">
+                        <option i18n [ngValue]="availibilityType.Asap">Le plus tôt possible</option>
+                        <option i18n [ngValue]="availibilityType.After">À partir de</option>
+                    </select>
+                    <select id="need-availabilityType" *ngIf="needAvailabilityType === availibilityType.After"
+                        [(ngModel)]="availibilityDateMonth" (change)="availibilityDateChanged()"
+                        [disabled]="editable === false">
+                        <option i18n value=1>Janvier</option>
+                        <option i18n value=2>Février</option>
+                        <option i18n value=3>Mars</option>
+                        <option i18n value=4>Avril</option>
+                        <option i18n value=5>Mai</option>
+                        <option i18n value=6>Juin</option>
+                        <option i18n value=7>Juillet</option>
+                        <option i18n value=8>Aout</option>
+                        <option i18n value=9>Septembre</option>
+                        <option i18n value=10>Octobre</option>
+                        <option i18n value=11>Novembre</option>
+                        <option i18n value=12>Décembre</option>
+                    </select>
+                    <select id="need-availabilityType" *ngIf="needAvailabilityType === availibilityType.After"
+                        [(ngModel)]="availibilityDateYear" (change)="availibilityDateChanged()"
+                        [disabled]="editable === false">
+                        <option i18n value=2019>2019</option>
+                        <option i18n value=2020>2020</option>
+                        <option i18n value=2021>2021</option>
+                    </select>
+                </div>
+                <div class="data-block-none row">
+                    <div class="col-md-4 pr-md-1">
+                        <div class="data-block sm-container duration-container">
+                            <label for="need-durationLast">Durée*</label>
+                            <input class="no-border" id="need-durationLast" type="number" placeholder="12"
+                                [(ngModel)]="need.durationLast" [disabled]="editable === false" />
+                            <select class="duration-type" [(ngModel)]="need.durationType"
+                                (change)="durationTypeChanged()" [disabled]="editable === false">
+                                <option [value]=[durationType.Week]>Semaines</option>
+                                <option [value]=[durationType.Month]>Mois</option>
+                                <option [value]=[durationType.Year]>Années</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-8 pl-md-2">
+                        <div class="data-block md-container infos-container">
+                            <label>Infos supplémentaires*</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="label" for="need-workingRemotely" i18n>Télétravail possible</label>
+                                    <div class="switch-container">
+                                        <label class="switch">
+                                            <input type="checkbox" [(ngModel)]="need.workingRemotely" class="switch"
+                                                id="need-workingRemotely" [disabled]="editable === false" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span *ngIf="need.workingRemotely">Oui</span>
+                                        <span *ngIf="!need.workingRemotely">Non</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="label" for="need-renewable" i18n>Reconductible</label>
+                                    <div class="switch-container">
+                                        <label class="switch">
+                                            <input type="checkbox" [(ngModel)]="need.renewable" class="switch"
+                                                id="need-renewable" [disabled]="editable === false" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span *ngIf="need.renewable">Oui</span>
+                                        <span *ngIf="!need.renewable">Non</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-block skills">
+                    <label for="search-skill" i18n>Compétences*</label>
+                    <input id="search-skill" type="text" placeholder="Rechercher une compétence..." aria-label="Skill"
+                        class="search" matInput [matAutocomplete]="auto" [formControl]="myControl"
+                        *ngIf="editable === true" />
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="inputDisplay">
+                        <mat-option *ngFor="let tech of filteredOptions | async" [value]="tech">
+                            {{ tech.name }}
+                        </mat-option>
+                    </mat-autocomplete>
+                    <div class="skill-container" *ngFor="let skill of need.skills">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <button class="delete" (click)="removeSkill(skill.tech.id)"
+                                    *ngIf="editable === true"></button>
+                            </div>
+                            <div class="col-md-3 skill-title">
+                                {{ skill.tech.name }}
+                            </div>
+                            <div class="col-md-8 slider-container">
+                                <app-range-slider (valueChanged)="skillLevelChanged($event, skill)"
+                                    [defaultValue]="skill.level" step="10" unit="an(s)" [maxLabel]="'ans+'"
+                                    [disabled]="editable === false">
+                                </app-range-slider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-block skills" *ngIf="user.type === accountType.Agent">
+                    <label for="reasonSelect" i18n>
+                        <h6>
+                            Assigner un compte client
+                        </h6>
+                    </label>
+                    <div class="col-md-6">
+                        <select [(ngModel)]="accountAssigned">
+                            <option i18n value='' selected="selected" disabled hidden>
+                                Veuillez sélectionner un compte client
+                            </option>
+                            <option *ngFor="let account of companyAccounts" [value]=[account.id]>
+                                <!-- [selected]="need.accountCompany && need.accountCompany.id == account.id" -->
+                                {{ account.firstName }} {{account.lastName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer" *ngIf="editable === true">
+                <span><sup>*</sup>Champs obligatoires</span>
+                <button type="submit" *ngIf="data.isNew === false && user.type === accountType.Agent"
+                    (click)="deleteNeed()" class="light flexleft" i18n>Supprimer</button>
+                <button type="button" class="dark" (click)="submit()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="notificationModal === true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" i18n>{{ modalTitle }}</h4>
+            <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Nous avons bien pris en compte votre demande. Nous ne manquerons pas de revenir vers vous dans les plus
+            brefs délais.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="dark" (click)="closeAfterSucces()">Ok</button>
+        </div>
+    </div>
+</mat-dialog-content>

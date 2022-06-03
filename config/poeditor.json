@@ -1,0 +1,11 @@
+{
+  "apiToken":"2813df49f300e9542c1dc5e33935bb40",
+  "projectId":"neadz-platform",
+  "importFile":"locale/messages.xmb",
+  "importSyncTerms": 1,
+  "exportDir":"locale",
+  "exportFiles":{
+    "en":"messages.en.xtb",
+    "fr":"messages.fr.xtb"
+  }
+}

@@ -1,0 +1,30 @@
+
+<div class="app-container">
+  <div class="header-container">
+    <div class="page-header" i18n>Bienvenue chez Neadz</div>
+  </div>
+  <div class="bloc-container">
+
+      <div class="data-block-none">
+        <div class="data-block col-md-5">
+          <img src="{{ agent.imageurl }}" />
+        </div>
+        <div class="data-block col-md-7">
+            <p>{{ agent.name }}, {{ agent.position }}, vous contacte dans les meilleurs délais afin de finaliser le processus de qualification</p>
+            <ul>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:{{ agent.mail }}?subject=Demande%20d'informations">{{ agent.mail }}</a>
+              </li>
+              <li>
+                <i class="fab fa-linkedin"></i>
+                <a target="_blank" href="{{ agent.linkedin }}">{{ agent.linkedinLabel }}</a>
+              </li>
+              <li>
+                <button class="dark" routerLink="/freelance">Accédez à votre espace</button>
+              </li>
+            </ul>
+        </div>
+      </div>
+  </div>
+</div>

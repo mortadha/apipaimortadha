@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="12px" viewBox="0 0 32 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Freelance" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Freelance_Missions_En-cours-selection" transform="translate(-1160.000000, -761.000000)" stroke="#302F3A" stroke-width="2">
+            <g id="Calendrier" transform="translate(648.000000, 404.000000)">
+                <g id="Group" transform="translate(528.500000, 363.000000) rotate(-90.000000) translate(-528.500000, -363.000000) translate(523.500000, 347.500000)">
+                    <polyline id="Path-2" points="0 25 5 30.0203247 10 25"></polyline>
+                    <path d="M5,0 L5,29.1174309" id="Path-5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

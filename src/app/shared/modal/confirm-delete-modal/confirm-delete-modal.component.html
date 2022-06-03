@@ -1,0 +1,20 @@
+<mat-dialog-content>
+    <div class="modal-content">
+      <div class="confirm-month-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Validation</h4>
+        <button mat-button
+        (click)="close(false)"
+        class="close"
+        aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          Vous êtes sur le point de supprimer un contact.
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="light" (click)="close(false)" i18n>Annuler</button>
+        <button class="dark" (click)="close(true)" i18n>Confirmer</button>
+    </div>
+  </div>
+</mat-dialog-content>

@@ -1,0 +1,657 @@
+@import 'variables';
+
+button.edit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.app-container {
+    // margin-left: $sidebarWidth + 95;
+    margin-left: 75px;
+    margin-right: 70px;
+
+    // margin-top: -230px;
+    // padding-bottom: 200px;
+    .header-container {
+        display: flex;
+        align-items: center;
+
+        .page-header {
+            color: #fff;
+            font-weight: 300;
+            font-size: 46px;
+            line-height: 1.2em;
+        }
+
+        a {
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        .analytics-card {
+            margin-left: auto;
+        }
+    }
+
+    .need-actions {
+        display: flex;
+    }
+
+    .main-menu {
+        // width: 100%;
+        // display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        font-size: 11px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        // margin-top: 20px;
+        display: flex;
+
+        li {
+            // float: left;
+            margin-right: 26px;
+            color: #fff;
+            opacity: 0.4;
+            cursor: pointer;
+
+            &.active {
+                color: $secondaryColors;
+                opacity: 1;
+                border-bottom: 1px solid $secondaryColors;
+            }
+        }
+    }
+
+    .white-btn {
+        border-radius: 3px;
+        border: 1px solid #fff;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: none;
+        padding: 15px 28px;
+        color: #fff;
+        font-size: 11px;
+        float: right;
+        cursor: pointer;
+        position: absolute;
+        right: 100px;
+        -webkit-transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+            background-color: #fff;
+            color: $primaryColors;
+        }
+    }
+
+    .search-box-container {
+        background: #fff;
+        padding: 36px 40px;
+        margin-top: 48px;
+        display: flex;
+
+        .search-icon {
+            margin-right: 24px;
+        }
+
+        .or {
+            color: $slateGrey;
+            font-size: 15px;
+            margin-right: 50px;
+            margin-top: 6px;
+        }
+
+        input {
+            border: none;
+            font-size: 22px;
+            font-weight: 300;
+            outline: none;
+            width: 70%;
+        }
+
+        button {
+            border-radius: 3px;
+            background-color: $secondaryColors;
+            padding: 9px 14px;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 11px;
+            border: none;
+            width: 220px;
+            outline: none;
+            cursor: pointer;
+            letter-spacing: 2px;
+            -webkit-transition: all 0.4s ease-out;
+            -moz-transition-duration: all 0.4s ease-out;
+            -o-transition-duration: all 0.4s ease-out;
+            transition-duration: all 0.4s ease-out;
+
+            &:hover {
+                background-color: darken($secondaryColors, 15%);
+                color: #fff;
+            }
+        }
+    }
+}
+
+.add-card {
+    text-align: center;
+    padding: 125px 0;
+    border-radius: 3px;
+    border: 1px dashed #979797;
+    color: $primaryColors;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-bottom: 30px;
+
+    .add-card-label {
+        margin-top: 20px;
+    }
+}
+
+.alert-valid {
+    background-color: rgba($alert-valid, 0.5);
+}
+
+.empty-card {
+    text-align: center;
+    padding: 125px 0;
+    border-radius: 3px;
+    border: 1px dashed #979797;
+    color: $primaryColors;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+
+    .fas {
+        background-color: $silverGrey;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1.3em;
+    }
+
+    div>span {
+        margin-top: 15px;
+        display: block;
+    }
+}
+
+.card-list {
+    margin-top: 50px;
+
+    ul.closed-open {
+        font-size: 22px;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+
+        li {
+            color: $charcoalGrey;
+            display: inline;
+            text-align: center;
+            text-transform: capitalize;
+            font-weight: 300;
+
+            &.active {
+                color: $charcoalGrey;
+                border-bottom-color: $charcoalGrey;
+            }
+        }
+    }
+
+    .subtab-container {
+        margin-top: 40px;
+    }
+
+    .date-picker-container {
+        border-radius: 3px;
+        border: 1px solid rgba(151, 151, 151, 0.28);
+        width: 180px;
+        margin: 40px auto auto;
+        height: 50px;
+
+        .mat-form-field-appearance-legacy .mat-form-field-infix {
+            width: 155px !important;
+
+            .mat-form-field-underline {
+                border-bottom: 0 !important;
+            }
+        }
+
+        .mat-icon-button {
+            background-image: url("/assets/img/calendar_datepicker_icon.svg") !important;
+            background-repeat: no-repeat !important;
+
+            .mat-datepicker-toggle-default-icon {
+                width: 3em !important;
+                margin-top: -15px !important;
+                margin-left: -15px !important;
+            }
+        }
+
+        .date-picker-value {
+            background: #fff;
+
+            .date-picker-start {
+                border-right: 1px solid $silverGrey;
+            }
+
+            .date-picker-end,
+            .date-picker-start {
+                padding: 10px 20px;
+                width: 100%;
+                float: left;
+            }
+        }
+    }
+}
+
+
+/*
+*** START DASHBOARD ***/
+
+.analytics {
+    .analytic {
+        text-align: center;
+
+        .num {
+            font-size: 46px;
+            color: $secondaryColors;
+            font-weight: 300;
+            position: relative;
+            top: 5px;
+        }
+
+        span {
+            font-size: 13px;
+            color: $silverGrey;
+            line-height: 1.69;
+        }
+    }
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.bloc-container {
+    padding: 32px 35px;
+    background: #fff;
+    margin-top: 21px;
+    position: relative;
+    min-height: 100%;
+
+    h6 {
+        display: flex;
+
+        span {
+            margin-left: auto;
+            color: darken($secondaryColors, 25%);
+        }
+    }
+}
+
+.profile-completion {
+    position: absolute;
+}
+
+.first-letter {
+    text-align: center;
+    width: 62px;
+    height: 62px;
+    padding-top: 14px;
+    background-color: $quartzGrey;
+    font-size: 22px;
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    text-transform: uppercase;
+}
+
+.card-name {
+    font-size: 22px;
+}
+
+.sign-up-date {
+    color: $slateGrey;
+    font-size: 14px;
+}
+
+.completion-percentage,
+.percentage-label {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.table {
+    color: $primaryColors;
+    margin-top: 20px;
+
+    .thead-dark {
+        th {
+            background-color: lighten($primaryColors, 5%);
+            // color: $secondaryColors;
+        }
+    }
+
+    td,
+    th {
+        font-size: .9em;
+    }
+
+    a {
+        color: $primaryColors;
+    }
+
+    .progress {
+        height: 14px;
+        margin-top: 4px;
+        border-radius: 25px;
+        background-color: $whiteGrey;
+        // background-image: linear-gradient(left, $primaryColors, $whiteGrey);
+    }
+
+    .bg-neadz {
+        background-color: $primaryColors;
+        background-image: linear-gradient(45deg, rgba($secondaryColors, .15) 25%, transparent 25%, transparent 50%, rgba($secondaryColors, .15) 50%, rgba($secondaryColors, .15) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(to left, $primaryColors, $secondaryColors)
+    }
+
+    span {
+        display: block;
+        color: $silverGrey;
+        font-size: .8em;
+        font-style: italic;
+    }
+
+    .table-active {
+        background-color: lighten($secondaryColors, 35%);
+
+        span {
+            color: $primaryColors;
+        }
+    }
+
+    .alert {
+        padding: 5px 0;
+    }
+
+    .alert-red {
+        color: $strawBerry;
+    }
+
+    .alert-green {
+        color: $greenFree;
+    }
+
+    .alert-orange {
+        color: $orangeFree;
+    }
+
+    .alert-grey {
+        color: $silverGrey;
+    }
+}
+
+.infos-bloc {
+    margin: 25px 0;
+
+    dl {
+        padding: .75rem;
+        border-top: 1px solid #dee2e6;
+        margin: 0;
+
+        dt {
+            font-weight: 300;
+            font-size: 1.1em;
+            margin-bottom: .4em;
+        }
+
+        dd {
+            display: flex;
+            color: $slateGrey;
+            font-size: .9em;
+
+            i {
+                margin-left: auto;
+
+                &.alert-red {
+                    color: $strawBerry;
+                }
+
+                &.alert-green {
+                    color: $greenFree;
+                }
+            }
+        }
+    }
+
+    .col-md-3 {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .infos-container {
+        padding: 10px;
+        text-align: center;
+
+        .pp-container {
+            margin-bottom: 15px;
+        }
+
+        .card-name {
+            font-size: 14px;
+        }
+
+        .card-location {
+            color: $slateGrey;
+            font-size: 11px;
+        }
+    }
+
+    .pp {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+.contact-container {
+    .card {
+        margin-top: 20px;
+    }
+}
+
+
+/*
+*** END DASHBOARD ***/
+
+
+/*
+*** START Form ***/
+
+.nav-pills {
+
+    .nav-link.active,
+    .nav-pills .show>.nav-link {
+        background-color: $primaryColors;
+    }
+}
+
+.tab-pane {
+    margin-top: 35px;
+
+    form {
+        margin-top: 35px;
+
+        .form-group {
+            margin-bottom: 2rem;
+
+            label {
+                font-weight: normal;
+                display: block;
+                color: rgba($slateGrey, .57);
+                font-size: 11px;
+                text-transform: uppercase;
+                text-align: left;
+                letter-spacing: 2px;
+            }
+
+            input[type=text],
+            input[type=date],
+            input[type=email],
+            input[type=month],
+            input[type=phone],
+            input[type=number],
+            input[type=password],
+            input[type=tel],
+            input[matinput] {
+                height: 40px;
+                color: $primaryColors;
+                border: 1px solid $silverGrey;
+                border-radius: 0;
+                outline: none;
+                padding: 16px 10px;
+
+                &::-webkit-input-placeholder {
+                    /* Chrome/Opera/Safari */
+                    color: rgba($slateGrey, .3);
+                }
+
+                &::-moz-placeholder {
+                    /* Firefox 19+ */
+                    color: rgba($slateGrey, .3);
+                }
+
+                &:-ms-input-placeholder {
+                    /* IE 10+ */
+                    color: rgba($slateGrey, .3);
+                }
+
+                &:-moz-placeholder {
+                    /* Firefox 18- */
+                    color: rgba($slateGrey, .3);
+                }
+
+                &.no-border {
+                    border: none;
+                    font-size: 22px;
+                    border-bottom: 1px solid $silverGrey;
+                    font-weight: 300;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: textfield;
+                    padding: 0;
+                    width: 100%;
+                }
+
+                &:focus {
+                    border-bottom: 1px solid $primaryColors;
+                }
+
+                &:required {
+                    box-shadow: none;
+                }
+
+                &:invalid.ng-dirty {
+                    border: 0;
+                    border-bottom: 1px solid $strawBerry;
+                    color: $strawBerry;
+                }
+            }
+
+            select {
+                background: #fff;
+                border: 1px solid $silverGrey;
+                border-radius: 4px;
+                outline: none;
+                padding: 7px 10px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-image: url('/assets/img/select_dropdown_arrow.svg');
+                background-repeat: no-repeat;
+                background-position: right 15px center;
+            }
+        }
+
+        .form-footer {
+            margin-top: 35px;
+            display: flex;
+            justify-content: flex-end;
+
+            span {
+                margin-right: auto;
+                font-size: .8em;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+
+/*
+*** END Form ***/
+
+@media (max-width:992px) {
+    .app-container {
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: 50px;
+    }
+}
+
+@media (max-width:768px) {}
+
+@media (max-width:576px) {
+
+    // .app-container {
+    //   // margin-top: -180px;
+    // }
+    .analytics {
+        display: none;
+    }
+
+    .search-box-container {
+        flex-direction: column;
+    }
+}
+
+
+/***
+******* Footer ******
+***/
+
+.mentions {
+    color: $slateGrey;
+    font-size: 14px;
+
+    a {
+        color: $primaryColors;
+        -webkit-transition: 0.4s ease-out;
+        -moz-transition-duration: 0.4s ease-out;
+        -o-transition-duration: 0.4s ease-out;
+        transition-duration: 0.4s ease-out;
+
+        &:hover {
+            border-bottom: 1px solid $primaryColors;
+        }
+    }
+}
+
+.boarding .mentions {
+    color: $slateGrey;
+}

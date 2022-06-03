@@ -1,0 +1,184 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-bills-container app-container">
+                <div class="bills-header-container header-container">
+                    <div class="page-header" i18n>Mes documents</div>
+                    <div class="analytics-card">
+                        <app-stats-counter></app-stats-counter>
+                    </div>
+                </div>
+
+                <!-- <ul class="main-menu">
+                    <li [class.active]="activeTab === 1" (click)="activeTab = 1" i18n>En cours de traitement</li>
+                    <li [class.active]="activeTab === 2" (click)="activeTab = 2" i18n>Traitées</li>
+                </ul> -->
+
+                <!-- <div class="action-btns">
+                    <button class="delete"></button>
+                    <button class="print"></button>
+                    <button class="download"></button>
+                </div> -->
+
+                <div class="body-container">
+                    <div class="row">
+                        <div class="col-md-12" *ngFor="let mission of missions">
+
+                            <!-- <table cellpadding=2 cellspacing=2>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                            </th>
+                                            <th>Client</th>
+                                            <th>Titre</th>
+                                            <th>Montant</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td class="client">
+                                                Christian Louboutin
+                                            </td>
+                                            <td class="title">
+                                                Charte graphique
+                                            </td>
+                                            <td class="amount">
+                                                1 960 €
+                                            </td>
+                                            <td class="date">
+                                                25.07.2019
+                                            </td>
+                                            <td class="action">
+                                                <a href="#"><i class="fas fa-plus-circle"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table> -->
+
+                            <div class="card-docmission card-container">
+                                <div class="infos-container row">
+
+                                    <div class="col-md-3 info-free">
+                                        <img *ngIf="hasPictureFreelance(mission)" [src]="mission.freelance.account.profilePicture.url" class="logo pp" />
+                                        <img *ngIf="!hasPictureFreelance(mission)" src="/assets/img/blank_cc.svg" class="logo pp" />
+                                        <div class="free-title">{{mission.freelance.account.firstName}} {{mission.freelance.account.lastName}}
+                                        </div>
+                                        <div class="client-title">{{ mission.freelance.headline }}</div>
+                                    </div>
+
+                                    <div class="col-md-9">
+                                        <!-- <div class="row-fluid doc-head d-flex justify-content-between">
+                                            <div class="col-1">
+                                                <label>
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            </div>
+                                            <div class="col-3">Client</div>
+                                            <div class="col-3">Titre</div>
+                                            <div class="col-2">Montant</div>
+                                            <div class="col-2">Date</div>
+                                            <div class="col-1">Actions</div>
+                                        </div> -->
+
+                                        <table class="table table-hover">
+                                            <thead class="doc-head">
+                                                <tr>
+                                                    <th scope="col">Nom Doc</th>
+                                                    <th scope="col">Type</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Statut</th>
+                                                    <th scope="col">Ddl</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let document of mission.commonsMedias">
+                                                    <th scope="row">{{ document?.fileName }}</th>
+                                                    <td><i class="far fa-file-word"></i></td>
+                                                    <td>{{ document?.createDate | date:'MMMM yyyy' }}</td>
+                                                    <td><i class="fas fa-circle alert-green"></i></td>
+                                                    <td>
+                                                        <a [href]="document?.url" target="_blank" title="Télécharger">
+                                                            <i class="fas fa-download ml-auto"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <table cellpadding=2 cellspacing=2>
+                    <thead>
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </th>
+                            <th>Client</th>
+                            <th>Titre</th>
+                            <th>Montant</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </th>
+                            <th class="client">
+                                Christian Louboutin
+                            </th>
+                            <th class="title">
+                                Charte graphique
+                            </th>
+                            <th class="amount">
+                                1 960 €
+                            </th>
+                            <th class="date">
+                                25.07.2019
+                            </th>
+                        </tr>
+                    </tbody>
+                </table> -->
+
+                <ng-template #noFrees>
+                    <div class="page-container">
+                        <div class="title">
+                            Vous n'avez pas encore de freelance pour consulter les documents.
+                        </div>
+                    </div>
+                </ng-template>
+
+
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>

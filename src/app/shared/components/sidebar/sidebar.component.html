@@ -1,0 +1,10 @@
+<div class="app-sidebar-container">
+  <img src="/assets/img/sidebar_logo_neadz.svg" class="logo mx-auto d-block" />
+  <ul class="navigation">
+    <li *ngFor="let item of items" [class.active]="item.isActive === true">
+      <a routerLink="{{ item.link }}">
+        <span i18n><i class="{{item.img}}"></i>&nbsp; {{ item.name }}</span>
+      </a>
+    </li>
+  </ul>
+</div>

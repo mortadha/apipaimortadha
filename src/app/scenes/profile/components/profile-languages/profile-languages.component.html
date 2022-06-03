@@ -1,0 +1,14 @@
+<!-- languages listing start -->
+<div class="profile-experiences-container">
+    <h6>Langues</h6>
+    <div *ngIf="freelance">
+        <div class="empty-block" *ngIf="user.type !== 'Company' && freelance.languages && freelance.languages.length === 0" (click)="addNewLanguage()">
+            <button class="add"></button> &nbsp; <span i18n>Ajouter une langue</span>
+        </div>
+        <button *ngIf="user.type !== 'Company' && freelance.languages && freelance.languages.length > 0" (click)="addNewLanguage()" class="add main"></button>
+        <div class="language-wrapper" *ngFor="let language of freelance.languages; let i = index">
+            <app-profile-language [language]="language"></app-profile-language>
+        </div>
+    </div>
+</div>
+<!-- end of languages listing -->

@@ -1,0 +1,50 @@
+<mat-dialog-content>
+    <div class="modal-content">
+        <div class="edit-profile-main-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" i18n>Coordonnées personnelles</h4>
+                <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="data-block" id="user-infos-container">
+                    <div class="user-identity-container row">
+                        <div class="profile-picture-container col-md-2">
+                            <div class="profile-picture">
+                                <img [src]="agent.profilePicture.url" *ngIf="hasProfilePicture()" />
+                                <img src="/assets/img/blank_pp.svg" *ngIf="!hasProfilePicture()" />
+                            </div>
+                            <label for="profile-picture-agent">
+								<div class="status-bubble add-pp"></div>
+								<button id="profile-picture-agent" (click)="cropImageModalAgent()"></button>
+							</label>
+                        </div>
+                        <div class="surname-container col-md-4">
+                            <label for="account-firstName"><span i18n>Prénom</span>*</label>
+                            <input id="account-firstName" class="no-border" type="text" i18n-placeholder="Prénom..." placeholder="Prénom..." [(ngModel)]="agent.firstName" />
+                        </div>
+                        <div class="name-container col-md-5">
+                            <label for="account-lastName">Nom*</label>
+                            <input id="account-lastName" class="no-border" type="text" i18n-placeholder="Nom..." placeholder="Nom..." [(ngModel)]="agent.lastName" />
+                        </div>
+                    </div>
+                </div>
+                <div class="data-block">
+                    <div class="sm-container">
+                        <label for="account-email" i18n>Email</label>
+                        <input id="account-email" class="no-border" type="email" placeholder="Email..." [(ngModel)]="agent.email" />
+                    </div>
+                </div>
+                <div class="data-block">
+                    <div class="sm-container">
+                        <label for="account-phone" i18n>Numéro de téléphone</label>
+                        <input id="account-phone" class="no-border" type="tel" placeholder="Téléphone..." [(ngModel)]="agent.phone" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span><sup>*</sup>Champs obligatoires</span>
+                <button type="button" i18n class="dark" (click)="submit()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

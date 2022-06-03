@@ -1,0 +1,41 @@
+<mat-dialog-content>
+    <div class="modify-dates-mission">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" i18n>{{ modalTitle }}</h4>
+                <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="data-block-none row">
+                    <div class="col-md-6 pr-md-1" *ngIf="user.type !== accountType.Freelance">
+                        <div class="data-block sm-container">
+                                <label for="startingDate" i18n>Date de début*</label>
+                                <input matInput [matDatepicker]="startDp" id="startingDate" placeholder="Date de démarrage"
+                                i18n-placeholder="Date de démarrage" [formControl]="startingDate">
+                                <mat-datepicker-toggle matSuffix [for]="startDp"></mat-datepicker-toggle>
+                                <mat-datepicker #startDp startView="month" panelClass="example-month-picker">
+                                </mat-datepicker>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-md-2">
+                        <div class="data-block md-container">
+                            <label for="endingDate" i18n>Date de fin*</label>
+                            <input matInput [matDatepicker]="startDp" id="endingDate" placeholder="Date de fin"
+                            i18n-placeholder="Date de fin" [formControl]="endingDate">
+                            <mat-datepicker-toggle matSuffix [for]="startDp"></mat-datepicker-toggle>
+                            <mat-datepicker #startDp startView="month" panelClass="example-month-picker">
+                            </mat-datepicker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <span><sup>*</sup>Champs obligatoires</span>
+                <button type="button" class="dark" (click)="submit()">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

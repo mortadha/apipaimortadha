@@ -1,0 +1,6 @@
+<div class="row analytics">
+    <div class="col-sm-4 col-md-4 analytic" *ngFor="let stat of stats">
+      <div class="num">{{ stat.value }}</div>
+      <span i18n>{{ stat.title }}</span>
+    </div>
+</div>

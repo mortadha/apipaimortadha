@@ -1,0 +1,16 @@
+<div class="modal-content">
+  <div class="assign-freelance">
+    <div class="modal-header">
+      <h4 class="modal-title" i18n>Assigner un freelance</h4>
+      <button mat-button [mat-dialog-close]="false" class="close" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <input type="text" class="search" placeholder="Rechercher un freelance ou une spécialité…" i18n-placeholder="Rechercher un freelance ou une spécialité…" (input)="searchFreelance($event)" />
+      <div class="row card-list">
+        <div class="col-md-6 freelance-card-container" *ngFor="let freelance of freelances" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+          <app-assign-freelance-row [freelance]="freelance" (detailFreelanceEmitter)="freelanceDetail($event)"></app-assign-freelance-row>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

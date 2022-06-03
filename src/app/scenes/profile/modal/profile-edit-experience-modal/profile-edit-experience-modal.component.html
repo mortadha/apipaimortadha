@@ -1,0 +1,119 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="edit-parcours-modal" id="edit-experience-modal">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ modalTitle }}</h4>
+        <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="data-block add-parcours" [class.drop-shadow]="autoCompFieldIsFocused">
+          <div class="row" *ngIf="!isAddingNewCompany">
+            <div class="col-md-12">
+              <label for="companyName" i18n>Entreprise*</label>
+              <input autocomplete="off" type="text" id="companyName" class="no-border full-width" [(ngModel)]="currentText" i18n-placeholder="Entreprise..." (input)="companyInputChange($event)" (focus)="autoCompFieldIsFocused = !autoCompFieldIsFocused" (focusout)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+                placeholder="Entreprise..." />
+            </div>
+          </div>
+          <div class="row" *ngIf="isAddingNewCompany">
+            <div class="col-md-9">
+              <label for="companyName" i18n>Entreprise*</label>
+              <input autocomplete="off" type="text" id="companyName" class="no-border full-width" [(ngModel)]="currentText" i18n-placeholder="Entreprise..." (input)="companyInputChange($event)" (focus)="autoCompFieldIsFocused = !autoCompFieldIsFocused" (focusout)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+                placeholder="Entreprise..." />
+            </div>
+          </div>
+          <div class="add-parcours-container" *ngIf="noCompanies === true">
+            <div class="row" *ngIf="isAddingNewCompany">
+              <div class="col-md-6">
+                <input type="text" class="full-width" [(ngModel)]="newCompanyCity" placeholder="Ville" />
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="full-width" [(ngModel)]="newCompanyCountry" placeholder="Pays" />
+              </div>
+              <div class="col-md-12">
+              </div>
+            </div>
+            <button class="dark" (click)="addNewCompany()" *ngIf="!isAddingNewCompany" i18n>Ajouter cette entreprise</button>
+            <button class="light" (click)="reset()" *ngIf="isAddingNewCompany" i18n>Annuler</button>
+            <button class="dark reset" (click)="createNewCompany()" *ngIf="isAddingNewCompany" i18n>Valider</button>
+          </div>
+          <div class="autocomplete-container" *ngIf="autocompleteCompanies.length > 0">
+            <ul>
+              <li (click)="addNewCompany()">
+                <button class="dark" (click)="addNewCompany()"> Ajouter une nouvelle entreprise</button>
+              </li>
+              <li *ngFor="let company of autocompleteCompanies" (click)="selectCompany(company)">
+                <div class="name">{{ company.name }}</div>
+                <div class="location">{{ company.city }}, {{ company.country }}</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="data-block">
+          <label for="experience-jobTitle" i18n>Intitulé du poste*</label>
+          <input id="experience-jobTitle" type="text" class="no-border full-width" i18n-placeholder="Ex : Lead développeur" [(ngModel)]="experience.jobTitle" placeholder="Ex : Lead développeur" />
+        </div>
+        <div class="data-block">
+          <label i18n>Dates*</label>
+          <div class="start-date-container">
+            <div class="start-label" i18n>De</div>
+            <input matInput [matDatepicker]="startDp" i18n-placeholder="Mois & Année" [(ngModel)]="experience.startedAt" placeholder="Mois & Année">
+            <mat-datepicker-toggle matSuffix [for]="startDp"></mat-datepicker-toggle>
+            <mat-datepicker #startDp
+                            startView="multi-year"
+                            (yearSelected)="chosenStartYearHandler($event)"
+                            (monthSelected)="chosenStartMonthHandler($event, startDp)"
+                            panelClass="example-month-picker">
+            </mat-datepicker>
+          </div>
+          <div class="end-date-container" *ngIf="!experience.presentPosition">
+            <div class="end-label" i18n>à</div>
+            <input matInput [matDatepicker]="endDp" [(ngModel)]="experience.endedAt" i18n-placeholder="Mois & Année" placeholder="Mois & Année">
+            <mat-datepicker-toggle matSuffix [for]="endDp"></mat-datepicker-toggle>
+            <mat-datepicker #endDp
+            startView="multi-year"
+            (yearSelected)="chosenEndYearHandler($event)"
+            (monthSelected)="chosenEndMonthHandler($event, endDp)"
+            panelClass="example-month-picker">
+          </mat-datepicker>
+        </div>
+        <br />
+          <label class="current-job">
+            <input type="checkbox" [(ngModel)]="experience.presentPosition" (click)="onResetEndAt()"/> &nbsp;
+            <span i18n>Ceci est mon poste actuel</span>
+          </label>
+        </div>
+        <div class="data-block">
+          <label for="experience-description" i18n>Description</label>
+          <textarea id="experience-description"
+          class="no-border full-width full"
+          [(ngModel)]="experience.description"
+          i18n-placeholder="Ex : décrivez au mieux votre expérience au sein de cette entreprise..."
+          placeholder="Ex : décrivez au mieux votre expérience au sein de cette entreprise...">
+          </textarea>
+        </div>
+        <div class="data-block">
+          <label for="search-skill">Environnement technique</label>
+          <input id="search-skill" type="text" placeholder="Rechercher une technologie..." aria-label="Skill" class="search" matInput [matAutocomplete]="auto" [formControl]="myControl"/>
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="inputDisplay">
+            <mat-option *ngFor="let tech of filteredOptions | async" [value]="tech">
+              {{ tech.name }}
+            </mat-option>
+          </mat-autocomplete>
+
+          <div class="tech-listing">
+            <div class="tech-container" *ngFor="let tech of experience.techs; let i = index">
+              <img [src]=[tech.techPictureMediaUrl] class="logo" ngbTooltip="{{tech.name}}"/>
+              <img src="/assets/img/delete_cross.svg" class="cross" (click)="deleteTech(tech.id)" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" *ngIf="data.isNew === false" (click)="deleteExperience()" class="light flexleft" i18n>
+          Supprimer
+        </button>
+        <button type="button" [disabled]="!experience.company || !experience.jobTitle || !experience.startedAt" class="dark" (click)="submit()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

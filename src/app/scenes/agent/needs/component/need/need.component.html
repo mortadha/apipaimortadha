@@ -1,0 +1,50 @@
+<div class="freelance-mission-container card-container">
+    <div class="infos-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="need-origin">
+                    <span *ngIf="need.source === needSource.Agent"><i class="fas fa-hashtag"></i>Neadz</span>
+                    <span *ngIf="need.source === needSource.Consort" class="consort"><i class="fas fa-hashtag"></i>Consort</span>
+                    <span *ngIf="need.source === needSource.Boarding" class="boarding"><i class="fas fa-hashtag"></i>Boarding</span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <img [src]="need.companyLogo.url" class="pp" *ngIf="hasPicture()" />
+                <img src="/assets/img/blank_cc.svg" class="pp client-logo" *ngIf="!hasPicture()" />
+                <div class="mission-title card-name">
+                    <a (click)="redirect()">{{ need.jobTitle | truncate:35 }}</a>
+                </div>
+                <div class="client-title mission-infos">
+                    <i class="fas fa-map-marker-alt" *ngIf="need.companyTitle && need.companyCity"></i>
+                    <span *ngIf="need.companyTitle"> {{ need.companyTitle }}, </span>
+                    <span *ngIf="need.companyCity"> {{ need.companyCity }}</span>&nbsp;
+                    <span *ngIf="need.workingRemotely"><i class="fas fa-home"></i>Remote</span> -&nbsp;
+                    <span><i class="far fa-clock"></i> {{ need.createDate | dateFromNow }}</span>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="mission-description">{{ need.description | truncate:150 }}</div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 techs">
+                        <label>Technos principales</label>
+                        <span *ngFor="let skill of need.skills">
+                            <img [src]=[skill.tech.techPictureMediaUrl] ngbTooltip="{{skill.tech.name}} - {{skill.level / 10}} an(s)" />
+                        </span>
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                        <div class="action-buttons">
+                            <label>&nbsp;</label>
+                            <span *ngIf="need.status == 1" class="win"> <i class="fas fa-check"></i> Gagné </span>
+                            <span *ngIf="need.status == 2" class="lost"> <i class="fas fa-times"></i> Perdu </span>
+                            <button class="dark ml-2" (click)="redirect()">Voir plus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

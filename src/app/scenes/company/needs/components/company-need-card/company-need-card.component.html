@@ -1,0 +1,45 @@
+<div class="company-need-container card-container">
+  <div class="infos-container">
+    <div class="card-details-header">
+      <div class="job-title card-name">
+        <a routerLink="./{{need.id}}">
+          {{ need.jobTitle }}
+        </a>
+      </div>
+      <div class="experience-level">
+        <div *ngIf="need.experienceLevel === 2">Junior</div>
+        <div *ngIf="need.experienceLevel === 4">Confirmé</div>
+        <div *ngIf="need.experienceLevel === 8">Expert</div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="row card-infos">
+      <div class="date-post col-md-6">
+        <span><i class="far fa-clock"></i> {{ need.createDate | dateFromNow }} </span>
+      </div>
+      <div class="start-mission col-md-6">
+        <span><i class="fas fa-rocket"></i>
+          <span *ngIf="need.availabilityType === availibilityType.After">
+            Dès {{need.availabilityDate | date:'MMM'}} {{need.availabilityDate | date:'yyyy'}}
+          </span>
+          <span *ngIf="need.availabilityType === availibilityType.Asap">
+            Dès que possible
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="card-details-footer row">
+      <div class="col-md-12">
+        <div class="alert {{ notificationColor }}"><i class="fas {{ notificationIcon }}"></i>
+          {{ notificationText }}
+        </div>
+      </div>
+      <div class="col-md-12">
+        <a routerLink="./{{need.id}}">
+          <button class="dark large" type="button">Voir plus</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

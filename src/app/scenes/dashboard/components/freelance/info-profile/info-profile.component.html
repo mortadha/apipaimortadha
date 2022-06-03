@@ -1,0 +1,77 @@
+<div class="bloc-container">
+  <div class="infos-container">
+      <h6 i18n>Mon profil</h6>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="pp-container">
+          <img src="/assets/img/profile_completion_card_{{ 100 - freelance.completion }}.svg" class="profile-completion" />
+          <div class="first-letter" *ngIf="freelance && freelance.account &&  freelance.account.firstName">{{ freelance.account.firstName.slice(0,1) }}</div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-name">{{ freelance.account.firstName }} {{ freelance.account.lastName }}</div>
+        <div class="sign-up-date">Inscrit le {{ freelance.account.createDate | date:'dd.MM.yyy'}}</div>
+        <div *ngIf="completionPercentage !== 0">
+          <span class="completion-percentage">{{ 100 - completionPercentage}} %</span>
+          <span class="percentage-label"> Restant</span>
+        </div>
+        <div *ngIf="completionPercentage === 0">
+          <span class="completion-percentage">
+            Profil completé
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="infos-bloc infos-profil">
+        <dl class="dl-horizontal">
+            <dt>Tjm</dt>
+            <dd *ngIf="freelance.tjm === 0">Non renseigné <i class="alert-red fas fa-times"></i></dd>
+            <dd *ngIf="freelance.tjm > 0">{{ freelance.tjm }} € <i class="alert-green fas fa-check"></i></dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>Durée de mission</dt>
+            <dd *ngIf="freelance.missionDuration === 1">Courte <i class="alert-green fas fa-check"></i></dd>
+            <dd *ngIf="freelance.missionDuration === 2">Moyenne <i class="alert-green fas fa-check"></i></dd>
+            <dd *ngIf="freelance.missionDuration === 3">Longue <i class="alert-green fas fa-check"></i></dd>
+            <dd *ngIf="freelance.missionDuration === 4">Ouverte <i class="alert-green fas fa-check"></i></dd>
+            <dd *ngIf="freelance.missionDuration === 0">Non renseigné <i class="alert-red fas fa-times"></i></dd>
+        </dl>
+        <dl class="dl-horizontal techs">
+            <dt>Mes compétences</dt>
+            <dd *ngIf="freelance.skills.length > 0">
+              <span *ngFor="let skill of freelance.skills">
+                  <img class="data" [src]=[skill.tech.techPictureMediaUrl] placement="bottom" ngbTooltip="{{ skill.tech.name }}" />
+              </span>
+              <i class="alert-green fas fa-check"></i>
+            </dd>
+            <dd *ngIf="freelance.skills.length === 0">
+              Veuillez renseigner au moins 1 compétences <i class="alert-red fas fa-times"></i>
+            </dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>Ma description</dt>
+            <dd *ngIf="freelance.bio?.length > 0">Description renseignée<i class="alert-green fas fa-check"></i></dd>
+            <dd *ngIf="!freelance.bio">Description non renseignée<i class="alert-red fas fa-times"></i></dd>
+        </dl>
+        <dl class="dl-horizontal" *ngIf="freelance.educations?.length === 0">
+          <dt>Mes études</dt>
+          <dd >Non Renseigné (mini 1)<i class="alert-red fas fa-times"></i></dd>
+        </dl>
+        <dl class="dl-horizontal" *ngIf="freelance.experiences?.length === 0">
+          <dt>Mes expériences</dt>
+          <dd >Non Renseigné (mini 1)<i class="alert-red fas fa-times"></i></dd>
+        </dl>
+    </div>
+    <a routerLink="/freelance/profile" *ngIf="completionPercentage === 0">
+      <button class="light" i18n>
+      Mettre à jour mon profil
+    </button>
+    </a>
+    <a routerLink="/freelance/profile" *ngIf="completionPercentage !== 0">
+      <button class="light" i18n>
+        Compléter mon profil
+      </button>
+    </a>
+
+  </div>
+</div>

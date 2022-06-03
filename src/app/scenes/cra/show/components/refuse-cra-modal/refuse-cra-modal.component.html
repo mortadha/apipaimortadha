@@ -1,0 +1,31 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="confirm-month-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Refus du CRA {{data.month}}/{{data.year}} </h4>
+        <button mat-button (click)="closeRefuse(false)" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="data-block" [formGroup]="form">
+          <label for="refusal-description" i18n>Raison du refus</label>
+
+          <textarea id="refusal-description" class="no-border full-width full"
+            i18n-placeholder="Ex : décrivez en quelques lignes la raison de votre refus..."
+            placeholder="Ex : décrivez en quelques lignes la raison de votre refus..."
+            formControlName="reasonRefuse"></textarea>
+
+          <div *ngIf="submitted && reasonForm.errors" class="error">
+            <i class="fas fa-times"></i>Veuillez indiquez la raison du refus
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer" *ngIf="userService.isClient() === true">
+        <button class="light" (click)="closeRefuse(false)" i18n>Annuler</button>
+        <button class="dark" (click)="closeRefuse(true)" i18n>Valider</button>
+      </div>
+    </div>
+
+  </div>
+</mat-dialog-content>

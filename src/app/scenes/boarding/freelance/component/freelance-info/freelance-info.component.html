@@ -1,0 +1,120 @@
+<div class="app-container">
+    <div class="header-container">
+        <div class="page-header" i18n>Renseignez vos modalités</div>
+    </div>
+    <div class="bloc-container">
+        <form [formGroup]=form>
+            <div class="data-block availability" id="starting-date">
+                <label for="freelance-availabilityType" i18n>Je suis disponible</label>
+                <select id="freelance-availabilityType" formControlName="availabilityType">
+                  <option i18n value="{{ freelanceAvailabilityTypeEnum.StartFrom }}">À partir de</option>
+                  <option i18n value="{{ freelanceAvailabilityTypeEnum.Available }}">Immédiatement</option>
+                </select>
+                <div *ngIf="availabilityTypeForm.value === freelanceAvailabilityTypeEnum.Unknown && submitted" class="error">
+                    <i class="fas fa-times"></i> Veuillez renseigner une date de disponibilité
+                </div>
+                <select id="freelance-availabilityDateMonth" *ngIf="availabilityTypeForm.value == freelanceAvailabilityTypeEnum.StartFrom" formControlName="availabilityDateMonth">
+                  <option i18n value=0>Janvier</option>
+                  <option i18n value=1>Février</option>
+                  <option i18n value=2>Mars</option>
+                  <option i18n value=3>Avril</option>
+                  <option i18n value=4>Mai</option>
+                  <option i18n value=5>Juin</option>
+                  <option i18n value=6>Juillet</option>
+                  <option i18n value=7>Aout</option>
+                  <option i18n value=8>Septembre</option>
+                  <option i18n value=9>Octobre</option>
+                  <option i18n value=10>Novembre</option>
+                  <option i18n value=11>Décembre</option>
+                </select>
+                <select id="freelance-availabilityDateYear" *ngIf="availabilityTypeForm.value == freelanceAvailabilityTypeEnum.StartFrom" formControlName="availabilityDateYear">
+                  <option i18n value=2019>2019</option>
+                  <option i18n value=2020>2020</option>
+                  <option i18n value=2021>2021</option>
+                </select>
+            </div>
+
+            <div class="data-block" id="">
+                <div id="mission-duration-container">
+                    <label for="freelance-duration" i18n>Je recherche une mission</label>
+                    <div class="duration-container">
+                        <button class="regular" [class.enabled]="freelance.missionDuration === 1" (click)="freelance.missionDuration = 1">
+                          Courte
+                          <div class="duration">1 à 3 mois</div>
+                        </button>
+                        <button class="regular" [class.enabled]="freelance.missionDuration === 2" (click)="freelance.missionDuration = 2">
+                          Moyenne
+                          <div class="duration">3 à 6 mois</div>
+                        </button>
+                        <button class="regular" [class.enabled]="freelance.missionDuration === 3" (click)="freelance.missionDuration = 3">
+                          Longue
+                          <div class="duration">6 et plus</div>
+                        </button>
+                        <button class="regular" [class.enabled]="freelance.missionDuration === 4" (click)="freelance.missionDuration = 4">
+                          Ouvert
+                          <div class="duration">Toutes durées</div>
+                        </button>
+                    </div>
+                    <div *ngIf="!freelance.missionDuration && submitted" class="error">
+                        <i class="fas fa-times"></i> Veuillez renseigner une durée de mission
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-block-none row">
+                <div class="col-md-7 pr-md-1">
+                    <div class="data-block sm-container">
+                        <label for="freelance-mobility" i18n>Je me déplace en</label>
+                        <div class="duration-container">
+
+                            <button class="regular" [class.enabled]="freelance.mobility === freelanceMobilityEnum.Car" (click)="freelance.mobility = freelanceMobilityEnum.Car">
+                                <i class="fas fa-car"></i>
+                              <div class="duration">Voiture</div>
+                            </button>
+                            <button class="regular" [class.enabled]="freelance.mobility === freelanceMobilityEnum.Public" (click)="freelance.mobility = freelanceMobilityEnum.Public">
+                                <i class="fas fa-subway"></i>
+                              <div class="duration">Transports en commun</div>
+                            </button>
+                            <button class="regular" [class.enabled]="freelance.mobility === freelanceMobilityEnum.Bike" (click)="freelance.mobility = freelanceMobilityEnum.Bike">
+                                <i class="fas fa-bicycle"></i>
+                              <div class="duration">Vélo / À pied</div>
+                            </button>
+                            <button class="regular" [class.enabled]="freelance.mobility === freelanceMobilityEnum.All" (click)="freelance.mobility = freelanceMobilityEnum.All">
+                                <i class="fas fa-location-arrow"></i>
+                              <div class="duration">Pas de préférences</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 pl-md-2">
+                    <div class="data-block md-container infos-container">
+                        <label>J'interviens</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="label" for="freelance-workingRemotely" i18n>&nbsp;</label>
+                                <div class="switch-container d-flex flex-row">
+                                    <div class="custom-control custom-radio form-check form-check-inline">
+                                        <input type="radio" id="remoteStatusNone" formControlName="remote" class="custom-control-input" [value]="freelanceRemoteEnum.RemoteNone">
+                                        <label class="custom-control-label pt-1" for="remoteStatusNone">Chez le client</label>
+                                    </div>
+                                    <div class="custom-control custom-radio form-check form-check-inline">
+                                        <input type="radio" id="remoteStatusPartial" formControlName="remote" class="custom-control-input" [value]="freelanceRemoteEnum.RemoteOnly">
+                                        <label class="custom-control-label pt-1" for="remoteStatusPartial">En remote</label>
+                                    </div>
+                                    <div class="custom-control custom-radio form-check form-check-inline">
+                                        <input type="radio" id="remoteStatusOnly" formControlName="remote" class="custom-control-input" [value]="freelanceRemoteEnum.RemotePartial">
+                                        <label class="custom-control-label pt-1" for="remoteStatusOnly">Remote partiel</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button class="light" (click)="previous()">Revenir</button>
+            <button class="dark" (click)="next()">Continuer</button>
+        </div>
+    </div>
+</div>

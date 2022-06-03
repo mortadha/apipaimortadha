@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="6570363013146073520"><source>app/sidebar/sidebar.component.ts:4</source>Dashboard</msg>
+  <msg id="6388259543756072137"><source>app/sidebar/sidebar.component.ts:5</source>Missions</msg>
+  <msg id="1225559612980635630"><source>app/sidebar/sidebar.component.ts:6</source>Factures</msg>
+  <msg id="7931159223803589955"><source>app/header/header.component.ts:4</source>Rechercher une mission, une facture…</msg>
+  <msg id="39017643367703010"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:4</source><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:37</source>TJM</msg>
+  <msg id="4320734463559046311"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:5</source>jour</msg>
+  <msg id="8541867801431653963"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:8</source>Expérience</msg>
+  <msg id="490592232287998768"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:9</source>2-7 ans</msg>
+  <msg id="4801167462252079739"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:12</source>Type de mission</msg>
+  <msg id="1554582438555114627"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:13</source>Courte durée</msg>
+  <msg id="4388879716045736175"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:16</source>Note</msg>
+  <msg id="4728375025347702881"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:23</source>avi(s)</msg>
+  <msg id="1648292535142116029"><source>app/profile/main-profile-infos/main-profile-infos.component.ts:27</source>Rencontrons-nous</msg>
+  <msg id="718068350898796239"><source>app/profile/profile-skills/profile-skills.component.ts:2</source><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:57</source>Compétences</msg>
+  <msg id="8687167533460221260"><source>app/profile/profile-skills/profile-skills.component.ts:5</source>Ajouter une compétence</msg>
+  <msg id="5253306395930389497"><source>app/profile/profile-description/profile-description.component.ts:2</source>en quelques mots</msg>
+  <msg id="6804502307962987784"><source>app/profile/profile-description/profile-description.component.ts:5</source>Ajouter une description</msg>
+  <msg id="5502566498955763671"><source>app/profile/profile-experiences/profile-experiences.component.ts:6</source>Ajouter votre première expérience</msg>
+  <msg id="6159600931953810100"><source>app/profile/profile-experience/profile-experience.component.ts:21</source>Environnement technique</msg>
+  <msg id="2241572696740459817"><source>app/profile/profile-schools/profile-schools.component.ts:7</source>Ajouter une formation</msg>
+  <msg id="2823327110111393272"><source>app/profile/profile-projects/profile-projects.component.ts:2</source>Projets</msg>
+  <msg id="514641260938880980"><source>app/profile/profile-project/profile-project.component.ts:3</source>Nom du projet</msg>
+  <msg id="683917284665873927"><source>app/profile/profile-project/profile-project.component.ts:5</source>Détails</msg>
+  <msg id="2086102021328583422"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:4</source>Informations générales</msg>
+  <msg id="8203024106711668685"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:15</source>Prénom</msg>
+  <msg id="2197686647849687785" desc="Prénom..."><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:16</source>Prénom...</msg>
+  <msg id="339005761846710897" desc="Nom..."><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:20</source>Nom...</msg>
+  <msg id="6825253401966513887" desc="Code postal..."><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:28</source>Code postal...</msg>
+  <msg id="8754152003788519784"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:32</source>Intitulé du poste</msg>
+  <msg id="5246642187410130179" desc="Intitulé du poste..."><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:33</source>Intitulé du poste...</msg>
+  <msg id="6600491172859180235"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:38</source>€ / jour</msg>
+  <msg id="8406128602714785413"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:41</source>Niveau expérience</msg>
+  <msg id="4902817035128594900"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:46</source><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:48</source>Description</msg>
+  <msg id="4881881106969851436"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:48</source>Voir plus</msg>
+  <msg id="5719980077734478306"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:51</source>Durée de mission</msg>
+  <msg id="4977912145007192180"><source>app/profile/main-profile-infos-modal/main-profile-infos-modal.component.ts:73</source><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:47</source>Enregistrer</msg>
+  <msg id="1728258292250453021"><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:10</source>Entreprise*</msg>
+  <msg id="1579715915700891938" desc="Entreprise..."><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:11</source><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:10</source>Entreprise...</msg>
+  <msg id="6638841224632818235"><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:14</source>Intitulé du poste*</msg>
+  <msg id="2710743790054882174" desc="Ex : Directeur de création"><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:15</source>Ex : Directeur de création</msg>
+  <msg id="4839185021691250398"><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:18</source><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:17</source>Dates*</msg>
+  <msg id="7826820431635283594"><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:20</source><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:19</source>De</msg>
+  <msg id="2741071258367857448" desc="Mois &amp; année"><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:21</source><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:32</source><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:20</source><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:31</source>Mois &amp; année</msg>
+  <msg id="3245184823025180727"><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:31</source><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:30</source>à</msg>
+  <msg id="8341484840681303045"><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:44</source>Ceci est mon poste actuel</msg>
+  <msg id="3463011734774758926" desc="Ex : décrivez au mieux votre expérience au sein de cette entreprise..."><source>app/profile/profile-edit-experience-modal/profile-edit-experience-modal.component.ts:51</source>Ex : décrivez au mieux votre expérience au sein de cette entreprise...</msg>
+  <msg id="7624391594645403461"><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:9</source>École*</msg>
+  <msg id="7542184259858670923"><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:13</source>Diplôme*</msg>
+  <msg id="1965374328742603010" desc="Ex : License en économie"><source>app/profile/profile-edit-school-modal/profile-edit-school-modal.component.ts:14</source>Ex : License en économie</msg>
+</messagebundle>

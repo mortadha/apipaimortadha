@@ -1,0 +1,25 @@
+<div class="company-card-container card-container">
+
+  <div class="company-infos-container infos-container">
+    <div class="company-pp-container pp-container">
+      <a routerLink="profile/{{ company.id }}"><img [src]="company.companyLogo.url" *ngIf="hasPicture()" class="company-pp pp" /> </a>
+      <a routerLink="profile/{{ company.id }}"><img src="/assets/img/blank_cc.svg" *ngIf="!hasPicture()" class="company-pp pp" /> </a>
+    </div>
+    <div class="company-name card-name"><a routerLink="profile/{{ company.id }}">{{ company.name.slice(0, 32) }} </a></div>
+    <div class="company-role card-role">{{ company.street }}</div>
+    <div class="company-location card-location">{{ company.city }}</div>
+  </div>
+
+  <div class="availability-container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="availability-dates availability-free">{{ freelanceText() }}</div>
+      </div>
+      <div class="col-md-6" *ngIf="activeFreelanceNumber !== 0">
+        <div class="free-mission">
+          <img class="pp" [src]="picture" *ngFor="let picture of freelancePictures" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="contact-card card-container">
+    <div class="infos-container">
+        <div class="card-profil d-flex justify-content-between">
+            <div class="pp-container">
+                <img [src]="mission.freelance.account.profilePicture.url" *ngIf="hasProfilePicture()" class="pp" />
+                <img src="/assets/img/blank_pp.svg" *ngIf="!hasProfilePicture()" class="pp" />
+            </div>
+        </div>
+
+        <div class="identity card-name" (click)="seeDetails()">
+            {{ mission.freelance.account.lastName }} {{ mission.freelance.account.firstName }}
+        </div>
+        <div class="card-role">
+            {{ mission.need.companyTitle}}
+        </div>
+        <div class="card-phone">
+            {{ mission.start | date:'dd/MM/yyy'}} - {{ mission.end | date:'dd/MM/yyy'}}
+        </div>
+    </div>
+</div>

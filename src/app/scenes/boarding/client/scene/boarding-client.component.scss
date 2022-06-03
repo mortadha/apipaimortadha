@@ -1,0 +1,102 @@
+@import "boarding";
+.bloc-container {
+    background: $whiteGrey;
+    margin-bottom: 35px;
+    display: grid;
+    text-align: left;
+    .data-block {
+        @include datablock;
+        input[type="number"] {
+            width: 28%;
+            text-align: right;
+        }
+        .action-buttons {
+            margin-top: 20px;
+        }
+    }
+    .data-block-none {
+        display: flex;
+        justify-content: space-between;
+        .sm-container {
+            span {
+                color: $charcoalGrey;
+                font-weight: 300;
+                font-size: 22px;
+                margin-left: 10px;
+            }
+            select {
+                width: 120px;
+                margin: 0 0 0 10px;
+            }
+        }
+    }
+    .counter {
+        color: $slateGrey;
+        font-size: 0.7rem;
+    }
+    label {
+        font-weight: normal;
+        display: block;
+        color: rgba($slateGrey, 0.57);
+        font-size: 11px;
+        text-transform: uppercase;
+        text-align: left;
+        letter-spacing: 2px;
+        &.label {
+            color: $primaryColors;
+            font-size: 15px;
+            margin-bottom: 5px;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+    }
+    h5 {
+        font-weight: 200;
+        font-size: 1.2em;
+        margin-top: 1em;
+        color: $primaryColors;
+    }
+    .h6 {
+        font-style: italic;
+        font-size: 0.8em;
+        text-transform: none;
+        font-weight: normal;
+        letter-spacing: normal;
+        margin-top: 1em;
+        text-align: right;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        li {
+            margin-bottom: 10px;
+            i {
+                background-color: $secondaryColors;
+                color: $primaryColors;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 40px;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.modal-footer {
+    border-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.mentions {
+    ul {
+        color: $slateGrey;
+        a {
+            color: $secondaryColors !important;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<!-- certifications listing start -->
+<div class="profile-experiences-container">
+    <h6>Certifications</h6>
+    <div *ngIf="freelance">
+        <div class="empty-block" *ngIf="user.type !== 'Company' && freelance.certifications && freelance.certifications.length === 0" (click)="addNewCertification()">
+            <button class="add"></button> &nbsp; <span i18n>Ajouter une certification</span>
+        </div>
+        <button *ngIf="user.type !== 'Company' && freelance.certifications && freelance.certifications.length > 0"
+            (click)="addNewCertification()" class="add main"></button>
+        <div class="language-wrapper" *ngFor="let certification of freelance.certifications; let i = index">
+            <app-profile-certification [certification]="certification"></app-profile-certification>
+        </div>
+    </div>
+</div>
+<!-- end certifications listing -->

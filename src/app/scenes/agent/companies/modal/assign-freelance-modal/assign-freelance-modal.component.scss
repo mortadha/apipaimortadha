@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'modal';
+@import 'button';
+
+.mat-dialog-content {
+    max-height: 85vh !important;
+}
+
+.assign-freelance {
+    .freelance {
+        font-weight: 300;
+    }
+
+    .freelance-toggle {
+        margin-top: 13px;
+    }
+
+    .search {
+        background: $silverGrey url("/assets/img/search_input_icon.svg") no-repeat left 20px center;
+        width: 100%;
+        padding: 10px 50px;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        margin-top: 20px;
+        padding: 0;
+    }
+}

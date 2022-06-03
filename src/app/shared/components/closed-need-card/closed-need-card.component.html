@@ -1,0 +1,62 @@
+<div class="freelance-mission-container card-container">
+  <div class="infos-container">
+    <div class="row">
+      <div class="col-md-12 mission-details-header">
+        <div class="mission-title card-name">
+          <a routerLink="/agent/besoins/{{need.id}}">{{ need.jobTitle }}</a>
+        </div>
+      </div>
+      <div class="col-md-12 mission-details">
+        <div class="row">
+          <div class="col-md-3">
+            <label>Expérience</label>
+            <div class="data">{{ need.experienceLevel }} ans</div>
+          </div>
+          <div class="col-md-3">
+            <label>Budget</label>
+            <div class="data" *ngIf="need.tjm > 0">{{ need.tjm }}€ / jour</div>
+            <div class="data" *ngIf="need.tjm === 0">Non renseigné</div>
+          </div>
+          <div class="col-md-3">
+            <label>Début</label>
+            <div class="data">
+              {{ need.availabilityDate | date:'MM/yyy' }}
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label>Durée</label>
+            <div class="data">{{ need.durationLast }}
+              <span *ngIf="need.durationType === durationType.Week">semaine(s)</span>
+              <span *ngIf="need.durationType === durationType.Month">mois</span>
+              <span *ngIf="need.durationType === durationType.Year">année(s)</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card-description-container">
+              <div class="mission-description card-description">
+                {{ need.description | truncate:600 }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 techs">
+            <label>Technos principales</label>
+            <span *ngFor="let skill of need.skills">
+              <img [src]=[skill.tech.techPictureMediaUrl] />
+            </span>
+          </div>
+          <div class="col-md-6">
+            <div class="action-buttons">
+              <label>&nbsp;</label>
+              <span *ngIf="need.status == 1" class="win light"> <i class="fas fa-check"></i> Gagné </span>
+              <span *ngIf="need.status == 2" class="lost light"> <i class="fas fa-times"></i> Perdu </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

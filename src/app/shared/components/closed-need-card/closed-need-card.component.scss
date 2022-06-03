@@ -1,0 +1,11 @@
+@import 'button';
+@import 'card';
+
+.card-container {
+  .infos-container {
+    .card-name {
+      margin-bottom: 28px;
+      margin-top: 0;
+    }
+  }
+}

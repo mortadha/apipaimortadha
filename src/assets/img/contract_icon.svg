@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="20px" viewBox="0 0 23 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="desktop/contrat-entreprises" transform="translate(-86.000000, -35.000000)">
+            <g id="Group-3-Copy" transform="translate(86.000000, 35.000000)">
+                <path d="M0.769230769,0 L14.7863248,0 C15.2111592,-7.80408174e-17 15.5555556,0.344396346 15.5555556,0.769230769 L15.5555556,15.6550481 L15.5555556,19.2307692 C15.5555556,19.6556037 15.2111592,20 14.7863248,20 L9.19053819,20 L0.769230769,20 C0.344396346,20 -9.47173511e-16,19.6556037 -9.99200722e-16,19.2307692 L1.11022302e-16,0.769230769 C5.89950908e-17,0.344396346 0.344396346,-9.21159905e-16 0.769230769,-9.99200722e-16 Z" id="Rectangle-19" fill="#302F3A"></path>
+                <path d="M10.224667,14 L15.8482666,14 L15.8482666,20 L9.4554362,20 L9.4554362,14.7692308 C9.4554362,14.3443963 9.79983254,14 10.224667,14 Z" id="Rectangle-15" fill="#FFFFFF"></path>
+                <rect id="Rectangle-3" fill="#FFFFFF" x="3.11111111" y="3.07692308" width="4.66666667" height="1"></rect>
+                <rect id="Rectangle-3-Copy" fill="#FFFFFF" x="3.11111111" y="6.15384615" width="9.33333333" height="1"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#FFFFFF" x="3.11111111" y="8.69230769" width="9.33333333" height="1"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#FFFFFF" x="3.11111111" y="11.2307692" width="9.33333333" height="1"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#FFFFFF" x="3.11111111" y="14.3846154" width="3.5" height="1"></rect>
+                <path d="M11.6581197,15.3846154 L15.5555556,15.3846154 L13.2222222,17.6923077 L10.8888889,20 L10.8888889,16.1538462 C10.8888889,15.7290117 11.2332852,15.3846154 11.6581197,15.3846154 Z" id="Rectangle-8" fill="#302F3A"></path>
+                <g id="Group-6" transform="translate(18.000000, 0.000000)">
+                    <polygon id="Rectangle-13" fill="#302F3A" points="0.111111111 0 2.44444444 0 2.44444444 13.0769231 1.29657661 14.769381 0.111111111 13.0769231"></polygon>
+                    <polyline id="Path-3" stroke="#302F3A" stroke-width="0.769230769" points="0.425564236 2.33548678 3.73263889 2.33548678 3.73263889 8.90029191"></polyline>
+                    <rect id="Rectangle-12" fill="#FFFFFF" x="0.111111111" y="1.53846154" width="2.33333333" height="1"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

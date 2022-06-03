@@ -1,0 +1,9 @@
+@import "boarding";
+.mentions {
+    ul {
+        color: $slateGrey;
+        a {
+            color: $secondaryColors !important;
+        }
+    }
+}

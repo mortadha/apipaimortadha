@@ -1,0 +1,214 @@
+@import 'scene';
+@import 'variables';
+@import 'schedule';
+.mission-data-container {
+    // width: 300px;
+    flex-shrink: 0;
+    background: #fff;
+    align-self: flex-start;
+    hr {
+        opacity: 0.5;
+    }
+    .logo,
+    .pp {
+        width: 66px;
+        height: 66px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+    }
+    .mission-title {
+        font-weight: 400;
+        color: $primaryColors;
+        font-size: 22px;
+    }
+    .client-title {
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .mission-client {
+        font-weight: 600;
+        color: $slateGrey;
+        font-size: 14px;
+    }
+    button.details {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border-radius: 3px;
+        border: 1px solid $silverGrey;
+        background: #fff;
+        margin-top: 10px;
+        padding: 9px 16px;
+        font-weight: 600;
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+    .card-tjm {
+        margin-top: 20px;
+    }
+    .mission-date {
+        color: $primaryColors;
+        font-size: 14px;
+    }
+    .card-tjm,
+    .start-container,
+    .end-container {
+        label {
+            display: block;
+            color: $slateGrey;
+            letter-spacing: 2px;
+            font-weight: 800;
+            opacity: 0.57;
+            text-transform: uppercase;
+            font-size: 10px;
+            margin-bottom: 3px;
+        }
+    }
+    .download-contract-container {
+        color: $charcoalGrey;
+        font-weight: 400;
+        font-size: 14px;
+        padding-top: 15px;
+        display: block;
+        .menu {
+            float: right;
+            margin-top: 3px;
+        }
+    }
+    label.docs {
+        width: 100%;
+        .upload-docs {
+            border: 1px dashed $charcoalGrey;
+            opacity: 0.5;
+            border-radius: 3px;
+            padding: 18px;
+            font-size: 11px;
+            text-align: center;
+            margin-top: 27px;
+            cursor: pointer;
+            p {
+                text-transform: uppercase;
+                margin-bottom: 4px;
+                letter-spacing: 2px;
+            }
+            span {
+                text-transform: inherit;
+                color: $charcoalGrey;
+                span {
+                    text-decoration: underline;
+                }
+            }
+        }
+        #inputGroupFile {
+            display: none;
+        }
+    }
+}
+
+.mission-infos-wrapper {
+    padding: 25px 25px 40px 25px;
+    .details.link {
+        color: $secondaryColors;
+        cursor: pointer;
+        margin-top: .3em;
+        margin-right: 1em;
+        display: inline-block;
+        &:hover {
+            color: $primaryColors;
+        }
+    }
+}
+
+.mission-bills {
+    padding: 25px 25px 40px 25px;
+    background: $charcoalGrey;
+    .title {
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 22px;
+    }
+    .bills-menu {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        font-size: 11px;
+        list-style-type: none;
+        margin: 30px 0;
+        padding: 0;
+        flex-wrap: wrap;
+        li {
+            // margin: 0 13px;
+            color: #ffffff;
+            opacity: 0.4;
+            padding-bottom: 4px;
+            cursor: pointer;
+            &.active {
+                color: $secondaryColors;
+                opacity: 1;
+                border-bottom: 1px solid $secondaryColors;
+            }
+        }
+    }
+    .bills-listing {
+        width: 100%;
+        font-size: 13px;
+        border-top: 1px solid rgba(255, 255, 255, .11);
+        .bill-infos {
+            // display: flex;
+            // justify-content: space-between;
+            // flex-wrap: wrap;
+            // .bill-name,
+            // .bill-ddl {
+            //   margin-bottom: 3px;
+            // }
+            .bill-price {}
+            .bill-date {
+                font-size: 12px;
+                opacity: 0.45;
+                font-weight: 600;
+                clear: both;
+            }
+            .bill-name {
+                border-bottom: 1px solid rgba(255, 255, 255, .11);
+                padding-bottom: 10px;
+                padding-top: 10px;
+                justify-content: space-between;
+                align-items: center;
+                a {
+                    color: #fff;
+                    &:hover {
+                        color: $secondaryColors;
+                    }
+                }
+            }
+        }
+    }
+    a {
+        color: $secondaryColors;
+        font-size: 13px;
+        cursor: pointer;
+    }
+}
+
+.alert {
+    padding: 5px 0;
+}
+
+.alert-red {
+    color: $strawBerry;
+}
+
+.alert-green {
+    color: $greenFree;
+}
+
+.alert-orange {
+    color: $orangeFree;
+}
+
+.alert-grey {
+    color: $silverGrey;
+}

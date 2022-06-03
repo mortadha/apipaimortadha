@@ -1,0 +1,10 @@
+@import 'scene';
+@import 'card';
+@import 'button';
+@import 'input';
+@import 'variables';
+.card-container {
+    .infos-container {
+        min-height: 170px;
+    }
+}

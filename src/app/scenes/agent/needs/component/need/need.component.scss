@@ -1,0 +1,57 @@
+@import 'button';
+@import 'card';
+@import 'variables';
+.card-container {
+    .infos-container {
+        min-height: 275px;
+        .need-origin {
+            text-align: right;
+            text-transform: uppercase;
+            font-size: .7em;
+            font-style: italic;
+            color: $sunglow;
+            font-weight: 600;
+            span {
+                margin-left: 5px;
+                &.consort {
+                    color: $grenadier;
+                }
+                &.boarding {
+                    color: $scampi;
+                }
+                .fas {
+                    padding: 0;
+                }
+            }
+        }
+        .card-name {
+            margin-bottom: 0;
+        }
+        .mission-description {
+            color: $charcoalGrey;
+            font-size: 14px;
+            line-height: 22px;
+            padding-top: 24px;
+            margin-bottom: 30px;
+            word-wrap: break-word;
+        }
+        label {
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 11px;
+            color: $slateGrey;
+            opacity: 0.57;
+            margin-bottom: 6px;
+        }
+        .action-buttons {
+            margin-top: 0;
+            .light {
+                margin-bottom: 10px;
+            }
+            .dark {
+                margin-right: 0;
+            }
+        }
+    }
+}

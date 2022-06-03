@@ -1,0 +1,119 @@
+.mydrp .currmonth {
+  background-color: white !important;
+}
+
+.mydrp .range .datevalue,
+.mydrp .range .datevalue .currmonth {
+  background-color: #D9D9E2 !important;
+}
+
+.mydrp .range.currmonth.active {
+  background-color: #1c1e52 !important;
+  color: white !important;
+}
+
+.mydrp .datevalue {
+  height: 28px;
+  padding-top: 5px;
+}
+
+.mydrp .datevalue.selecteddaybegin,
+.mydrp .datevalue.selecteddayend {
+  background-color: #1c1e52 !important;
+  color: white !important;
+}
+
+.mydrp .daycell {
+  font-size: 14px !important;
+  color: #302f3a !important;
+  padding: 0 !important;
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.mydrp tr .weekdaytitle {
+  margin-top: 30px;
+}
+
+.mydrp .headerclearbtn, .mydrp .headerokbtn,
+.mydrp .header td:nth-child(3) {
+  display: none;
+}
+
+.mydrp .titlearea {
+  display: none;
+}
+
+.headerlabelbtn {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.71;
+  color: #302f3a;
+  position: absolute;
+  left: 45px;
+  top: 26px;
+}
+
+.mydrp .caltable {
+  margin: 10%;
+  width: 80% !important;
+  height: calc(100% - 100px) !important;
+}
+
+.mydrp {
+  width: 411px !important;
+  border: none !important;
+}
+
+.mydrp input {
+  height: 78px !important;
+}
+
+.mydrp .selector {
+  width: 411px !important;
+  height: 400px !important;
+  box-shadow: 0 2px 14px 0 rgba(0,0,0,0.16);
+}
+
+.mydrp tr .weekdaytitle:first-letter {
+  display: none !important;
+}
+
+.mydrp .mydrpicon.icon-mydrpleft,
+.mydrp .mydrpicon.icon-mydrpright {
+  width: 28px;
+  height: 28px;
+  color: transparent;
+}
+
+.mydrp .mydrpicon.icon-mydrpleft {
+  background-image: url('../img/datepicker-prev.svg');
+  position: absolute;
+  right: 85px;
+  margin-top: 5px;
+}
+
+.mydrp .mydrpicon.icon-mydrpright {
+  background-image: url('../img/datepicker-next.svg');
+  position: absolute;
+  right: 45px;
+  margin-top: 5px;
+}
+
+.mydrp .mydrpicon.icon-mydrpleft:hover,
+.mydrp .mydrpicon.icon-mydrpright:hover {
+  color: transparent;
+}
+
+.mydrp .selectorarrow:before {
+  border-bottom-color: transparent !important;
+  border-width: 0 !important;
+  position: relative !important;
+}
+
+.mydrp .selectorarrow {
+  border: none !important;
+}
+
+.mydrp .weekdaytitle {
+  display: none !important;
+}

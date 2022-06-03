@@ -1,0 +1,111 @@
+<div class="calendar-container" id="calendar">
+    <div class="calendar-header justify-content-between align-items-center">
+        <div id="mission-date">
+            <select class="form-control" [ngModel]="interactor.selectedMonthIndex" (ngModelChange)="onMonthChange($event)">
+                <option class="first-month" i18n [ngValue]="month.value" *ngFor="let month of craMonths">
+                    {{ month.title | date:'LLLL yyyy' }}</option>
+            </select>
+        </div>
+
+        <div class="all-month form-check" *ngIf="userService.isFreelance() === true && (currCra?.status === craType.notConfirmed || currCra?.status === craType.refusedByCompany)">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="select" id="allmonth" (click)="switchAllDays($event)">
+            <label class="form-check-label" for="allmonth">Sélectionner tout le mois</label>
+        </div>
+    </div>
+    <div class="calendar-statut">
+        <div class="alert {{ statusColor() }}" *ngIf="userService.isFreelance() === true">
+            <div class="validate-wait">
+                <div i18n *ngIf="currCra?.status === craType.notConfirmed">En attente de votre validation</div>
+                <div i18n *ngIf="currCra?.status === craType.refusedByCompany">Votre cra a été refusé par l'entreprise :</div>
+                <div i18n *ngIf="currCra?.status === craType.confirmedByFreelance">En attente de la validation de l'entreprise</div>
+                <div i18n *ngIf="currCra?.status === craType.confirmedByCompany">En attente de la signature de l'entreprise</div>
+                <div i18n *ngIf="currCra?.status === craType.signedByCompany">En attente de votre signature</div>
+                <div i18n *ngIf="currCra?.status === craType.signedByFreelance">Le CRA est validé</div>
+                <span class="msg" *ngIf="currCra.status === craType.refusedByCompany">{{currCra.refuseDescription}} </span>
+            </div>
+
+            <div class="wrapper-button">
+                <div class="d-flex">
+                    <button class="validate-month alert-link" i18n (click)="validateMonth()" *ngIf="currCra?.status === craType.notConfirmed || currCra?.status === craType.refusedByCompany">Valider le mois</button>
+                    <div class="light validate-month-stat ml-2" *ngIf="currCra?.status === craType.refusedByCompany"><i class="fas fa-times"></i> Refusé</div>
+                </div>
+                <div class="light validate-month-stat" *ngIf="currCra?.status === craType.confirmedByCompany || currCra?.status === craType.confirmedByFreelance"><i class="fas fa-check"></i> Validé</div>
+                <button class="light alert-valid validate-month-stat" i18n (click)="signCra()" *ngIf="currCra?.status === craType.signedByCompany">Signer le CRA</button>
+                <div class="light validate-month-stat" *ngIf="currCra?.status === craType.signedByFreelance"><i class="fas fa-check"></i> Signé</div>
+            </div>
+
+        </div>
+
+        <div class="alert {{ statusColor() }}" *ngIf="userService.isAgent() === true">
+            <div class="validate-wait">
+                <div i18n *ngIf="currCra?.status === craType.notConfirmed">En attente de la validation du freelance</div>
+                <div i18n *ngIf="currCra?.status === craType.refusedByCompany">Le cra fut refusé par l'entreprise</div>
+                <div i18n *ngIf="currCra?.status === craType.confirmedByFreelance">En attente de la validation de l'entreprise</div>
+                <div i18n *ngIf="currCra?.status === craType.confirmedByCompany">En attente de la signature de l'entreprise</div>
+                <div i18n *ngIf="currCra?.status === craType.signedByCompany">En attente de la signature du freelance</div>
+                <div i18n *ngIf="currCra?.status === craType.signedByFreelance">Le cra est signé par les deux parties</div>
+            </div>
+            <div class="wrapper-button">
+                <div class="light validate-month-stat" *ngIf="currCra?.status === craType.confirmedByCompany"><i class="fas fa-check"></i> Validé</div>
+                <div class="light validate-month-stat" *ngIf="currCra?.status === craType.signedByFreelance"><i class="fas fa-check"></i> Signé</div>
+                <div class="light validate-month-stat" *ngIf="currCra?.status === craType.refusedByCompany"><i class="fas fa-check"></i> Refusé</div>
+            </div>
+        </div>
+
+        <div class="alert {{ statusColor() }}" *ngIf="userService.isClient() === true">
+            <div class="validate-wait">
+                <div *ngIf="currCra?.status === craType.notConfirmed" i18n>En attente de la validation du Freelance</div>
+                <div *ngIf="currCra?.status === craType.confirmedByFreelance" i18n>En attente de votre validation</div>
+                <div *ngIf="currCra?.status === craType.confirmedByCompany" i18n>En attente de votre signature</div>
+                <div *ngIf="currCra?.status === craType.signedByCompany" i18n>Vous avez signé le cra. En attente de la signature du Freelance</div>
+                <div *ngIf="currCra?.status === craType.signedByFreelance">Le CRA est validé</div>
+                <div *ngIf="currCra?.status === craType.refusedByCompany" i18n>Vous avez refusé le cra</div>
+            </div>
+
+            <div class="wrapper-button">
+                <div *ngIf="currCra?.status === craType.notConfirmed || currCra?.status === craType.confirmedByFreelance">
+                    <button class="light validate-month mr-2 alert-link" [attr.disabled]="currCra?.status !== craType.confirmedByFreelance ? '' : null" i18n (click)="refuseModal()">Refuser</button>
+                    <button class="light validate-month alert-link" [attr.disabled]="currCra?.status !== craType.confirmedByFreelance ? '' : null" i18n (click)="acceptCra()">Valider</button>
+                </div>
+                <div class="light validate-month-stat alert-link" *ngIf="currCra?.status === craType.signedByCompany || currCra?.status === craType.signedByFreelance"><i class="fas fa-check"></i> Signé</div>
+                <div class="light validate-month-stat" *ngIf="currCra?.status === craType.refusedByCompany"><i class="fas fa-check"></i> Refusé</div>
+                <button class="light validate-month-stat alert-link" i18n (click)="signCra()" *ngIf="currCra?.status === craType.confirmedByCompany">Signer le CRA</button>
+            </div>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let day of days">{{ day }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let calendarRow of calendarRows; let i = index">
+                <th *ngFor="let dayNum of (currMonthNums ? currMonthNums.slice((i * 7), ((i + 1) * 7)): []);" class="{{ dayNum.day }}" [class.half-day]="dayNum.halfDay === true" [class.disabled]="dayNum.status === craDayType.disabled" [class.selected]="dayNum.status === craDayType.confirmedByFreelance"
+                    [class.locked]="dayNum.status === craDayType.locked" [class.confirmed-by-company]="dayNum.status === craDayType.confirmedByCompany" [class.declined]="dayNum.status === craDayType.refusedByCompany" [class.signed]="currCra.status === craType.signedByCompany && dayNum.status === craDayType.confirmedByCompany"
+                    [class.validated]="currCra.status === craType.signedByFreelance && dayNum.status === craDayType.confirmedByCompany" (click)="onClick($event, dayNum)">
+                    <div>
+                        <div class="half-day-top">
+                            &nbsp;
+                        </div>
+                        <div class="half-day-bot">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div class="half-day-fill" *ngIf="dayNum.halfDay === true">
+                        <div class="cancel-bot" (click)="suppOneDay($event, dayNum)" *ngIf="userService.isFreelance() === true"><i class="far fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <div class="day">{{ dayNum.day }}</div>
+                    <div class="cancel" *ngIf="dayNum.status === craDayType.confirmedByFreelance && dayNum.halfDay === false && userService.isFreelance()" (click)="suppOneDay($event, dayNum)"><i class="far fa-times-circle"></i></div>
+
+                    <!-- <div class="cancel day" *ngIf="dayNum.status === 3" (click)="suppOneDay(dayNum)">
+                        <i class="far fa-times-circle"></i>
+                    </div> -->
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-confirm-popover [popoverTop]="popoverTop" [popoverLeft]="popoverLeft" [firstDate]="firstDay" [lastDate]="lastDay" [isPopoverToConfirm]="showConfirmPopover" (datesConfirmed)="validateDays($event)" *ngIf="showPopover">
+</app-confirm-popover>

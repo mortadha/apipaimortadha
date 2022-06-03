@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'modal';
+@import 'button';
+@import 'card';
+
+textarea{
+    height: 170px !important;
+}
+
+.counter {
+    color: slateGrey;
+    font-size: 0.7rem;
+}

@@ -1,0 +1,58 @@
+@import "button";
+
+.profile-school-container {
+  padding-bottom: 40px;
+  padding-top: 40px;
+
+  .company-logo-container {
+    width: 13%;
+    float: left;
+    padding-left: 15px;
+    display: none;
+
+    img {
+      width: 76px;
+      height: 76px;
+    }
+  }
+
+
+  .experience-description {
+    width: 80%;
+    float: left;
+    padding-left: 15px;
+
+
+    .experience-date {
+      font-size: 14px;
+      line-height: 1.57;
+      color: $slateGrey;
+    }
+
+    .experience-title {
+      font-size: 22px;
+      color: $primaryColors;
+      font-weight: 600;
+    }
+
+    .company-title {
+      font-size: 14px;
+      line-height: 1.57;
+      color: $primaryColors;
+    }
+
+    .experience-details {
+      font-size: 15px;
+      line-height: 1.6;
+      color: $primaryColors;
+    }
+  }
+
+  .school-edit {
+    width: 5%;
+    text-align: right;
+    float: left;
+    position: absolute;
+    right: 20px;
+  }
+}

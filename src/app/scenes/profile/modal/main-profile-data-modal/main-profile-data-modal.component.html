@@ -1,0 +1,73 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="edit-profile-main-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Coordonnées personnelles</h4>
+        <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="data-block" id="user-infos-container">
+            <div class="user-identity-container row">
+              <div class="profile-picture-container col-md-2">
+                <img [src]="freelance.account.profilePicture.url"
+                     *ngIf="user.type !== accountType.Company && freelance.account && freelance.account.profilePicture && freelance.account.profilePicture.url"/>
+                <img src="/assets/img/blank_pp.svg"
+                     *ngIf="user.type !== accountType.Company && freelance.account && (!freelance.account.profilePicture || !freelance.account.profilePicture.url)"/>
+            </div>
+            <div class="surname-container col-md-4">
+              <label for="account-firstName"><span i18n>Prénom</span>*</label>
+              <input id="account-firstName" class="no-border" type="text" i18n-placeholder="Prénom..."
+              placeholder="Prénom..." [(ngModel)]="freelance.account.firstName" name="account-firstName"/>
+            </div>
+            <div class="name-container col-md-5">
+              <label for="account-lastName">Nom*</label>
+              <input id="account-lastName" class="no-border" type="text" i18n-placeholder="Nom..."
+                placeholder="Nom..." [(ngModel)]="freelance.account.lastName" name="account-lastName"/>
+            </div>
+          </div>
+        </div>
+        <div class="data-block">
+          <label for="freelance-street" i18n>Adresse</label>
+          <input id="freelance-street" class="no-border" type="text" i18n-placeholder="Adresse..."
+            placeholder="Adresse..." [(ngModel)]="freelance.street"/>
+        </div>
+
+        <div class="data-block-none row">
+          <div class="col-md-4 pr-md-1">
+            <div class="data-block sm-container">
+              <label for="freelance-zipcode" i18n>Code Postal</label>
+              <input id="freelance-zipcode" class="no-border" type="text" i18n-placeholder="Code postal ..." placeholder="Code postal ..." [(ngModel)]="freelance.zipcode"/>
+            </div>
+          </div>
+          <div class="col-md-8 pl-md-2">
+            <div class="data-block md-container">
+              <label for="freelance-city" i18n>Ville</label>
+              <input id="freelance-city" class="no-border" type="text" i18n-placeholder="Ville..."
+                placeholder="Ville..." [(ngModel)]="freelance.city"/>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="data-block">
+          <div class="sm-container">
+            <label for="account-email" i18n>Email</label>
+            <input id="account-email" class="no-border" type="email" placeholder="Email..."
+              [(ngModel)]="freelance.account.email"/>
+          </div>
+        </div>
+        <div class="data-block">
+          <div class="sm-container">
+            <label for="account-phone" i18n>Numéro de téléphone</label>
+            <input id="account-phone" class="no-border" type="tel" placeholder="Téléphone..."
+            [(ngModel)]="freelance.account.phone"/>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <span><sup>*</sup>Champs obligatoires</span>
+        <button type="button" i18n class="dark" (click)="submit()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

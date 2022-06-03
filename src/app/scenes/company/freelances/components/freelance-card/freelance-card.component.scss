@@ -1,0 +1,12 @@
+@import 'card';
+@import 'button';
+@import 'variables';
+
+.card-container {
+  .infos-container {
+    min-height: 315px;
+  }
+  button.contact {
+    border-color: $silverGrey;
+  }
+}

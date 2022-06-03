@@ -1,0 +1,471 @@
+@import 'button.scss';
+@import 'variables.scss';
+.card-container {
+    background: #fff;
+    margin-bottom: 20px;
+    position: relative;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    top: 0;
+    &:hover {
+        box-shadow: 0 2px 14px 0 rgba(6, 6, 15, 0.20);
+        top: -5px;
+    }
+    label {
+        display: block;
+    }
+    .more-button {
+        background: url("/assets/img/3_dots_vertical_menu.svg") no-repeat center center;
+        width: 15px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        // margin-top: 32px;
+        .mat-select-arrow-wrapper {
+            display: none;
+        }
+    }
+    .infos-container {
+        padding: 22px 20px;
+        min-height: 370px;
+        .card-details-header {
+            min-height: 65px;
+        }
+        .pp-container {
+            position: relative;
+            width: 66px;
+            .pp {
+                width: 66px;
+                height: 66px;
+                border-radius: 50%;
+            }
+            .availability {
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                border: solid 3px #fff;
+                background-color: $whiteGrey;
+                &.red {
+                    background-color: $redFree;
+                }
+                &.orange {
+                    background-color: $orangeFree;
+                }
+                &.green {
+                    background-color: $greenFree;
+                }
+            }
+        }
+        .pp {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+        }
+        .client-logo {
+            background-image: url("/assets/img/blank_cc.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            float: left;
+            margin-right: 19px;
+        }
+        .card-note {
+            flex-direction: column;
+        }
+        .completion-percentage {
+            color: $secondaryColors;
+            font-size: 28px;
+            text-align: right;
+            // position: absolute;
+            // top: 50px;
+            // right: 40px;
+        }
+        .percentage-label {
+            color: $slateGrey;
+            font-size: 11px;
+            font-weight: 300;
+            text-transform: uppercase;
+            // position: absolute;
+            // top: 90px;
+            // right: 40px;
+            letter-spacing: 1.5px;
+        }
+        .card-name {
+            font-size: 22px;
+            margin-top: .7em;
+            line-height: 1.2em;
+            a {
+                color: $primaryColors;
+            }
+        }
+        .mission-title {
+            margin-top: 0;
+            margin-bottom: 28px;
+        }
+        .client-title {
+            font-size: 14px;
+            color: $slateGrey;
+            letter-spacing: 0;
+            line-height: 22px;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+        .mission-infos {
+            font-size: 0.8em;
+            font-style: italic;
+            font-weight: 400;
+            color: lighten($slateGrey, 30%);
+        }
+        .card-email,
+        .card-location,
+        .card-phone,
+        .card-role {
+            color: $slateGrey;
+            font-size: 14px;
+            a {
+                color: $slateGrey;
+            }
+        }
+        .card-role {
+            margin-top: .6em;
+            font-style: italic;
+            font-size: 0.9em;
+            padding-bottom: .8em;
+            margin-bottom: .8em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .card-infos {
+            font-style: italic;
+            font-size: 0.8em;
+            color: $silverGrey;
+            flex-wrap: wrap;
+        }
+        .card-notes {
+            padding-top: .8em;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .alert {
+            width: 100%;
+            border-radius: 15px;
+            background: rgba(244, 39, 46, 0.1);
+            color: $strawBerry;
+            font-size: 11px;
+            padding: 6px 15px;
+            margin-top: 15px;
+            text-align: center;
+            &:after {
+                // content: '>'
+            }
+        }
+        .alert-find {
+            background: rgba($secondaryColors, 0.1);
+            color: darken($secondaryColors, 10%);
+            border-color: $secondaryColors;
+        }
+        .alert-green {
+            background: rgba($greenFree, 0.1);
+            color: darken($greenFree, 5%);
+            border-color: $greenFree;
+        }
+        .alert-orange {
+            background: rgba($orangeFree, 0.1);
+            color: darken($orangeFree, 5%);
+            border-color: $orangeFree;
+        }
+        .alert-red {
+            background: rgba($strawBerry, 0.1);
+            color: darken($strawBerry, 5%);
+            border-color: $strawBerry;
+        }
+        .alert-grey {
+            background: rgba($slateGrey, 0.1);
+            color: darken($slateGrey, 5%);
+            border-color: $slateGrey;
+        }
+        .card-techs,
+        .card-tjm,
+        .card-notes {
+            margin-top: 20px;
+            label {
+                letter-spacing: 2px;
+                font-size: 10px;
+                font-weight: 800;
+                color: $slateGrey;
+                text-transform: uppercase;
+                opacity: 0.57;
+                // display: inline-block;
+            }
+            .tjm {
+                color: $primaryColors;
+                font-size: 14px;
+                margin-top: -5px;
+            }
+        }
+        .card-email {
+            margin-top: 35px;
+            word-break: break-all;
+        }
+        .card-phone {
+            margin-top: 5px;
+        }
+        .card-content {
+            margin-top: 10px;
+        }
+        .card-details-footer {
+            margin-top: 10px;
+        }
+        /** Freelance Proposal Card */
+        .card-header-container {
+            display: flex;
+            justify-content: flex-end;
+            .initials {
+                font-size: 22px;
+                display: inline-block;
+                // margin-top: 15px;
+                margin-right: auto;
+                a {
+                    color: $primaryColors;
+                }
+            }
+            .first-letter {
+                width: 58px;
+                height: 58px;
+                padding-top: 12px;
+                text-align: center;
+                border-radius: 50%;
+                background-color: $quartzGrey;
+                float: right;
+                font-size: 22px;
+                a {
+                    color: $primaryColors;
+                }
+            }
+        }
+        .date-post,
+        .free-exp,
+        .localisation-post,
+        .start-mission {
+            font-style: italic;
+            color: $silverGrey;
+        }
+    }
+    .availability-container {
+        background-color: $charcoalGrey;
+        color: #fff;
+        padding: 14px 32px 20px;
+        min-height: 79px;
+        label {
+            letter-spacing: 1.82px;
+            font-weight: 800;
+            color: $silverGrey;
+            text-transform: uppercase;
+            font-size: 10px;
+            opacity: 0.5;
+            margin-bottom: 0;
+        }
+        .availability-dates {
+            color: #fff;
+            font-weight: 300;
+            font-size: 0.875rem;
+        }
+        .contact {
+            padding-top: 10px;
+            display: none;
+        }
+        button {
+            position: relative;
+            padding: 22px;
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+            color: #fff;
+            font-size: 24px;
+            padding: 5px 0;
+            background: none;
+            &.download {
+                // background: url('/assets/img/download_btn_availability.svg');
+            }
+            &.seemore {}
+            &:hover {
+                color: $secondaryColors;
+            }
+        }
+        .free-mission {
+            display: flex;
+            justify-content: flex-end;
+            img {
+                overflow: hidden;
+                border-radius: 50%;
+                border: 3px solid $charcoalGrey;
+                width: 44px;
+                height: 44px;
+                margin-left: calc(-10% - 4px);
+            }
+        }
+    }
+    .light {
+        background: $secondaryColors;
+        border: none;
+        &:hover {
+            color: #fff;
+            background: $primaryColors;
+        }
+    }
+}
+
+.card-container.desactivated {
+    background: rgba( $primaryColors, .3);
+    .infos-container,
+    .availability-container {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+}
+
+.overlay {
+    position: relative;
+    &::before {
+        width: 100%;
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        background-color: rgba($silverGrey, .75);
+        pointer-events: none;
+        z-index: 2;
+    }
+    .overlay-title {
+        color: $primaryColors;
+        text-align: center;
+        position: absolute;
+        height: 70px;
+        top: 50%;
+        margin: -35px 20px 0 20px;
+        // padding: 125px 25px;
+        z-index: 3;
+    }
+}
+
+.card-details,
+.mission-details {
+    label {
+        letter-spacing: 2px;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 11px;
+        color: $slateGrey;
+        opacity: 0.57;
+        margin-bottom: 6px;
+    }
+    .data {
+        color: $primaryColors;
+        font-size: 16px;
+    }
+    .action-buttons {
+        // margin-top: 25px;
+        margin-left: 15px;
+        p {
+            font-size: 10px;
+            text-align: left;
+            font-weight: 600;
+            padding: 5px 20px;
+            background-color: rgba(108, 108, 110, 0.1);
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -o-border-radius: 20px;
+            border-radius: 20px;
+            &.red {
+                color: $redFree;
+                background-color: rgba(244, 39, 46, 0.1);
+            }
+            &.green {
+                color: $greenFree;
+                background-color: rgba(143, 210, 70, 0.1);
+            }
+            img {
+                width: 9px;
+            }
+            span {}
+        }
+        button {
+            margin-right: 10px;
+        }
+    }
+}
+
+.mission-stat {
+    // margin-left: 80px;
+    // margin: 10px 0 20px 0;
+    p {
+        font-size: 10px;
+        text-align: left;
+        font-weight: 600;
+        padding: 5px 20px;
+        background-color: rgba(108, 108, 110, 0.1);
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -o-border-radius: 20px;
+        border-radius: 20px;
+        text-align: center;
+        &.red {
+            color: $redFree;
+            background-color: rgba(244, 39, 46, 0.1);
+        }
+        &.green {
+            color: $greenFree;
+            background-color: rgba(143, 210, 70, 0.1);
+        }
+        &.orange {
+            color: $orangeFree;
+            background-color: rgba(255, 165, 0, 0.1);
+        }
+        img {
+            width: 9px;
+            margin-right: 5px;
+        }
+        span {}
+    }
+    button {
+        margin-right: 10px;
+    }
+}
+
+.card-description-container {
+    position: relative;
+    .card-description {
+        color: $charcoalGrey;
+        font-size: 14px;
+        line-height: 22px;
+        padding-top: 24px;
+        margin-bottom: 30px;
+        word-wrap: break-word;
+    }
+    .card-overlay {
+        width: 100%;
+        height: 48px;
+        position: absolute;
+        bottom: 0;
+        background-image: url("/assets/img/freelance-mission-overlay.png");
+        background-size: cover;
+        cursor: pointer;
+    }
+}
+
+.techs {
+    label {
+        display: block;
+    }
+    img {
+        width: 26px;
+        height: 26px;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+}

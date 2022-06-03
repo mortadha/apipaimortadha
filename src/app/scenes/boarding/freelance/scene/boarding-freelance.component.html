@@ -1,0 +1,32 @@
+<div class="app-header-container">
+    <div class="container-fluid">
+        <div class="header">
+            <!-- <a class="navbar-brand" href="#"> -->
+            <img src="/assets/img/sidebar_logo_neadz.svg" class="logo mx-auto" />
+            <!-- </a> -->
+            <span class="singleline">Freelancing haut de gamme</span>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid main">
+    <div class="row justify-content-center rowboard">
+        <main class="col-lg-10" [@routeAnimations]="prepareRoute(outlet)">
+            <router-outlet #outlet="outlet" name="etape">
+            </router-outlet>
+        </main>
+    </div>
+</div>
+
+<div class="app-footer-container">
+    <div class="container-fluid">
+        <footer class="mentions text-center text-small footer mt-auto py-3">
+            <!-- <p class="mb-1">© 2017-2018 Company Name</p> -->
+            <ul class="list-inline">
+                <li class="list-inline-item">&copy; 2019 Neadz.</li>
+                <li class="list-inline-item"><a target="_blank" [routerLink]="['/legal']">CGU & CGV</a></li>-
+                <li class="list-inline-item"><a href="mailto:contact@neadz.it?subject=Demande d'informations">Contact</a></li>
+            </ul>
+        </footer>
+    </div>
+</div>

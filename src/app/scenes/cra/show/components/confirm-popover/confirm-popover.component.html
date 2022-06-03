@@ -1,0 +1,19 @@
+<div class="confirm-popover" [class.confirm]="isPopoverToConfirm" [ngStyle]="{'position': 'absolute', 'left': popoverLeft + 'px', 'top': popoverTop + 'px'}">
+  <div class="date-container">
+    <div class="day-container">
+      <div class="day-start">{{firstDate | date:'EEEE'}}</div>
+      <div class="day-num">{{firstDate | date:'dd'}} {{firstDate | date:'MMM' }}</div>
+      <div class="day-year">{{firstDate | date:'yyy'}}</div>
+    </div>
+    <div class="separator">-</div>
+    <div class="day-container">
+      <div class="day-start">{{lastDate | date:'EEEE'}}</div>
+      <div class="day-num">{{lastDate | date:'dd'}} {{lastDate | date:'MMM'}}</div>
+      <div class="day-year">{{firstDate |date:'yyy'}}</div>
+    </div>
+  </div>
+  <div class="buttons" *ngIf="isPopoverToConfirm">
+    <button class="light cancel" i18n (click)="cancelDates()">Annuler</button>
+      <button id="days-validator" class="dark validate" i18n (click)="confirmDates()">Valider</button>
+  </div>
+</div>

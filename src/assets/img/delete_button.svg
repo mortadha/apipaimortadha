@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Desktop/icon/delete</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop/cell-competence" transform="translate(0.000000, -13.000000)">
+            <g id="Desktop/icon/delete" transform="translate(0.000000, 13.000000)">
+                <rect id="Rectangle-7-Copy" stroke="#C6C6C9" stroke-width="1" x="0.5" y="0.5" width="27" height="27" rx="4"></rect>
+                <rect id="Rectangle" fill="#1C1E52" fill-rule="evenodd" transform="translate(14.000000, 14.000000) rotate(45.000000) translate(-14.000000, -14.000000) " x="13" y="8" width="2" height="12"></rect>
+                <rect id="Rectangle" fill="#1C1E52" fill-rule="evenodd" transform="translate(14.000000, 14.000000) scale(-1, 1) rotate(45.000000) translate(-14.000000, -14.000000) " x="13" y="8" width="2" height="12"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

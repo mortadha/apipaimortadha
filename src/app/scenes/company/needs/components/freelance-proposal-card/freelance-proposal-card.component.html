@@ -1,0 +1,205 @@
+<div class="card-container" [class.overlay]="isFreelancePreview()">
+  <div class="more-button animated fadeIn" *ngIf="isAgent() === true" (click)="openDropdown()">
+    <mat-select #statusSelector>
+
+      <mat-option value="option1">
+        <a (click)="updateStatus('freelance', freelanceStatus.NEW)">
+          Freelance Aucune réponse
+        </a>
+      </mat-option>
+
+      <mat-option value="option3">
+        <a (click)="updateStatus('company', companyStatus.NEW)">
+          Entreprise Aucune réponse
+        </a>
+      </mat-option>
+
+      <mat-option value="option1">
+        <a (click)="interestFreelance()">
+          Le freelance est intéressé
+        </a>
+      </mat-option>
+
+      <mat-option value="option3">
+        <a (click)="interest()">
+          L'entreprise est intéressé
+        </a>
+      </mat-option>
+
+      <mat-option value="option2">
+        <a (click)="notInterestFreelance()">
+          Le freelance n'est pas intéressé
+        </a>
+      </mat-option>
+
+      <mat-option value="option4">
+        <a (click)="notInterest()">
+          L'entreprise n'est pas intéressée
+        </a>
+      </mat-option>
+
+      <mat-option value="option7">
+        <a (click)="updateStatus('both', freelanceStatus.MEETING_PLANNED)">
+          Meeting planifié
+        </a>
+      </mat-option>
+
+      <mat-option value="option8">
+        <a (click)="updateStatus('both', freelanceStatus.MEETING_REALISED)">
+          Meeting réalisé
+        </a>
+      </mat-option>
+
+      <mat-option value="option5">
+        <a (click)="confirmFreelance()">
+          Accepté par le freelance
+        </a>
+      </mat-option>
+
+      <mat-option value="option5">
+        <a (click)="confirm()">
+          Accepté par l'entreprise
+        </a>
+      </mat-option>
+
+      <mat-option value="option5">
+        <a (click)="confirmNotFreelance()">
+          Refusé par le freelance
+        </a>
+      </mat-option>
+
+      <mat-option value="option5">
+        <a (click)="confirmNot()">
+          Refusé par l'entreprise
+        </a>
+      </mat-option>
+
+      <mat-option value="option5">
+        <a (click)="needValidated()">
+          Confirmé
+        </a>
+      </mat-option>
+
+    </mat-select>
+  </div>
+  <p class="overlay-title" *ngIf="isFreelancePreview()">
+    Neadz a trouvé une solution. Nous validons actuellement le freelance
+  </p>
+  <div class="freelance-proposal-card-container infos-container">
+    <div class="card-details-header">
+      <div class="freelance-proposal-header-container card-header-container">
+        <div class="initials">
+          {{ freelance.account.trigram }}
+        </div>
+      </div>
+      <div class="card-role">{{ freelance.headline }}</div>
+    </div>
+
+    <div class="row card-exp card-infos">
+      <div class="localisation-post col-md-6">
+        <span><i class="fas fa-map-marker-alt"></i> {{ freelance.city }}</span>
+      </div>
+      <div class="free-exp col-md-6" *ngIf="freelance.experienceLevel">
+        <span><i class="fas fa-graduation-cap"></i> {{ freelance.experienceLevel }} ans d'exp.</span>
+      </div>
+    </div>
+
+    <div class="card-content row">
+      <div class="mission-stat col-md-12"
+      *ngIf="isCompany() === true && shouldShowActionsButtons() === false">
+        <div class="alert alert-orange"
+        *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.NEW && freelanceNeed.companyStatus === companyStatus.INTERESTED">
+          <i class="fas fa-user"></i> En attente de retour du freelance
+        </div>
+        <div class="alert alert-green"
+        *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.INTERESTED && freelanceNeed.companyStatus === companyStatus.NEW">
+          <i class="fas fa-user"></i> Le freelance est intéressé pour une rencontre
+        </div>
+        <div class="alert alert-orange"
+        *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.INTERESTED && freelanceNeed.companyStatus === companyStatus.INTERESTED">
+          <i class="fas fa-calendar"></i> Planification en cours
+        </div>
+        <div class="alert alert-green"
+        *ngIf="freelanceNeed.companyStatus === companyStatus.MEETING_PLANNED">
+          <i class="fas fa-calendar"></i> Entretien plannifié
+        </div>
+        <div class="alert alert-orange"
+        *ngIf="freelanceNeed.companyStatus === companyStatus.ACCEPTED && freelanceNeed.freelanceStatus === freelanceStatus.MEETING_REALISED">
+          <i class="fas fa-user"></i> En attente de retour du freelance
+        </div>
+        <div class="alert alert-orange"
+        *ngIf="freelanceNeed.companyStatus === companyStatus.ACCEPTED && freelanceNeed.freelanceStatus === freelanceStatus.ACCEPTED">
+          <i class="fas fa-file-signature"></i> Proposition commerciale à venir
+        </div>
+        <div class="alert alert-red"
+        *ngIf="freelanceNeed.companyStatus === companyStatus.REFUSED || freelanceNeed.companyStatus === companyStatus.NOT_INTERESTED">
+          <i class="fas fa-times-circle"></i> Profil refusé
+        </div>
+        <div class="alert alert-red"
+        *ngIf="freelanceNeed.freelanceStatus === freelanceStatus.REFUSED">
+          <i class="fas fa-times-circle"></i> Opportunité refusé
+        </div>
+      </div>
+
+      <div class="col-md-12" *ngIf="isCompany() === true && isFreelancePreview() === false">
+        <div class="action-buttons"
+        *ngIf="freelanceNeed.freelanceStatus !== freelanceStatus.NOT_INTERESTED && freelanceNeed.companyStatus === companyStatus.NEW">
+          <p>Ce profil vous intéresse ?</p>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="light" (click)="notInterest()" i18n>Non</button>
+            </div>
+            <div class="col-md-6">
+              <button class="dark" (click)="interest()" i18n>Oui</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" *ngIf="isCompany() === true">
+        <div class="action-buttons"
+        *ngIf="freelanceNeed.freelanceStatus !== freelanceStatus.REFUSED && freelanceNeed.companyStatus === companyStatus.MEETING_REALISED">
+          <p>Validez-vous ce profil ?</p>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="light" (click)="confirmNot()" i18n>Non</button>
+            </div>
+            <div class="col-md-6">
+              <button class="dark" (click)="confirm()" i18n>Oui</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" *ngIf="isAgent() === true">
+        <p class="alert {{ freelanceNeedColor() }}" ngbTooltip="{{ freelanceNeed.freelanceReason }}">
+          <i class="fas fa-user"></i> {{ freelanceNeedStatus() }}
+        </p>
+        <p class="alert {{ companyNeedColor() }}" ngbTooltip="{{ freelanceNeed.companyReason }}">
+          <i class="fas fa-building"></i> {{ companyNeedStatus() }}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="availability-container">
+    <div class="row">
+      <div class="card-tjm col-md-8" *ngIf="freelanceNeed.tjmProposal">
+        <label i18n>Tjm</label>
+        {{ freelanceNeed.tjmProposal }}€ / jour
+      </div>
+      <div class="col-md-2">
+        <a [href]=[redirectLink()] target="_blank"><button class="seemore" title="voir le profil">
+          <i class="fas fa-search"></i></button>
+        </a>
+      </div>
+      <div class="col-md-2">
+        <button class="download" title="télécharger le dossier de compétences"
+        (click)="isFreelancePreview() === false && downloadPdf()">
+        <i class="fas fa-download"></i>
+      </button>
+      </div>
+    </div>
+  </div>
+</div>

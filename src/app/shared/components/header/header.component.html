@@ -1,0 +1,88 @@
+<div class="app-header-container">
+  <div class="container-fluid">
+
+  <div class="pos-f-t d-block d-md-none">
+    <div class="collapse menu-mobile" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-lg-0">
+        <li *ngFor="let item of items" [class.active]="item.isActive === true">
+          <a routerLink="{{ item.link }}">
+            <span i18n><i class="{{item.img}}"></i>&nbsp; {{ item.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <div class="col-md-9 ml-sm-auto col-lg-10 px-1" *ngIf="user">
+      <div class="header">
+        <nav class="navbar navbar-dark d-block d-md-none">
+          <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" (click)="navbarToggle()"></span>
+          </button>
+
+          <!-- <a class="navbar-brand" href="#"> -->
+            <img src="/assets/img/sidebar_logo_neadz.svg" width="50" class="logo mx-auto" />
+          <!-- </a> -->
+
+      </nav>
+
+        <div class="search-box-container d-none">
+          <img src="/assets/img/search_icon_big.svg" class="search-icon" />
+          <input type="text" placeholder="Rechercher une entreprise...">
+        </div>
+        <div class="user-infos" (clickOutside)="closeUserInfo()">
+          <div class="notifications-container">
+            <img src="/assets/img/notification_bell.svg" />
+          </div>
+          <div *ngIf="hasProfilePicture()">
+            <img (click)="isDropdownOpen=!isDropdownOpen" [src]="account.profilePicture.url" class="user-pp" />
+          </div>
+          <div *ngIf="!hasProfilePicture()">
+            <img src="/assets/img/blank_pp.svg" (click)="isDropdownOpen=!isDropdownOpen" class="user-pp" />
+          </div>
+          <div (click)="isDropdownOpen=!isDropdownOpen" class="user-identity">
+            <span>{{ account.firstName }} {{ account.lastName }}</span>
+            <img src="/assets/img/arrow_user_infos_header.svg" [class.upsidedown]="isDropdownOpen" class="arrow" />
+          </div>
+        </div>
+        <div class="user-dropdown-block row animated fadeIn" *ngIf="isDropdownOpen">
+          <div class="col-md-4">
+            <img [src]="account.profilePicture.url" *ngIf="hasProfilePicture()" class="user-pp" />
+            <img src="/assets/img/blank_pp.svg" *ngIf="!hasProfilePicture()" class="user-pp" />
+          </div>
+          <div class="col-md-8">
+            <div class="user-name">{{ account.firstName }} {{ account.lastName }}</div>
+            <div class="role-title" *ngIf="user.type === 'Freelance'">{{ freelance.headline }} </div>
+            <div *ngIf="user.type === 'Company'" class="role-title">{{ account.title }}</div>
+            <a routerLink="/freelance/profile" *ngIf="user.type === 'Freelance'">
+              <button class="show-profile" i18n>Voir mon profil</button>
+            </a>
+            <a (click)="edit()" *ngIf="user.type === 'Company'">
+              <button class="show-profile" i18n>Voir mon profil</button>
+            </a>
+          </div>
+          <div class="col-md-12">
+            <hr />
+          </div>
+          <div class="col-md-12">
+            <ul>
+                <li *ngIf="user.type === 'Agent'"><a (click)="agentProfile()">Paramètres du compte</a></li>
+              <!-- <li *ngIf="user.type === 'Freelance'"><a href="#">Paramètres du compte</a></li> -->
+              <!-- <li *ngIf="user.type === 'Freelance'"><a (click)="showDetails()">Coordonées personnelles</a></li> -->
+              <!-- <li *ngIf="user.type === 'Company'"><a routerLink='/entreprise/profile'>Paramètres</a></li> -->
+              <li><a (click)="logout()">Se déconnecter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loader-spinner" *ngIf="loaderService.isLoading | async">
+      {{spinner.show()}}
+      <ngx-spinner bdColor="rgba(0,0,0,0)" size="large" color="#1c1e52" type="ball-scale-multiple">
+        <!-- <p>Chargement...</p> -->
+      </ngx-spinner>
+    </div>
+
+  </div>
+</div>

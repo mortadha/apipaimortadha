@@ -1,0 +1,21 @@
+@import '../../scene/boarding-client.component.scss';
+
+.card-container {
+  text-align: center;
+
+  .infos-container {
+    padding: 20px 10px 0 10px;
+    min-height: 270px;
+
+    .pp-container {
+      position: inherit;
+      width: 160px;
+      margin: 0 auto;
+
+      .pp {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  }
+}

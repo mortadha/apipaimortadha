@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'modal';
+@import 'button';
+
+@media screen and (max-width: 440px) {
+  #startingDate, #endingDate {
+    width: 160px!important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #startingDate, #endingDate {
+    width: 140px!important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #startingDate, #endingDate {
+    width: 120px!important;
+  }
+}

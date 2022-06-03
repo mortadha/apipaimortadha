@@ -1,0 +1,52 @@
+@import 'variables';
+@import 'modal';
+@import 'button';
+
+.assign-freelance {
+  .freelance {
+    font-weight: 300;
+  }
+
+  .freelance-toggle {
+    margin-top: 13px;
+  }
+
+  .search {
+    background: $silverGrey url("/assets/img/search_input_icon.svg") no-repeat left 20px center;
+    width: 100%;
+    padding: 10px 50px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .modal-footer {
+    // position: absolute;
+    // left: 45%;
+    // border: none;
+    // margin-top: -90px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+
+    button {
+      padding: 15px 19px;
+    }
+  }
+
+  .card-list,
+  ul {
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+
+    .techs {
+      img {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+        margin-top: 5px;
+      }
+    }
+  }
+}

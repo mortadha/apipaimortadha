@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-companies-container app-container">
+                <div class="companies-header-container header-container">
+                    <div class="page-header" i18n>Entreprises</div>
+                    <div class="analytics-card">
+                        <div class="analytics">
+                            <div class="row">
+                                <div class="col-md-12 analytic">
+                                    <div class="num">{{ companies.length }}</div>
+                                    <span i18n>Au total</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-container my-4">
+                    <ul class="main-menu">
+                        <li [class.active]="activeTab === tabsType.client" data-target="#tabsType.client" (click)="selectTab(tabsType.client);">Clients</li>
+                        <li [class.active]="activeTab === tabsType.prospect" data-target="#tabsType.prospect" (click)="selectTab(tabsType.prospect);">Prospects</li>
+                    </ul>
+                </div>
+
+                <div class="search-box-container">
+                    <img src="/assets/img/search_icon_big.svg" class="search-icon" />
+                    <input type="text" [(ngModel)]="searchText" placeholder="Rechercher une entreprise..." (input)="searchTextChanged()">
+                    <div class="or">
+                        ou
+                    </div>
+                    <button (click)="createNewCompany()">Ajouter une entreprise</button>
+                </div>
+
+                <div class="row card-list companies-list">
+                    <div class="col-md-6 col-lg-3" *ngFor="let company of companies">
+                        <app-company-card [company]="company"></app-company-card>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>
+<router-outlet name="modal"></router-outlet>

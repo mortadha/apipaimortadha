@@ -1,0 +1,42 @@
+<mat-dialog-content>
+  <div *ngIf="!isConfirmed">
+      <div class="modal-content">
+          <div class="confirm-month-modal">
+          <div class="modal-header">
+            <h4 class="modal-title" i18n>{{data.titreConfirmation}}</h4>
+            <button mat-button
+            (click)="close(false)"
+            class="close"
+            aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              {{data.textConfirmation}}
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="light" (click)="close(false)" i18n>{{data.buttonCancel}}</button>
+          <button class="dark" (click)="confirmation()" i18n>{{data.buttonConfirm}}</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isConfirmed">
+      <div class="modal-content">
+        <div class="confirm-month-modal">
+        <div class="modal-header">
+          <h4 class="modal-title" i18n>{{data.titreSuccess}}</h4>
+          <button mat-button
+          (click)="close(true)"
+          class="close"
+          aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            {{data.textSuccess}}
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button class="dark"  (click)="closeReasonModal()" i18n>Ok</button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

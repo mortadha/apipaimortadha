@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-freelance-container app-container">
+                <div class="freelance-header-container header-container">
+                    <div class="page-header" i18n>Missions</div>
+                    <div class="analytics-card">
+                        <app-stats-counter [stats]='stats'></app-stats-counter>
+                    </div>
+                </div>
+                <div class="menu-container my-4">
+                  <ul class="main-menu">
+                      <li [class.active]="activeTab === tabsType.inProgress" data-target="#tabsType.inProgress" (click)="selectTab(tabsType.inProgress);">En cours</li>
+                      <li [class.active]="activeTab === tabsType.finished" data-target="#tabsType.finished" (click)="selectTab(tabsType.finished);">Terminées</li>
+                  </ul>
+                </div>
+
+                <!-- --> <div class="search-box-container">
+                    <img src="/assets/img/search_icon_big.svg" class="search-icon" />
+                    <input autocomplete="off" type="text"
+                      placeholder="Rechercher une mission" (input)="searchMission($event)" >
+                </div> <!-- -->
+
+                <!-- <div class="mt-5 d-flex justify-content-center" *ngIf="search">
+                    Votre recherche a donné :
+                        {{ total }}
+                     résultat(s)
+                </div> -->
+
+                <div class="row card-list freelance-list">
+                    <!-- infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" -->
+                    <div class="col-md-6 col-lg-3" *ngFor="let mission of missions">
+                        <app-mission [mission]="mission"></app-mission>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>

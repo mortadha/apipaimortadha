@@ -1,0 +1,209 @@
+@import 'variables';
+@import 'button';
+@import 'card';
+
+/* Customize the label (the container) */
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border: 1px solid $silverGrey;
+    border-radius: 3px;
+    margin-top: 15px;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.container input:checked~.checkmark {
+    background-color: $primaryColors;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.container .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.card-container {
+    .infos-container {
+        min-height: 425px;
+        padding: 20px;
+        .card-details-header {
+            min-height: 95px;
+        }
+        .card-name {
+            font-size: 18px;
+            margin-top: 10px;
+            color: $primaryColors;
+        }
+        .card-role {
+            margin-top: 5px;
+        }
+        .card-exp {
+            font-size: 0.8em;
+            margin-top: 20px;
+        }
+        .card-dispo {
+            margin-top: 25px;
+        }
+        .card-tjm {
+            margin-top: 15px;
+        }
+        .action-buttons {
+            margin-top: 20px;
+        }
+    }
+}
+
+.freelance {
+    background: #fff;
+    min-height: 100px;
+    margin-bottom: 10px;
+    padding: 30px 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition-property: all;
+    transition-duration: 250ms;
+    overflow: hidden;
+    label {
+        display: block;
+    }
+    &.open {
+        height: 200px;
+    }
+    .techs {
+        img {
+            width: 28px;
+            height: 28px;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+    }
+    &:hover {
+        box-shadow: 0 2px 14px 0 rgba(6, 6, 15, 0.20);
+    }
+    .profile-picture-container {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        img {
+            width: 100%;
+        }
+    }
+    label {
+        color: $slateGrey;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        opacity: 0.57;
+    }
+    .checkbox-container {
+        label {
+            opacity: 1;
+        }
+    }
+    .card-email,
+    .card-location,
+    .card-phone,
+    .card-role {
+        color: $slateGrey;
+        font-size: 14px;
+    }
+    .data {
+        color: $primaryColors;
+        font-size: 14px;
+    }
+    .freelance-name {
+        color: $primaryColors;
+    }
+    .freelance-role {
+        color: $slateGrey;
+        font-size: 14px;
+    }
+    .freelance-toggle {
+        img {
+            &.open {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .separator {
+        background-color: $whiteGrey;
+        height: 1px;
+        width: 440px;
+        margin-left: 120px;
+        margin-top: 27px;
+    }
+    .localisation {
+        margin-left: 105px;
+    }
+}
+
+.separator-margin {
+    height: 10px;
+    width: 100%;
+}

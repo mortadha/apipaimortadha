@@ -1,0 +1,68 @@
+@import "button";
+@import "input";
+.profile-comment-container {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    .user-pp {
+        width: 79px;
+        height: 79px;
+        border-radius: 50%;
+    }
+    .comment-edit {
+        width: 5%;
+        text-align: right;
+        float: left;
+        position: absolute;
+        right: 20px;
+    }
+    .comment-name {
+        font-size: 18px;
+        color: $darkblueGrey;
+    }
+    .comment-description {
+        padding-left: 15px;
+        width: 80%;
+        float: left;
+    }
+    .comment-date {
+        font-size: 14px;
+        line-height: 1.57;
+        color: $slateGrey;
+    }
+    .comment-details {
+        font-size: 15px;
+        line-height: 1.6;
+        color: $darkblueGrey;
+    }
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: $quartzGrey;
+        text-align: center;
+        .image {
+            width: 80px;
+            height: 80px;
+        }
+        img {
+            width: 100%;
+            border-radius: 50%;
+            height: 80px;
+        }
+    }
+}
+
+@media all and (max-device-width: 768px) {
+    .profile-comment-container {
+        .profile-picture {
+            width: 60px;
+            height: 60px;
+            img {
+                height: 60px;
+            }
+        }
+        .comment-details {
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+<div class="app-header-container">
+    <div class="container-fluid">
+        <div class="header">
+            <!-- <a class="navbar-brand" href="#"> -->
+            <img src="/assets/img/sidebar_logo_neadz.svg" class="logo mx-auto" />
+            <!-- </a> -->
+            <span class="singleline">Freelancing haut de gamme</span>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid main">
+    <div class="row justify-content-center rowboard">
+        <main class="col-lg-10">
+            <div class="app-container">
+                <div class="header-container">
+                    <div class="page-header" i18n>Choisissez votre espace</div>
+                </div>
+                <div class="row justify-content-center card-list">
+                    <div class="col-xs-12 col-md-4">
+                        <div class="card-container">
+                            <div class="infos-container">
+                                <div class="pp-container">
+                                    <a (click)="next('freelance')"><img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_300,q_100/v1554128383/boarding/Web.jpg" class="pp" /></a>
+                                </div>
+                                <div class="card-body">
+                                    <button class="dark" (click)="next('freelance')" i18n>Freelance</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="card-container">
+                            <div class="infos-container">
+                                <div class="pp-container">
+                                    <a (click)="next('entreprise')"><img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_300,q_100/v1554128375/boarding/Agile.jpg" class="pp" /></a>
+                                </div>
+                                <div class="card-body">
+                                    <button class="dark" (click)="next('entreprise')" i18n>Entreprise</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<div class="app-footer-container">
+    <div class="container-fluid">
+        <footer class="mentions text-center text-small footer mt-auto py-3">
+            <ul class="list-inline">
+                <li class="list-inline-item">&copy; 2019 Neadz.</li>
+                <li class="list-inline-item"><a target="_blank" [routerLink]="['/legal']">CGU & CGV</a></li>-
+                <li class="list-inline-item"><a href="mailto:contact@neadz.it?subject=Demande d'informations">Contact</a></li>
+            </ul>
+        </footer>
+    </div>
+</div>

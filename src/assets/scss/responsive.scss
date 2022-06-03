@@ -1,0 +1,75 @@
+                /*
+*** START TABLET RESPONSIVE ***/
+                
+                @media all and (max-device-width: 768px) {
+                    .app-sidebar-container {
+                        ul.navigation {
+                            li {
+                                a {
+                                    padding: 15px 12px;
+                                    height: 44px;
+                                }
+                            }
+                        }
+                    }
+                    .app-container {
+                        .header-container {
+                            .page-header {
+                                font-size: 30px;
+                                line-height: 1.2em;
+                            }
+                            .analytics {
+                                margin-bottom: 0;
+                                .analytic {
+                                    .num {
+                                        font-size: 30px;
+                                        line-height: 1.2em;
+                                    }
+                                }
+                            }
+                        }
+                        .main-menu {
+                            font-size: .6em;
+                        }
+                        .search-box-container {
+                            padding: 16px;
+                            margin-top: 20px;
+                        }
+                        .card-list {
+                            margin-top: 30px;
+                        }
+                    }
+                    .card-container {
+                        .infos-container,
+                        .availability-container {
+                            padding: 17px 15px;
+                        }
+                    }
+                    .empty-block {
+                        span {
+                            font-size: .9em;
+                        }
+                    }
+                    td,
+                    th {
+                        font-size: .6em;
+                    }
+                    .pp {
+                        width: 42px;
+                        height: 42px;
+                    }
+                    .profile-comment-container {
+                        .profile-picture {
+                            width: 60px;
+                            height: 60px;
+                        }
+                    }
+                }
+                /*
+*** START MOBILE RESPONSIVE ***/
+                
+                @media (max-width:414px) {
+                    .analytics {
+                        display: none;
+                    }
+                }

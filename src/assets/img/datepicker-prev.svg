@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Agent" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Agent_listing-freelance-Tous-calendar" transform="translate(-962.000000, -539.000000)">
+            <g id="Calendrier-disponibilités" transform="translate(662.000000, 433.000000)">
+                <g id="Switch-mois" transform="translate(300.000000, 106.000000)">
+                    <g id="Group-3" transform="translate(14.000000, 14.000000) scale(-1, 1) translate(-14.000000, -14.000000) ">
+                        <rect id="Rectangle-7" stroke="#EBEBEB" x="0.5" y="0.5" width="27" height="27" rx="4"></rect>
+                        <polyline id="Path-2" stroke="#C6C6C9" stroke-width="1.26" stroke-linecap="round" stroke-linejoin="round" transform="translate(14.368421, 14.000000) scale(-1, 1) rotate(90.000000) translate(-14.368421, -14.000000) " points="10.3157895 11.7894737 14.2944077 16.2105263 18.4210526 11.7894737"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

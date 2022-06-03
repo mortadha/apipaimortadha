@@ -1,0 +1,55 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="create-company-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n *ngIf="data.isNew">Nouvelle entreprise</h4>
+        <h4 class="modal-title" i18n *ngIf="!data.isNew">Éditer entreprise</h4>
+        <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="data-block user-infos-container">
+          <div class="user-identity-container">
+            <div class="profile-picture-container">
+              <img *ngIf="hasPicture()" class="user-pp" [src]="company.companyLogo.url" />
+              <img src="/assets/img/blank_cc.svg" class="user-pp" *ngIf="!hasPicture()"/>
+              <label for="profile-picture-uploader-modal">
+                <button class="user-pp-edit-btn" (click)="cropImageModal($event)"></button>
+              </label>
+            </div>
+            <div class="company-name-container">
+              <label for="company-name">Nom de l'entreprise*</label>
+              <input id="company-name" class="no-border" type="text" [(ngModel)]="company.name" required placeholder="Nom" i18n-placeholder="Nom" />
+            </div>
+          </div>
+        </div>
+        <div class="data-block">
+          <label for="company-street" i18n>Adresse</label>
+          <input id="company-street" class="no-border" type="text" [(ngModel)]="company.street" required placeholder="Rue" i18n-placeholder="Rue" />
+        </div>
+        <div class="data-block-none">
+          <div class="data-block tjm-container col-md-4">
+            <label for="company-zipcode" i18n>Code Postal</label>
+            <input id="company-zipcode" class="no-border" type="text" [(ngModel)]="company.zipcode" required placeholder="Code postal" i18n-placeholder="Code postal" />
+          </div>
+          <div class="data-block xp-level-container col-md-8">
+            <label for="company-city" i18n>Ville</label>
+            <input id="company-city" class="no-border" type="text" [(ngModel)]="company.city" required placeholder="Ville" i18n-placeholder="Ville" />
+          </div>
+        </div>
+        <div class="data-block">
+          <label for="company-country" i18n>Pays</label>
+          <input id="company-country" class="no-border" type="text" [(ngModel)]="company.country" required placeholder="Pays" i18n-placeholder="Pays" />
+        </div>
+      </div>
+      <div class="modal-footer">
+          <span><sup>*</sup>Champs obligatoires</span>
+        <button type="button" i18n *ngIf="data.isNew" class="dark" [disabled]="!this.isFormValid()" (click)="submit()">
+          Créer
+        </button>
+        <button type="button" i18n *ngIf="!data.isNew" class="dark" (click)="submit()">
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

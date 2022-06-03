@@ -1,0 +1,156 @@
+<mat-dialog-content *ngIf="!refuseModal && !notifyModal">
+  <div class="modal-content">
+    <div class="confirm-month-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Détails mission</h4>
+        <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="data-block">
+              <div class="row">
+                <div class="col-md-2 logo">
+                  <img [src]="need.companyLogo.url" class="pp client-logo" *ngIf="hasPicture()" />
+                  <img src="/assets/img/blank_cc.svg" class="pp client-logo" *ngIf="!hasPicture()" />
+                </div>
+                <div class="col-md-10">
+                  <label>Entreprise</label>
+                  <div class="data"> {{ need.companyTitle }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="data-block">
+              <label>Intitulé du poste</label>
+              <div class="data">{{ need.jobTitle }}</div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="data-block">
+              <div class="row">
+                <div class="col-md-5">
+                  <label>Début</label>
+                  <div class="data">{{ need.availabilityDate | date:'dd'}}
+                    {{ need.availabilityDate | date:'MMMM' | titlecase}} {{ need.availabilityDate | date:'yyy'}}</div>
+                </div>
+                <div class="col-md-4">
+                  <label>Durée</label>
+                  <div class="data">
+                    {{ need.durationLast }}
+                    <span *ngIf="need.durationType === durationType.Week">semaines</span>
+                    <span *ngIf="need.durationType === durationType.Month">mois</span>
+                    <span *ngIf="need.durationType === durationType.Year">années</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label>Expérience</label>
+                  <div class="data">{{ need.experienceLevel }} an(s)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="data-block description-container">
+              <label i18n>Descriptif mission</label>
+              <div class="no-border full-width" (click)="descriptionAreaOpen = true" [class.full]="descriptionAreaOpen">
+                <div *ngIf="!descriptionAreaOpen">
+                  {{ need.description | truncate:300 }}
+                </div>
+                <div *ngIf="descriptionAreaOpen">
+                  {{ need.description }}
+                </div>
+              </div>
+              <div *ngIf="seeMoreButton">
+                <div class="see-more" i18n *ngIf="!descriptionAreaOpen" (click)="descriptionAreaOpen = true">Voir plus
+                </div>
+                <div class="see-more" i18n *ngIf="descriptionAreaOpen" (click)="descriptionAreaOpen = false">Voir moins
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="data-block">
+              <div class="row">
+                <div class="col-md-12 techs">
+                  <label>Technos</label>
+                  <span *ngFor="let skill of need.skills">
+                    <img src="{{ skill.tech.techPictureMediaUrl }}" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer" *ngIf="data.freelanceNeed.freelanceStatus == freelanceStatus.NEW">
+      <p>Ce projet vous intéresse t'il ?</p>
+      <button class="light medium" (click)="notInterested()" i18n>Non</button>
+      <button class="dark medium" (click)="interested()" i18n>Oui</button>
+    </div>
+    <div class="modal-footer" *ngIf="data.freelanceNeed.freelanceStatus == freelanceStatus.MEETING_REALISED">
+      <p>L'entretien vous a-t-il convaincu ?</p>
+      <button class="light" (click)="refused()" i18n>Non</button>
+      <button class="dark" (click)="accepted()" i18n>Oui</button>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="refuseModal && !notifyModal">
+  <div class="modal-content">
+    <div class="confirm-month-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Refus</h4>
+        <button mat-button (click)="close(true)" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Il semble que vous n’ayez pas été convaincu par le projet présenté.
+        Aidez-nous à mieux appréhender vos attentes, faites-nous part de votre retour.
+        <div class="data-block">
+          <label for="reasonSelect" i18n>Raison de votre refus</label> <br>
+          <select id="reasonSelect" [(ngModel)]="reason">
+            <option i18n value="" selected="selected" disabled hidden>Veuillez sélectionner une raison</option>
+            <option i18n value="L’environnement technique ne me convient pas">L’environnement technique ne me convient
+              pas</option>
+            <option i18n value="Le secteur d’activité ne me convient pas">Le secteur d’activité ne me convient pas
+            </option>
+            <option i18n value="La localisation ne me convient pas">La localisation ne me convient pas</option>
+            <option i18n value="La durée du projet ne me convient pas">La durée du projet ne me convient pas</option>
+            <option i18n value="Autre">Autre</option>
+          </select>
+          <br>
+          <div *ngIf="reason === 'Autre'">
+            <textarea [formControl]="textControl" [(ngModel)]="writenReason" class="full-width full"></textarea>
+            <span class="counter">
+              {{ reasonLength | async }} / 400
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="light" (click)="close(false)" i18n>Annuler</button>
+      <button class="dark" (click)="closeReasonModal()" i18n>Valider</button>
+    </div>
+  </div>
+</mat-dialog-content>
+
+
+<mat-dialog-content *ngIf="notifyModal">
+  <div class="modal-content">
+    <div class="confirm-month-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Merci</h4>
+        <button mat-button (click)="finish()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Nous avons bien pris en compte les raisons de votre refus.
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="dark" (click)="finish()" i18n>Ok</button>
+    </div>
+  </div>
+</mat-dialog-content>

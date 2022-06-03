@@ -1,0 +1,102 @@
+@import 'scene';
+@import 'card';
+@import 'variables';
+@import 'schedule';
+.body-container {
+    margin-top: 70px;
+    .page-container {
+        text-align: center;
+        background: #fff;
+        padding: 30px;
+        .title {
+            font-size: 25px;
+            color: $primaryColors;
+            margin: 10px 0;
+        }
+    }
+}
+
+.app-container {
+    .main-menu {
+        margin-top: 30px;
+    }
+}
+
+.app-bills-container {
+    .bills-header-container {
+        .page-header {}
+    }
+    .action-btns {
+        margin-top: 35px;
+        button {
+            width: 44px;
+            height: 44px;
+            border: none;
+            margin-right: 10px;
+            outline: none;
+            background: none;
+            &.delete {
+                background-image: url('/assets/img/delete_header_btn.svg');
+            }
+            &.print {
+                background-image: url('/assets/img/print_header_btn.svg');
+            }
+            &.download {
+                background-image: url('/assets/img/download_header_btn.svg');
+            }
+        }
+    }
+}
+
+.doc-head {
+    color: $slateGrey;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    opacity: 0.57;
+    margin-bottom: 15px;
+    // border-bottom: 1px solid $slateGrey;
+}
+
+.card-docmission {
+    .infos-container {
+        min-height: auto;
+        .info-mission {
+            border-right: 1px solid $slateGrey;
+            text-align: center;
+        }
+        .logo,
+        .pp {
+            width: 76px;
+            height: 76px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+        .mission-title {
+            font-weight: 400;
+            color: $primaryColors;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .client-title {
+            font-size: 12px;
+            font-weight: 400;
+        }
+        .mission-client {
+            font-weight: 600;
+            color: $slateGrey;
+            font-size: 12px;
+        }
+        table {
+            margin-top: 0;
+            tr {
+                font-size: .9em;
+            }
+            td {
+                font-style: italic;
+            }
+        }
+    }
+}

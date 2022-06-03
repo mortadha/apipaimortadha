@@ -1,0 +1,126 @@
+@import 'scene';
+@import 'variables';
+@import 'button';
+.app-container {
+    .header-container {
+        justify-content: flex-start;
+        .profile-picture-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            .profile-picture {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: $quartzGrey;
+                text-align: center;
+                .first-letter {
+                    color: $primaryColors;
+                    font-size: 38px;
+                    font-weight: 300;
+                    padding-top: 10px;
+                }
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                    height: 80px;
+                }
+            }
+            .status-bubble {
+                background: #8fd246;
+                width: 23px;
+                height: 23px;
+                border-radius: 50%;
+                border: solid 4px $primaryColors;
+                position: absolute;
+                bottom: -5px;
+                right: -5px;
+                &.edit {
+                    background: url('/assets/img/edit_pp_btn.svg');
+                    background-size: cover;
+                    border: none;
+                    cursor: pointer;
+                    width: 31px;
+                    height: 31px;
+                }
+                &.add-pp {
+                    background: url('/assets/img/add_pp_btn.svg');
+                    background-size: cover;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+        #profile-picture-uploader {
+            display: none;
+        }
+        .profile-identity {
+            position: relative;
+            left: 40px;
+            color: #fff;
+            .profile-name {
+                font-family: "Open Sans", sans-serif;
+                font-weight: 300;
+                font-size: 46px;
+            }
+            .profile-more-infos {
+                .blank-info {
+                    a {
+                        color: $secondaryColors;
+                    }
+                }
+            }
+        }
+    }
+    .company-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        .main-menu {
+            // margin-top: 40px;
+        }
+        button.white-btn {
+            position: inherit;
+            margin-left: auto;
+        }
+    }
+    .card-list {
+        margin-top: 100px;
+    }
+}
+
+@media all and (max-device-width: 768px) {
+    .app-container {
+        .header-container {
+            .profile-identity {
+                .profile-name {
+                    font-size: 32px;
+                    line-height: 1.2em;
+                }
+            }
+            .profile-picture-container {
+                width: 65px;
+                height: 65px;
+                .profile-picture {
+                    width: 65px;
+                    height: 65px;
+                    .image {
+                        width: 65px;
+                        height: 65px;
+                    }
+                    img {
+                        width: 65px;
+                        height: 65px;
+                    }
+                }
+                .status-bubble.edit-pp {
+                    width: 21px;
+                    height: 21px;
+                }
+            }
+        }
+        .card-list {
+            margin-top: 140px;
+        }
+    }
+}

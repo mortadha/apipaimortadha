@@ -1,0 +1,12 @@
+<!-- certification listing start -->
+<div class="row profile-language-container">
+    <div class="experience-description">
+        <div class="experience-title language-title">{{ certification.title }}</div>
+        <div>Obtenu en {{certification.obtainingDate | date:'yyy' |titlecase}}</div>
+       <div> {{ certification.description }}</div>
+    </div>
+    <div class="language-edit">
+        <button class="edit" (click)="updateCertification()" *ngIf="user.type !== accountType.Company"></button>
+    </div>
+</div>
+<!-- end of certification listing -->

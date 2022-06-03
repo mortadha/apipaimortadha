@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="app-container">
+            <div class="header-container">
+                <div class="page-header" i18n>Dashboard</div>
+                <div class="analytics-card" *ngIf="user.type === accountType.Agent">
+                  <div class="row analytics">
+                  </div>
+                </div>
+                <div class="analytics-card" *ngIf="user.type === accountType.Freelance">
+                    <app-stats-counter [stats]='stats'></app-stats-counter>
+                </div>
+              </div>
+
+              <div class="row" *ngIf="user.type === accountType.Agent">
+                <div class="col-md-12 col-lg-12 mb-3" id="">
+                    <app-all-needs></app-all-needs>
+                </div>
+              </div>
+
+              <div class="row" *ngIf="user.type === accountType.Agent">
+                  <div class="col-md-12 col-lg-6 mb-3" id="">
+                      <app-all-candidats></app-all-candidats>
+                  </div>
+                  <div class="col-md-12 col-lg-6 mb-3" id="">
+                      <app-all-projects></app-all-projects>
+                  </div>
+              </div>
+
+              <div class="row" *ngIf="user.type === accountType.Freelance">
+                  <div class="col-md-12 col-lg-4" id="">
+                      <app-info-profile></app-info-profile>
+                  </div>
+                  <div class="col-md-12 col-lg-8" id="">
+                      <app-opportunities> </app-opportunities>
+                  </div>
+              </div>
+              <div class="row" *ngIf="user.type === accountType.Freelance">
+                  <div class="col-md-12 col-lg-4" id="">
+                      <app-info-entreprise> </app-info-entreprise>
+                  </div>
+              </div>
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>

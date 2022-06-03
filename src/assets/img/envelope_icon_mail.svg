@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Envoloppe</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop/Agent/Entreprises/Contact-vignette" transform="translate(-32.000000, -238.000000)">
+            <g id="Card-contact">
+                <g id="Mail" transform="translate(33.000000, 234.000000)">
+                    <g id="Envoloppe" transform="translate(0.000000, 4.000000)">
+                        <rect id="Rectangle-16" fill="#302F3A" x="0" y="5" width="16" height="10" rx="1"></rect>
+                        <path d="M2,0 L14,0 C14.5522847,-1.01453063e-16 15,0.44771525 15,1 L15,5.9547526 L10.4774802,10.3778411 C10.1278386,10.7197937 9.5821688,10.758697 9.18755154,10.4698058 C8.64884978,10.0754333 8.21426229,9.87824707 7.88378906,9.87824707 C7.42871094,9.87824707 6.74609375,10.2521647 5.8359375,11 L1.31210359,6.71246759 C1.11285471,6.52362643 1,6.26117848 1,5.98665871 L1,1 C1,0.44771525 1.44771525,1.01453063e-16 2,0 Z" id="Rectangle-16" fill="#6C6C6E"></path>
+                        <polyline id="Path-4" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" points="0.281494141 14.6401367 7.92260742 9.95800781 15.8374023 14.6401367"></polyline>
+                        <path d="M6.04614258,11.0871582 L0,5" id="Path-5" stroke="#FFFFFF"></path>
+                        <path d="M15.5219727,10.8349609 L10,5" id="Path-5-Copy" stroke="#FFFFFF" transform="translate(12.760986, 7.917480) scale(-1, 1) translate(-12.760986, -7.917480) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

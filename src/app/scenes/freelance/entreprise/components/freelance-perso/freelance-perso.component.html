@@ -1,0 +1,47 @@
+<div class="tab-pane fade show active" id="perso" role="tabpanel" aria-labelledby="perso-tab">
+  <h4 class="" i18n>Coordonnées personnelles</h4>
+  <p></p>
+  <div class="col-lg-6 offset-lg-3">
+    <form>
+      <div class="form-group">
+        <label for="account-lastName">Nom*</label>
+        <input id="account-lastName" class="no-border" type="text" i18n-placeholder="Nom..."
+        name="account-lastName" placeholder="Nom..." [(ngModel)]="freelance.account.lastName"/>
+      </div>
+      <div class="form-group">
+        <label for="account-firstName"><span i18n>Prénom</span>*</label>
+        <input id="account-firstName" class="no-border" type="text" i18n-placeholder="Prénom..."
+          placeholder="Prénom..." [(ngModel)]="freelance.account.firstName" name="account-firstName"/>
+      </div>
+      <div class="form-group">
+        <label for="account-email" i18n><span i18n>Email</span>*</label>
+        <input id="account-email" class="no-border" type="email" name="account-email"
+          placeholder="Email..." [(ngModel)]="freelance.account.email"/>
+      </div>
+      <div class="form-group">
+        <label for="account-phone" i18n>Numéro de téléphone</label>
+        <input id="account-phone" class="no-border" type="tel" name="account-phone"
+          placeholder="Téléphone..." [(ngModel)]="freelance.account.phone"/>
+      </div>
+      <div class="form-group">
+        <label for="freelance-street" i18n>Adresse</label>
+        <input id="freelance-street" class="no-border" type="text" i18n-placeholder="Adresse..."
+        placeholder="Adresse..." [(ngModel)]="freelance.street" name="freelance-street"/>
+      </div>
+      <div class="form-group">
+        <label for="freelance-zipcode" i18n>Code Postal</label>
+        <input id="freelance-zipcode" class="no-border" type="text" i18n-placeholder="Code Postal..."
+        placeholder="Code Postal..." [(ngModel)]="freelance.zipcode" name="freelance-zipcode"/>
+      </div>
+      <div class="form-group">
+        <label for="freelance-city" i18n>Ville</label>
+        <input id="freelance-city" class="no-border" type="text" i18n-placeholder="Ville..."
+        placeholder="Ville..."[(ngModel)]="freelance.city" name="freelance-city"/>
+      </div>
+      <div class="form-group form-footer">
+        <span><sup>*</sup>Champs obligatoires</span>
+        <button type="button" i18n class="dark" (click)="submit()">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>

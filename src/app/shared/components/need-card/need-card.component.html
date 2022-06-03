@@ -1,0 +1,70 @@
+<div class="freelance-mission-container card-container">
+    <div class="infos-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="need-origin">
+                    <span *ngIf="need.source === needSource.Agent"><i class="fas fa-hashtag"></i>Neadz</span>
+                    <span *ngIf="need.source === needSource.Consort" class="consort"><i class="fas fa-hashtag"></i>Consort</span>
+                    <span *ngIf="need.source === needSource.Boarding" class="boarding"><i class="fas fa-hashtag"></i>Boarding</span>
+                </div>
+            </div>
+            <div class="col-md-12 mission-details-header">
+                <div class="mission-title card-name">
+                    <a (click)="redirect()">{{ need.jobTitle }}</a>
+                </div>
+                <button class="edit" (click)="editNeed()"></button>
+            </div>
+            <div class="col-md-12 mission-details">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Expérience</label>
+                        <div class="data">{{ need.experienceLevel }} ans</div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Budget</label>
+                        <div class="data" *ngIf="need.tjm > 0">{{ need.tjm }}€ / jour</div>
+                        <div class="data" *ngIf="need.tjm === 0">Non renseigné</div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Début</label>
+                        <div *ngIf="need.availabilityType == availibilityType.After" class="data">
+                            {{ need.availabilityDate | date:'MM/yyy' }}
+                        </div>
+                        <div *ngIf="need.availabilityType == availibilityType.Asap" class="data">
+                            Dès que possible
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Durée</label>
+                        <div class="data">{{ need.durationLast }}
+                            <span *ngIf="need.durationType === durationType.Week">semaine(s)</span>
+                            <span *ngIf="need.durationType === durationType.Month">mois</span>
+                            <span *ngIf="need.durationType === durationType.Year">année(s)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-description-container">
+                            <div class="mission-description card-description">{{ need.description | truncate:600 }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 techs">
+                        <label>Technos principales</label>
+                        <span *ngFor="let skill of need.skills">
+              <img [src]=[skill.tech.techPictureMediaUrl] ngbTooltip="{{skill.tech.name}} - {{skill.level / 10}} an(s)" />
+            </span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="action-buttons">
+                            <label>&nbsp;</label>
+                            <button class="dark"(click)="redirect()" i18n>Voir plus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+### STAGE 1: Build ###
+FROM node:8.11.4-alpine as builder
+
+ARG NPM_TOKEN
+ARG PRODUCTION
+
+## https://github.com/npm/npm/issues/20861
+RUN npm config set unsafe-perm true
+
+## Configure
+RUN npm install @angular/cli@6.2.9 -g
+
+## Directory
+COPY . /home/node/
+WORKDIR /home/node/
+
+## Install
+RUN cd /home/node && npm install --production
+
+## Build
+RUN if [ "$PRODUCTION" = "false" ] ; then cd /home/node && pwd && npm run build:stage; else cd /home/node && pwd && ng build --prod; fi
+
+# ### STAGE 2: Setup ###
+FROM nginx:1.13.3-alpine
+
+COPY --from=builder /home/node/nginx.conf /etc/nginx/conf.d/nginx.conf
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=builder /home/node/dist /usr/share/nginx/html
+
+EXPOSE 8080
+
+CMD ["nginx", "-g", "daemon off;"]

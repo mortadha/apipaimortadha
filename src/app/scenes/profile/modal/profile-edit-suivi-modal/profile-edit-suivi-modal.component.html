@@ -1,0 +1,27 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="edit-parcours-modal" id="edit-school-modal">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ modalTitle }}</h4>
+        <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="data-block">
+              <label for="suivi-content" i18n>Description*</label>
+              <textarea id="suivi-content" class="no-border full-width" required name="fields[comment]"
+              [(ngModel)]="suivi.content" i18n-placeholder="Précisez le suivi du freelance"
+              placeholder="Précisez le suivi du freelance">
+              </textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" *ngIf="data.isNew === false" (click)="deleteSuivi()" class="light flexleft" i18n>
+          Supprimer
+        </button>
+        <button type="submit" (click)="submit()" class="dark" i18n>
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

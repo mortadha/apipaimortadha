@@ -1,0 +1,91 @@
+<div class="app-container">
+  <div class="header-container">
+    <div class="page-header" i18n>Décrivez le projet proposé</div>
+  </div>
+  <div class="bloc-container">
+      <div class="data-block availability" id="starting-date">
+        <label for="need-availabilityType" i18n>Le projet démarre le</label>
+          <select id="need-availabilityType" [(ngModel)]="needAvailabilityType" (change)="availabilityTypeChanged()">
+            <option i18n value="2">À partir de</option>
+            <option i18n value="1">Le plus tôt possible</option>
+          </select>
+          <select id="need-availabilityType" *ngIf="needAvailabilityType == 2" [(ngModel)]="availibilityDateMonth" (change)="availibilityDateChanged()">
+            <option i18n value=1>Janvier</option>
+            <option i18n value=2>Février</option>
+            <option i18n value=3>Mars</option>
+            <option i18n value=4>Avril</option>
+            <option i18n value=5>Mai</option>
+            <option i18n value=6>Juin</option>
+            <option i18n value=7>Juillet</option>
+            <option i18n value=8>Aout</option>
+            <option i18n value=9>Septembre</option>
+            <option i18n value=10>Octobre</option>
+            <option i18n value=11>Novembre</option>
+            <option i18n value=12>Décembre</option>
+          </select>
+          <select id="need-availabilityType" *ngIf="needAvailabilityType == 2" [(ngModel)]="availibilityDateYear" (change)="availibilityDateChanged()">
+            <option i18n value=2019>2019</option>
+            <option i18n value=2020>2020</option>
+            <option i18n value=2021>2021</option>
+          </select>
+      </div>
+
+      <div class="data-block-none row">
+        <div class="col-md-4 pr-md-1">
+          <span [formGroup]="form">
+          <div class="data-block sm-container duration-container">
+              <label for="need-durationLast">et dure</label>
+              <input id="durationLast" name="durationLast" class="no-border"
+              formControlName="durationLast" id="need-durationLast" type="number"
+              placeholder="12"/>
+              <select class="duration-type" formControlName="durationType"
+              (change)="durationTypeChanged()">
+                <option [value]=[durationType.Week]>Semaines</option>
+              <option [value]=[durationType.Month]>Mois</option>
+              <option [value]=[durationType.Year]>Années</option>
+            </select>
+            <div *ngIf="durationLastForm.errors && submitted" class="error">
+              <div *ngIf="durationLastForm.errors.required">
+                  <i class="fas fa-times"></i> La durée ne peut-être vide
+              </div>
+            </div>
+          </div>
+        </span>
+        </div>
+        <div class="col-md-8 pl-md-2">
+          <div class="data-block md-container infos-container">
+            <label>Informations complémentaires</label>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="label" for="need-workingRemotely" i18n>Télétravail possible</label>
+                <div class="switch-container">
+                  <label class="switch">
+                  <input type="checkbox" [(ngModel)]="need.workingRemotely" class="switch" id="need-workingRemotely" />
+                  <span class="slider round"></span>
+                  </label>
+                  <span *ngIf="need.workingRemotely">Oui</span>
+                  <span *ngIf="!need.workingRemotely">Non</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="label" for="need-renewable" i18n>Reconductible</label>
+                <div class="switch-container">
+                  <label class="switch">
+                    <input type="checkbox" [(ngModel)]="need.renewable" class="switch" id="need-renewable" />
+                    <span class="slider round"></span>
+                  </label>
+                  <span *ngIf="need.renewable">Oui</span>
+                  <span *ngIf="!need.renewable">Non</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="light" [routerLink]="[link, { outlets: { etape: '1' } }]">Revenir</button>
+        <button class="dark" (click)="next()">Continuer</button>
+      </div>
+  </div>
+</div>

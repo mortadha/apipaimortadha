@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Desktop/icon/supprimer Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Entreprise" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Entreprise_listing-freelance-contrats" transform="translate(-1360.000000, -289.000000)">
+            <g id="Desktop/icon/exporter" transform="translate(1360.000000, 289.000000)">
+                <rect id="Rectangle-7" fill="#42436D" opacity="0.500993304" x="0" y="0" width="44" height="44" rx="4"></rect>
+                <g id="Group" stroke-width="1" transform="translate(11.000000, 13.000000)">
+                    <rect id="Rectangle-19" fill="#FFFFFF" x="0" y="16" width="22" height="2"></rect>
+                    <polyline id="Path-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="6 7 11 12.0203247 16 7"></polyline>
+                    <rect id="Rectangle-20-Copy-2" fill="#FFFFFF" x="20" y="12" width="2" height="6" rx="1"></rect>
+                    <rect id="Rectangle-20-Copy-3" fill="#FFFFFF" x="0" y="12" width="2" height="6" rx="1"></rect>
+                    <path d="M11,0 L11,11.1174309" id="Path-5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

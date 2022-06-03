@@ -1,0 +1,173 @@
+@import '../../scene/boarding-freelance.component.scss';
+.md-container {
+    .xp-levels {
+        display: flex;
+        margin-top: 11px;
+        button {
+            width: 100%;
+            margin-right: 10px;
+            &.active {
+                background-color: $primaryColors;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.infos-container {
+    padding: 20px 20px 41px 20px !important;
+    // #freelanceRemotetype {
+    //     width: 420px;
+    // }
+    .row {
+        margin-bottom: 0;
+    }
+}
+
+.switch-container {
+    display: flex;
+    font-size: 15px;
+    display: inherit;
+    input {
+        display: none;
+    }
+    span {
+        margin-left: 15px;
+    }
+    .custom-radio {
+        margin-top: 0.75em;
+        label {
+            text-transform: inherit;
+            color: $charcoalGrey;
+            letter-spacing: 1px;
+        }
+        .custom-control-input {
+            &:checked {
+                &~.custom-control-label {
+                    &::before {
+                        background-color: darken( $secondaryColors, 5%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.availability {
+    select {
+        width: 178px;
+        margin-right: 10px;
+    }
+}
+
+#freelance-availabilityType {
+    width: 250px;
+    margin-right: 10px;
+}
+
+#freelance-mobility {
+    width: 250px;
+    margin-right: 10px;
+}
+
+input[type=checkbox].switch {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label.switch {
+    width: 42px;
+    height: 20px;
+    background: $whiteGrey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+label.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+input.switch:checked+label {
+    background-image: linear-gradient(-90deg, $primaryColors 0%, $secondaryColors 100%);
+}
+
+input.switch:checked+label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+
+label.switch:active:after {
+    width: 16px;
+}
+
+label.switch:after {
+    display: none;
+}
+
+
+/* The switch - the box around the slider */
+
+// .switch {
+// }
+
+/* Hide default HTML checkbox */
+
+
+/* The slider */
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $whiteGrey;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+input:checked+.slider {
+    background-image: linear-gradient(-90deg, $primaryColors 0%, $secondaryColors 100%);
+}
+
+// input:focus + .slider {
+// }
+input:checked+.slider:before {
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+    margin-left: 0 !important;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.duration-container {
+    display: flex;
+    flex-wrap: wrap-reverse;
+}

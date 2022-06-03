@@ -1,0 +1,79 @@
+<div class="app-container">
+    <div class="header-container">
+        <div class="page-header" i18n>Sélectionnez l’environnement de votre projet</div>
+    </div>
+    <div class="row card-list">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="card-container">
+                <div class="infos-container">
+                    <div class="pp-container">
+                        <a (click)="next(envType.Web)"><img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_300,q_100/v1554128383/boarding/Web.jpg" class="pp" /></a>
+                    </div>
+                    <div class="card-body">
+                        <button class="dark" (click)="next(envType.Web)" i18n>Web</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="card-container">
+                <div class="infos-container">
+                    <div class="pp-container">
+                        <a (click)="next(envType.Mobile)"><img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_300,q_100/v1554128375/boarding/Mobile.jpg" class="pp" /></a>
+                    </div>
+                    <div class="card-body">
+                        <button class="dark" (click)="next(envType.Mobile)" i18n>Mobile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="card-container">
+                <div class="infos-container">
+                    <div class="pp-container">
+                        <a (click)="next(envType.Autre)"><img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_300,q_100/v1554128379/boarding/Autres.jpg" class="pp" /></a>
+                    </div>
+                    <div class="card-body">
+                        <button class="dark" (click)="next(envType.Autre)" i18n>Autres</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="card-container">
+                <div class="infos-container">
+                    <div class="pp-container">
+                        <a (click)="next(envType.Design)"><img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_300,q_100/v1554133365/boarding/Design.jpg" class="pp" /></a>
+                    </div>
+                    <div class="card-body">
+                        <button class="dark" (click)="next(envType.Design)" i18n>Design</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="card-container">
+                <div class="infos-container">
+                    <div class="pp-container">
+                        <a (click)="next(envType.Cloud)"><img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_300,q_100/v1554130022/boarding/DevOps.jpg" class="pp" /></a>
+                    </div>
+                    <div class="card-body">
+                        <button class="dark" (click)="next(envType.Cloud)" i18n>Cloud/DevOps</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="card-container">
+                <div class="infos-container">
+                    <div class="pp-container">
+                        <a (click)="next(envType.Agile)"><img src="https://res.cloudinary.com/dqgfi8kqd/image/upload/c_scale,h_300,q_100/v1554128375/boarding/Agile.jpg" class="pp" /></a>
+                    </div>
+                    <div class="card-body">
+                        <button class="dark" (click)="next(envType.Agile)" i18n>Agile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

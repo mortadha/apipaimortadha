@@ -1,0 +1,26 @@
+<div class="bloc-container">
+    <h6 i18n>Mes missions <span>({{ total }} missions en cours)</span></h6>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Freelance</th>
+                <th scope="col">Client</th>
+                <th scope="col">Début</th>
+                <th scope="col">Fin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mission of missions">
+                <td>{{ mission.freelance.account.firstName }} {{ mission.freelance.account.lastName }}</td>
+                <td>{{ mission.need.companyTitle }}</td>
+                <td>{{ mission.start | date: 'MM/yyyy' }}</td>
+                <td>{{ mission.end | date: 'MM/yyyy' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="light" routerLink="/agent/missions" i18n>Voir toutes les missions</button>
+        </div>
+    </div>
+</div>

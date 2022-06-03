@@ -1,0 +1,25 @@
+<div class="profile-suivis-container">
+  <h6>Processus de qualification</h6>
+
+  <select id="freelance-qualif" ng-init="freelance.status" [(ngModel)]="freelance.status">
+    <option i18n [ngValue]="0">Inscrit</option>
+    <option i18n [ngValue]="1">Qualifié</option>
+    <option i18n [ngValue]="2">Validé</option>
+    <option i18n [ngValue]="3">Refusé</option>
+  </select>
+  
+  <h6 class="mt-5">Inscrire la note Personalité</h6>
+  <input [(ngModel)]="freelance.gradePerso" id="free-persoNote" type="text"
+  class="no-border full-width" i18n-placeholder="88" placeholder="88" />
+  
+  <h6 class="mt-5">Inscrire la note Technique</h6>
+  <input [(ngModel)]="freelance.gradePro" id="free-techNote" type="text"
+  class="no-border full-width" i18n-placeholder="74" placeholder="74" />
+  <div class="d-flex flex-column">
+    <button type="button" i18n class="dark mt-3" 
+    *ngIf="oldStatus !== freelance.status || oldGradePerso !== freelance.gradePerso || oldGradePro !== freelance.gradePro"
+    (click)="submit()">
+      Enregistrer
+    </button>
+  </div>
+</div>

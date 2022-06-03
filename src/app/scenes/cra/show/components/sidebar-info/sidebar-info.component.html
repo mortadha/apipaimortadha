@@ -1,0 +1,136 @@
+<div class="mission-data-container">
+    <div class="mission-infos-wrapper">
+        <div class="row">
+            <div class="col-md-6 col-lg-12" *ngIf="userService.isFreelance() === true">
+                <div class="profile-picture">
+                    <img *ngIf="hasPictureCompany()" [src]="mission?.need.companyLogo.url" class="logo pp" />
+                    <img *ngIf="!hasPictureCompany()" src="/assets/img/blank_cc.svg" class="logo pp" />
+                </div>
+                <div class="mission-title">{{ mission?.need.jobTitle }}</div>
+                <div class="client-title">{{ mission?.need.companyTitle }}</div>
+                <a class="details link" (click)="missionDetail()" i18n>Voir détails</a>
+            </div>
+            <div class="col-md-6 col-lg-12" *ngIf="userService.isClient() === true || userService.isAgent() === true">
+                <div class="profile-picture">
+                    <img *ngIf="hasPictureFreelance()" [src]="mission?.freelance.account.profilePicture.url" class="logo pp" />
+                    <img *ngIf="!hasPictureFreelance()" src="/assets/img/blank_pp.svg" class="logo pp" />
+                </div>
+                <div class="mission-title">{{ mission?.need.jobTitle }}</div>
+                <div class="client-title">{{ mission?.freelance.account.lastName }} {{ mission?.freelance.account.firstName }}</div>
+                <div class="freelance-role">{{ mission?.freelance.headline }}</div>
+                <a class="details link" (click)="missionDetail()" i18n *ngIf="userService.isAgent() === true">Voir
+                            detail</a>
+                <a class="details link" (click)="missionProfil()" i18n>Voir profil</a>
+            </div>
+            <div class="col-md-6 col-lg-12">
+                <hr />
+                <div class="row">
+                    <div class="col-md-6 start-container">
+                        <label i18n>Début</label> {{ mission?.start | date:'dd/MM/yyy' }}
+                    </div>
+                    <div class="col-md-6 end-container">
+                        <label i18n>Fin</label> {{ mission?.end | date:'dd/MM/yyy' }}
+                    </div>
+                    <div class="col-md-12 end-container">
+                      <a class="details link" (click)="changeDates()" i18n
+                      *ngIf="userService.isAgent() === true && isNeedWon === true">
+                        Modifier les dates de mission
+                      </a>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" *ngIf="userService.isAgent() === true">
+                    <div class="col-md start-container">
+                        <label i18n>Montant facture Freelance estimé</label> {{ mission?.cjm }}€ * {{ workingDays() }}j = {{ mission?.cjm * workingDays() }}€
+                    </div>
+                    <hr />
+                </div>
+                <div class="row" *ngIf="userService.isAgent() === true">
+                    <div class="col-md start-container">
+                        <label i18n>Montant facture Client estimé</label> {{ mission?.tjm }}€ * {{ workingDays() }}j = {{ mission?.tjm * workingDays() }}€
+                    </div>
+                    <hr />
+                </div>
+                <div class="row" *ngIf="userService.isClient() === true">
+                    <div class="col-md start-container">
+                        <label i18n>Montant facture estimé</label> {{ mission?.tjm }}€ * {{ workingDays() }}j = {{ mission?.tjm * workingDays() }}€
+                    </div>
+                    <hr />
+                </div>
+                <div class="row" *ngIf="userService.isFreelance() === true">
+                    <div class="col-md start-container">
+                        <label i18n>Montant facture estimé</label> {{ mission?.cjm }}€ * {{ workingDays() }}j = {{ mission?.cjm * workingDays() }}€
+                    </div>
+                    <hr />
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <!-- <label class="docs" for="inputGroupFile">
+            <div class="upload-docs">
+                <p>glissez-déposez</p>
+                <span>Ou <span>choisissez vos fichier</span></span>
+            </div>
+            <input type="file" id="inputGroupFile" (change)="fileUploaded($event)">
+        </label> -->
+    </div>
+    <div class="mission-bills">
+        <div class="title" i18n>Documents</div>
+        <ul class="bills-menu closed-open justify-content-center">
+            <li class="active mr-2"><a href="#cras-list">Mes Cras</a></li>
+            <!-- <li class="ml-2 mr-2"><a href="#bills-home">Mes factures</a></li> -->
+            <!-- <li class="ml-2">Mes contracts</li> -->
+        </ul>
+
+        <div class="subtab-container">
+            <div class="bills-listing">
+
+                <div id="cras-list" class="bill-infos">
+                    <!-- <div class="row bill-infos" *ngFor="let file of documentsFiles"> -->
+                    <!-- <p class="bill-name"><a [href]="file.url" target="_blank">{{ file.fileName ? file.fileName : 'Documents' }}</a></p> -->
+                    <div class="bill-name d-flex mx-3" *ngFor="let data of shortDataSource(); let index = index">
+                        <a class="" [href]="documentUrl(data.date)" target="_blank" *ngIf="data.status === craType.signedByFreelance">
+                            <i class="fas fa-download ml-auto"></i> {{data.title}}
+                        </a>
+                        <a *ngIf="data.status !== craType.signedByFreelance">{{data.title}}</a>
+                        <i class="fas fa-circle alert-grey" *ngIf="data.status === craType.notConfirmed"></i>
+                        <i class="fas fa-circle alert-orange" *ngIf="data.status !== craType.notConfirmed && data.status !== craType.signedByFreelance && data.status !== craType.refusedByCompany"></i>
+                        <i class="fas fa-circle alert-green" *ngIf="data.status === craType.signedByFreelance"></i>
+                        <i class="fas fa-circle alert-red" *ngIf="data.status === craType.refusedByCompany"></i>
+                    </div>
+                    <!-- <div class="bill-name d-flex mx-3">
+                        <a class="" [href]="" target="_blank"><i class="fas fa-download ml-auto"></i>
+                            Cra-CRA03857-avril19.pdf</a>
+                    </div>
+                    <div class="bill-name d-flex mx-3">
+                        <a class="" [href]="" target="_blank"><i class="fas fa-download ml-auto"></i>
+                            Cra-CRA03857-mars19.pdf</a>
+                    </div> -->
+                </div>
+                <!-- <div id="bills-list" class="bill-infos"> -->
+                <!-- <div class="row bill-infos" *ngFor="let file of documentsFiles"> -->
+                <!-- <p class="bill-name"><a [href]="file.url" target="_blank">{{ file.fileName ? file.fileName : 'Documents' }}</a></p> -->
+                <!-- <div class="bill-name d-flex mx-3">
+                        <a class="" [href]="" target="_blank"><i class="fas fa-download ml-auto"></i>
+                            facture-FA03857-mai19.pdf</a>
+                        <i class="fas fa-circle alert-grey"></i>
+                    </div>
+                    <div class="bill-name d-flex mx-3">
+                        <a class="" [href]="" target="_blank"><i class="fas fa-download ml-auto"></i>
+                            facture-FA03857-avril19.pdf</a>
+                        <i class="fas fa-circle alert-grey"></i>
+                    </div>
+                    <div class="bill-name d-flex mx-3">
+                        <a class="" [href]="" target="_blank"><i class="fas fa-download ml-auto"></i>
+                            facture-FA03857-mars19.pdf</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <a class="d-flex mt-3 justify-content-end" (click)="allDocument()">Voir tous les documents</a>
+
+    </div>
+</div>

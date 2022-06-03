@@ -1,0 +1,6 @@
+<mat-dialog-content>
+    <app-assign-freelance-list *ngIf="!detail" (detailFreelance)="detailFreelance($event)">
+    </app-assign-freelance-list>
+    <app-confirm-assign-freelance *ngIf="detail" (backEmitter)="back()" (confirmFreelance)="submit($event)"[freelance]="freelance">
+    </app-confirm-assign-freelance>
+</mat-dialog-content>

@@ -1,0 +1,64 @@
+@import 'scene';
+@import 'button';
+@import 'input';
+@import 'variables';
+.row {
+    margin-bottom: 0px;
+}
+
+.main-profile-infos-container {
+    background: #fff;
+    width: 100%;
+    padding: 26px 35px;
+    box-sizing: border-box;
+    margin-top: 21px;
+    display: inline-flex;
+    position: relative;
+    .data-container {
+        // margin-right: 15px;
+        // width: 20%;
+        &.button {
+            margin-top: 7px;
+            margin-right: 0;
+            text-align: right;
+        }
+        .title {
+            opacity: 0.57;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: $slateGrey;
+        }
+        .data {
+            font-size: 25px;
+            font-weight: 300;
+            color: $primaryColors;
+            &.notation {
+                font-family: Helvetica, sans-serif;
+                font-size: 14px;
+                color: rgba(108, 108, 110, 0.57);
+                margin-top: 5px;
+                .notation-star {
+                    margin-left: 2px;
+                    width: 18px;
+                    height: 17px;
+                }
+                .notes-count {
+                    position: relative;
+                    top: 3px;
+                    left: 7px;
+                }
+            }
+        }
+    }
+    .infos {
+        button {
+            padding: 9px;
+            margin: 5px;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}

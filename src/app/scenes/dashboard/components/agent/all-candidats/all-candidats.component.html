@@ -1,0 +1,40 @@
+<div class="bloc-container">
+  <h6 i18n>Freelances inscrits<span>({{ total }} Freelances à qualifier)</span></h6>
+  <div class="empty-block" *ngIf="freelances && freelances.length == 0">
+    <button class="add"></button> &nbsp; <span i18n>Ajouter un freelance (Vous n'avez pas de nouveaux freelances)</span>
+  </div>
+
+  <table class="table table-hover" *ngIf="freelances && freelances.length > 0">
+    <thead class="thead-dark">
+      <tr>
+          <th scope="col">Candidat</th>
+          <th scope="col">Profil</th>
+          <th scope="col">CJM</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let freelance of freelances">
+        <td>
+          {{ freelance.account.firstName }} {{ freelance.account.lastName }}
+          <span>Inscrit le {{ freelance.account.createDate | date:'MM/yyy' }}</span>
+          <span>{{ 100 - freelance.completion }}% restants</span>
+        </td>
+        <td>
+          {{ freelance.headline }}
+          <span><i class="fas fa-graduation-cap"></i> {{ freelance.experienceLevel }} ans d'exp.</span>
+          <span><i class="fas fa-map-marker-alt"></i> {{ freelance.city }}</span>
+        </td>
+        <td>{{ freelance.tjm }} €</td>
+        <td><i class="far fa-eye" routerLink="/agent/freelances/profile/{{ freelance.id }}"></i></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row" *ngIf="freelances && freelances.length > 0">
+    <div class="col-md-12">
+      <button class="light" routerLink="/agent/freelances/" i18n>Voir tous les candidats</button>
+    </div>
+  </div>
+
+</div>

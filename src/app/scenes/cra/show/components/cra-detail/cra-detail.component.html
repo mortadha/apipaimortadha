@@ -1,0 +1,28 @@
+<!-- Start current mission -->
+<div class="mission-and-calendar-container" *ngIf="currentMission; else noCurrentMission">
+    <div class="row">
+        <div class="col-md-12 col-lg-3">
+            <app-sidebar-info *ngIf="currentMission; else noCurrentMission" (documentTab)='getDocumentTab()'></app-sidebar-info>
+        </div>
+
+        <div class="col-md-12 col-lg-9 calendar-container">
+            <app-show-cra [mission]="currentMission"></app-show-cra>
+        </div>
+    </div>
+
+</div>
+
+<ng-template #noCurrentMission>
+    <div class="body-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-container">
+                    <div class="title">
+                        Aucune mission en cours, revenez plus tard !
+                        <!-- TODO: Wording à revoir sur cette phrase -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

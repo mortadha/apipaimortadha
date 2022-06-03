@@ -1,0 +1,15 @@
+<!-- language listing start -->
+<div class="row profile-language-container">
+    <div class="experience-description">
+        <div class="experience-title language-title">{{ language.name }}</div>
+        <div class="experience-details language-level" *ngIf="language.level === languageLevelEnum.Notions">Notions élémentaires</div>
+        <div class="experience-details language-level" *ngIf="language.level === languageLevelEnum.LimitedPro">Compétence professionnelle limitée</div>
+        <div class="experience-details language-level" *ngIf="language.level === languageLevelEnum.Pro">Compétence professionnelle</div>
+        <div class="experience-details language-level" *ngIf="language.level === languageLevelEnum.CompletePro">Compétence professionnelle complète</div>
+        <div class="experience-details language-level" *ngIf="language.level === languageLevelEnum.Bilingual">Bilingue ou langue natale</div>
+    </div>
+    <div class="language-edit">
+        <button class="edit" (click)="updateLanguage()" *ngIf="user.type !== accountType.Company"></button>
+    </div>
+</div>
+<!-- end of language listing -->

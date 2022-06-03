@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-profile-container app-container" *ngIf="company">
+                <div class="profile-header-container header-container">
+                    <div class="profile-picture-container">
+                        <div class="profile-picture">
+                            <img [src]="company.companyLogo.url" *ngIf="hasPicture()" />
+                            <img src="/assets/img/blank_cc.svg" *ngIf="!hasPicture()" />
+                        </div>
+                        <label for="profile-picture-uploader">
+              <div class="status-bubble edit" (click)="editCompany()"></div>
+            </label>
+                    </div>
+                    <div class="profile-identity">
+                        <div class="profile-name">
+                            {{ company.name.slice(0, 32) }}
+                        </div>
+                        <div class="profile-more-infos">
+                            <span class="blank-info">
+                <a target="_blank" href="https://www.google.com/maps/place/{{ company.street }}, {{ company.zipcode }}, {{ company.city }}">
+                  {{ companyAddress }}
+                </a>
+              </span>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="company-actions my-3">
+                    <ul class="main-menu menu-company">
+                        <li [class.active]="activeTab === tabsType.needs" (click)="activeTab = tabsType.needs">Besoins</li>
+                        <!-- <li [class.active]="activeTab === tabsType.contrats" (click)="activeTab = tabsType.contrats">Contrats</li>
+                <li [class.active]="activeTab === tabsType.bills" (click)="activeTab = tabsType.bills">Factures</li> -->
+                        <li [class.active]="activeTab === tabsType.contacts" (click)="activeTab = tabsType.contacts">Contacts</li>
+                    </ul>
+                    <button class="white-btn" (click)="createNeed()" *ngIf="activeTab === tabsType.needs">Créer un besoin</button>
+                </div>
+                <div *ngIf="activeTab === tabsType.needs" class="needz-container card-list">
+                    <ul class="main-menu closed-open">
+                        <li [class.active]="activeSubTab === subtabsType.open" (click)="switchSubTab(subtabsType.open)">Ouverts</li>
+                        <li [class.active]="activeSubTab === subtabsType.closed" (click)="switchSubTab(subtabsType.closed)">Fermés</li>
+                    </ul>
+                    <div class="row subtab-container" *ngIf="activeSubTab === subtabsType.open">
+                        <div class="col-md-12 col-lg-6" *ngFor="let need of needs">
+                            <app-need-card [need]="need" [company]="company" (NeedRefreshNeeds)="needUpdated()" (NeedSupp)="needSupp($event)"></app-need-card>
+                        </div>
+                    </div>
+                    <div class="row subtab-container" *ngIf="activeSubTab === subtabsType.closed">
+                        <div class="col-md-12 col-lg-6" *ngFor="let need of needs">
+                            <app-closed-need-card [need]="need" [company]="company"></app-closed-need-card>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="activeTab === tabsType.contrats" class="needz-container card-list">
+                    <app-company-contracts></app-company-contracts>
+                </div>
+                <div *ngIf="activeTab === tabsType.bills" class="needz-container card-list">
+                    <app-company-bills></app-company-bills>
+                </div>
+                <div *ngIf="activeTab === tabsType.contacts" class="needz-container card-list">
+                    <app-company-contacts [company]="company"></app-company-contacts>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>

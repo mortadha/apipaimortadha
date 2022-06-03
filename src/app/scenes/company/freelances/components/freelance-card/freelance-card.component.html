@@ -1,0 +1,50 @@
+<div class="card-container">
+  <div class="infos-container">
+    <div class="pp-container">
+      <a routerLink="{{ redirectTo() }}"><img [src]="freelance.account.profilePicture.url" *ngIf="hasProfilePicture()" class="pp"/></a>
+      <a routerLink="{{ redirectTo() }}"><img src="/assets/img/blank_pp.svg" *ngIf="!hasProfilePicture()" class="pp"/></a>
+      <div class="availability"
+      [class.orange]="(freelance.availabilityType === availabilityType.StartFrom && isDatePassed === false)"
+      [class.green]="(freelance.availabilityType === availabilityType.Available) || (freelance.availabilityType === availabilityType.StartFrom && isDatePassed === true)"
+      [class.red]="freelance.availabilityType === availabilityType.Unavailable">
+      </div>
+    </div>
+    <div class="card-name"><a routerLink="{{ redirectTo() }}">{{ freelance.account.firstName }} {{ freelance.account.lastName }}</a></div>
+    <div class="card-role"><a routerLink="{{ redirectTo() }}">{{ freelance.headline }}</a></div>
+    <div class="card-techs techs">
+      <label>Technos principales</label>
+      <span *ngFor ="let skill of freelance.skills">
+          <img class="data" [src]=[skill.tech.techPictureMediaUrl] placement="bottom" ngbTooltip="{{ skill.tech.name }}" />
+      </span>
+    </div>
+  </div>
+
+  <div class="availability-container">
+    <div class="row" *ngIf="!mission">
+      <div class="col-md-9">
+        <label i18n>Disponibilité</label>
+        <div class="availability-dates" *ngIf="freelance.availabilityType === availabilityType.Unknown">
+          Non renseigné
+        </div>
+        <div class="availability-dates" *ngIf="freelance.availabilityType === availabilityType.StartFrom && freelance.availabilityDate">
+          Dès {{ freelance.availabilityDate | date:'MMMM' | titlecase}} {{ freelance.availabilityDate | date:'yyy'}}
+        </div>
+        <div class="availability-dates" *ngIf="freelance.availabilityType === availabilityType.Available">
+          Disponible
+        </div>
+        <div class="availability-dates" *ngIf="freelance.availabilityType === availabilityType.Unavailable">
+          Indisponible
+        </div>
+      </div>
+      <div class="col-md-3 contact">
+        <img src="/assets/img/envelope_icon.svg" />
+      </div>
+    </div>
+    <div class="row" *ngIf="mission">
+      <div class="col-md-9">
+        <label i18n>En poste</label>
+        <div class="availability-dates">Du {{ mission.start | date:'dd.MM.yyy' }} au {{ mission.end | date:'dd.MM.yyy' }}</div>
+      </div>
+    </div>
+  </div>
+</div>

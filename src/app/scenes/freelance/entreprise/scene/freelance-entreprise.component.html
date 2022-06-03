@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-container">
+
+                <div class="header-container">
+                    <div class="page-header" i18n>Mon entreprise</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bloc-container">
+                            <!-- <nav class="nav nav-pills flex-column flex-sm-row">
+                                <a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
+                                <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>
+                                <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+                                <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </nav> -->
+
+                            <nav mat-tab-nav-bar class="nav nav-pills my-entreprise flex-md-column">
+                                <!-- <li class="nav-item" *ngFor="let routeLink of routeLinks;"> -->
+                                <a *ngFor="let routeLink of routeLinks;" class="nav-link" mat-tab-link [routerLink]="['./', { outlets: { tabs: routeLink.link } }]" routerLinkActive #rla="routerLinkActive" (click)="activeLinkIndex = routeLink.index" [class.active]="activeLinkIndex === routeLink.index"
+                                    [class.disabled]="false"> {{routeLink.label}}</a>
+                                <!--  [active]="activeLinkIndex === i" -->
+                                <!-- [active]="rla.isActivate"> -->
+                                <!-- [routerLinkActiveOptions]="{exact: true}" -->
+                                <!-- </li> -->
+                            </nav>
+
+                            <div class="tab-content" id="pills-tabContent">
+                                <router-outlet name="tabs"></router-outlet>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>

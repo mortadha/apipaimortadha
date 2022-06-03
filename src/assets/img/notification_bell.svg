@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="18px" viewBox="0 0 15 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Plateforme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Neadz_Profil" transform="translate(-1218.000000, -31.000000)" fill="#59DDF4" fill-rule="nonzero">
+            <g id="Group-9" transform="translate(1203.000000, 18.000000)">
+                <path d="M22.1052822,31 C22.9738053,31 23.6842105,30.2956898 23.6842105,29.4347826 L20.5263158,29.4347826 C20.5263158,30.2956898 21.2367592,31 22.1052822,31 Z M28.2353267,25.8900256 L28.2353267,20.826087 C28.2353267,18.0179028 26.3383381,15.6241295 23.8235369,15.0255312 L23.8235369,14.3810742 C23.8235369,13.5983769 23.2500852,13 22.5,13 C21.7499148,13 21.1764631,13.5983769 21.1764631,14.3810742 L21.1764631,15.0255312 C18.6616193,15.6241295 16.7646733,18.0179028 16.7646733,20.826087 L16.7646733,25.8900256 L15,27.7314578 L15,28.6521739 L30,28.6521739 L30,27.7314578 L28.2353267,25.8900256 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

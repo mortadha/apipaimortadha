@@ -1,0 +1,8 @@
+<div class="profile-suivis-container">
+    <h6>Actions sur le profile du freelance</h6>
+    <div class="d-flex flex-column">
+        <button class="dark mt-3" (click)="resendMail()">Renvoyer mail d'activation</button>
+        <button class="dark mt-2" (click)="confirmDesactivate()" *ngIf="user.type == accountType.Agent">Désactiver le freelance</button>
+        <button class="dark mt-2" (click)="confirmDelete()" *ngIf="user.type === accountType.Agent">Supprimer le freelance</button>
+    </div>
+</div>

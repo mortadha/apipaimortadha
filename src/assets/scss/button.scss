@@ -1,0 +1,153 @@
+@import 'variables';
+
+button {
+  letter-spacing: 2px;
+  border-radius: 3px;
+  font-size: 11px;
+  padding: 9px 18px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  font-weight: 600;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition-duration: all 0.4s ease-out;
+  -o-transition-duration: all 0.4s ease-out;
+  transition-duration: all 0.4s ease-out;
+
+  &.medium {
+    padding: 15px 40px;
+  }
+
+  &.large {
+    width: 100%
+  }
+
+  &.light {
+    background: none;
+    border: 1px solid $silverGrey;
+    text-transform: uppercase;
+    background-repeat: no-repeat;
+    &:hover {
+      background: $silverGrey;
+    }
+  }
+
+  &.darklight {
+    color: #fff;
+    background-color: $charcoalGrey;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $primaryColors;
+      color: #fff;
+    }
+  }
+
+  &.flexleft {
+    margin-right: auto;
+  }
+
+  &.dark {
+    color: #fff;
+    background-color: $secondaryColors;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: darken($secondaryColors, 15%);
+    }
+  }
+
+  &.edit {
+    background: url("/assets/img/edit_btn.svg");
+    background-repeat: no-repeat;
+    width: 27px;
+    height: 27px;
+  }
+
+  &.add {
+    background: url("/assets/img/plus_btn.svg");
+    background-repeat: no-repeat;
+    width: 27px;
+    height: 27px;
+  }
+
+  &.delete {
+    background: url("/assets/img/delete_button.svg");
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 28px;
+  }
+
+  &.regular {
+    border-radius: 3px;
+    border: 1px solid $silverGrey;
+    color: $charcoalGrey;
+    font-size: 15px;
+    padding: 7px 16px;
+    letter-spacing: normal;
+
+    &.enabled {
+      background: $primaryColors;
+      color: #fff;
+      border: 1px solid $primaryColors;
+    }
+  }
+  // @Gael, tu voulais re-ranger ce bout de code ;)
+  &.win {
+    color: $winStatus;
+    border-color: $winStatus;
+  }
+
+  &.lost {
+    color: $lostStatus;
+    border-color: $lostStatus;
+  }
+
+  &.selected {
+    background: $silverGrey;
+  }
+
+}
+
+.action-buttons {
+  text-align: right;
+  span {
+    letter-spacing: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    padding: 9px 18px;
+    display: inline-block;
+    border: 1px solid;
+    text-transform: uppercase;
+
+    &.win {
+      color: $winStatus;
+      border: 1px solid $winStatus;
+      background: transparent;
+      &:hover {
+        color: $winStatus;
+        border: 1px solid $winStatus;
+        background: transparent;
+      }
+    }
+
+    &.lost {
+      // display: block;
+      color: $lostStatus;
+      border: 1px solid $lostStatus;
+      background: transparent;
+      &:hover {
+        color: $lostStatus;
+        border: 1px solid $lostStatus;
+        background: transparent;
+      }
+
+    }
+
+  }
+
+  p {
+    margin-bottom: 0.7rem;
+  }
+}

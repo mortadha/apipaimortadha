@@ -1,0 +1,27 @@
+<!-- school listing start -->
+<div class="profile-schools-container">
+  <h6>Études</h6>
+  <div *ngIf="freelance">
+    <button
+      (click)="addNewSchool()"
+      class="add main"
+      *ngIf="user.type !== 'Company' && freelance.educations.length > 0"
+    ></button>
+    <div
+      class="empty-block"
+      (click)="addNewSchool()"
+      *ngIf="user.type !== 'Company' && freelance.educations.length === 0"
+    >
+      <button class="add"></button> &nbsp;
+      <span i18n>Ajouter une formation</span>
+    </div>
+    <div *ngFor="let education of freelance.educations; let i = index">
+      <app-profile-school
+        [user]="user"
+        [education]="education"
+      ></app-profile-school>
+      <hr *ngIf="i < freelance.educations.length - 1" />
+    </div>
+  </div>
+</div>
+<!-- end of school listing -->

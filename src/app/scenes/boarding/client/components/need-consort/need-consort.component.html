@@ -1,0 +1,37 @@
+<div class="app-container">
+    <div class="header-container">
+        <div class="page-header" i18n>Qui êtes vous ?</div>
+    </div>
+    <div class="bloc-container">
+        <h5>Je m’identifie</h5>
+        <div [formGroup]="form">
+            <div class="data-block-none">
+                <div class="data-block tjm-container col-md-6">
+                    <label for="account-email">Adresse Email Consort NT*</label>
+                    <input id="account-email" class="no-border" type="text" formControlName="email"
+                     required placeholder="Email" i18n-placeholder="email" />
+                </div>
+                <div class="data-block xp-level-container col-md-6">
+                    <label>&nbsp;</label>
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">@consort-group.com</span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="emailForm.errors && submitted" class="error">
+                <div *ngIf="emailForm.errors.required">
+                    Le mail ne peut être vide
+                </div>
+                <div *ngIf="emailForm.errors.ValidateMail && !emailForm.errors.email && !emailForm.errors.required">
+                    Merci de renseigner un mail professionel valide
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="light" [routerLink]="['/boarding/consort', { outlets: { etape: '3' } }]">Revenir</button>
+            <button class="dark" (click)="submit()">Envoyer</button>
+        </div>
+    </div>
+
+</div>

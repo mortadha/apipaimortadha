@@ -1,0 +1,13 @@
+@import 'scene';
+@import 'variables';
+
+.card-list {
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .freelance-card-container {
+    // flex: 0 0 50%;
+    // max-width: 50%;
+  }
+}

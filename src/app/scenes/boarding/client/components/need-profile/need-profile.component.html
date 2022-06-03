@@ -1,0 +1,52 @@
+<div class="app-container">
+  <div class="header-container">
+    <div class="page-header" i18n>Décrivez le profil {{ getCategory() }} recherché</div>
+  </div>
+  <div class="bloc-container">
+      <div class="data-block" id="mission-duration-container">
+        <label i18n>Je recherche un</label>
+        <div class="duration-container">
+          <button class="regular" [class.enabled]="need.jobTitle == proposal"
+          (click)="need.jobTitle = proposal" *ngFor="let proposal of profileProposal">
+            {{ proposal }}
+          </button>
+        </div>
+        <div *ngIf="submitted && !need.jobTitle" class="error">
+            <i class="fas fa-times"></i> Merci de choisir un métier
+        </div>
+      </div>
+
+      <div class="data-block" id="skills-container">
+        <label for="search-skill" i18n>possédant les compétences suivantes :</label>
+
+        <input id="search-skill" type="text" placeholder="Rechercher une compétence..." aria-label="Skill" class="search"
+          matInput  [matAutocomplete]="auto" [formControl]="myControl"/>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="inputDisplay">
+          <mat-option *ngFor="let tech of filteredOptions | async" [value]="tech">
+            {{ tech.name }}
+          </mat-option>
+        </mat-autocomplete>
+        <div class="skill-container" *ngFor="let skill of need.skills">
+          <div class="row">
+            <div class="col-md-1">
+              <button class="delete" (click)="removeSkill(skill.tech.id)"></button>
+            </div>
+            <div class="col-md-3 skill-title">
+              {{ skill.tech.name }}
+            </div>
+            <div class="col-md-8 slider-container">
+              <app-range-slider (valueChanged)="skillLevelChanged($event, skill)" [defaultValue]="skill.level" step="10" unit="an(s)" [maxLabel]="'ans+'"></app-range-slider>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="submitted && getSkillLength() === 0" class="error">
+          <i class="fas fa-times"></i> Merci de choisir au moins une compétence
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="light" [routerLink]="[link, { outlets: { etape: null } }]">Revenir</button>
+        <button class="dark" (click)="next()">Continuer</button>
+      </div>
+  </div>
+</div>

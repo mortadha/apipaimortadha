@@ -1,0 +1,88 @@
+@import 'button';
+
+.profile-experience-container {
+  padding-bottom: 52px;
+  padding-top: 40px;
+  border-bottom: 1px solid $silverGrey;
+
+  &:first-child {
+    padding-top: 26px;
+    border: none;
+  }
+
+  &:last-child {
+    padding-bottom: 36px;
+  }
+
+  .company-logo-container {
+    width: 13%;
+    float: left;
+    padding-left: 15px;
+    display: none;
+
+    img {
+      width: 76px;
+      height: 76px;
+    }
+  }
+
+  .experience-description {
+    width: 68%;
+    float: left;
+    padding-left: 15px;
+
+    .experience-date {
+      font-size: 14px;
+      line-height: 1.57;
+      color: $slateGrey;
+    }
+
+    .experience-title {
+      font-size: 22px;
+      color: $primaryColors;
+      font-weight: 600;
+    }
+
+    .company-title {
+      font-size: 15px;
+      line-height: 1.6;
+      color: $primaryColors;
+    }
+
+    .experience-details {
+      font-size: 15px;
+      line-height: 1.6;
+      color: $primaryColors;
+      margin-top: 28px;
+    }
+  }
+
+  .technical-stack {
+    text-align: right;
+    font-size: 14px;
+    line-height: 1.57;
+    color: $slateGrey;
+    width: 27%;
+
+    .technical-logos {
+      margin-top: 16px;
+
+      .technical-logo {
+        width: 28px;
+        height: 28px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .experience-edit {
+    width: 5%;
+    text-align: right;
+    float: left;
+
+    button.edit {
+      position: absolute;
+      right: 20px;
+    }
+  }
+}

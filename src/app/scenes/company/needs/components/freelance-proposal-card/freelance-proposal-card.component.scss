@@ -1,0 +1,50 @@
+@import 'card';
+@import 'button';
+@import 'variables';
+
+.card-container {
+  .infos-container {
+    min-height: 240px;
+    padding: 30px 25px;
+
+      .card-role {
+        margin-top: 0;
+    }
+
+    .mission-stat {
+      margin-top: 33px;
+    }
+
+    .action-buttons {
+      margin-top: 15px;
+      margin-left: 0;
+
+      p {
+        font-size: 11px;
+        padding: 5px 10px;
+
+        img {
+          width: 10px;
+          margin-right: 3px;
+        }
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+    .light {
+      // margin-top: 15px;
+      background: none;
+      border: 1px solid $silverGrey;
+      &:hover {
+          background: $silverGrey;
+          color: $almostBlack;
+        }
+    }
+  }
+
+  .card-tjm {
+    margin-top: 0;
+  }
+}

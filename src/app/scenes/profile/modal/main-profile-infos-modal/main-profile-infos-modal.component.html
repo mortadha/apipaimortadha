@@ -1,0 +1,203 @@
+<mat-dialog-content>
+    <div class="modal-content">
+        <div class="edit-profile-main-modal">
+            <div class="modal-header">
+                <h4 class="modal-title" i18n>Informations générales</h4>
+                <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="data-block" id="job-title-container">
+                    <label for="freelance-headline" i18n>Intitulé du poste*</label>
+                    <input id="freelance-headline" class="no-border" type="text" i18n-placeholder="Intitulé du poste..." placeholder="Intitulé du poste..." [(ngModel)]="freelance.headline" />
+                </div>
+                <div class="data-block availability">
+                    <label for="freelance-availabilityType" i18n>Disponibilité*</label>
+                    <select id="freelance-availabilityType" [(ngModel)]="freelance.availabilityType">
+            <option i18n [ngValue]="availibilityType.StartFrom">À partir de</option>
+            <option i18n [ngValue]="availibilityType.Available">Disponible</option>
+            <option i18n [ngValue]="availibilityType.Unavailable">Indisponible</option>
+          </select>
+                    <select *ngIf="freelance.availabilityType === availibilityType.StartFrom" [(ngModel)]="availibilityDateMonth" (change)="availibilityDateChanged()">
+            <option i18n value="01">Janvier</option>
+            <option i18n value="02">Février</option>
+            <option i18n value="03">Mars</option>
+            <option i18n value="04">Avril</option>
+            <option i18n value="05">Mai</option>
+            <option i18n value="06">Juin</option>
+            <option i18n value="07">Juillet</option>
+            <option i18n value="08">Août</option>
+            <option i18n value="09">Septembre</option>
+            <option i18n value="10">Octobre</option>
+            <option i18n value="11">Novembre</option>
+            <option i18n value="12">Décembre</option>
+          </select>
+                    <select *ngIf="freelance.availabilityType === availibilityType.StartFrom" [(ngModel)]="availibilityDateYear" (change)="availibilityDateChanged()">
+            <option i18n>2019</option>
+            <option i18n>2020</option>
+            <option i18n>2021</option>
+          </select>
+                </div>
+
+                <div class="data-block-none row">
+                    <div class="col-md-4 pr-md-1">
+                        <div class="data-block sm-container">
+                            <label for="freelance-tjm" i18n>{{ user.type === accountType.Agent ? 'Cjm*' : 'Tjm*' }}</label>
+                            <input id="freelance-tjm" class="no-border" type="number" placeholder="600" [(ngModel)]="freelance.tjm" />
+                            <span i18n>€ / jour</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 pl-md-2">
+                        <div class="data-block md-container">
+                            <label for="freelance-experienceLevel" i18n>Niveau expérience</label>
+                            <app-range-slider id="freelance-experienceLevel" (valueChanged)="experienceChanged($event)" [max]="10" [defaultValue]="freelance.experienceLevel" [maxLabel]="'ans+'" [unit]="'an(s)'"></app-range-slider>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-block" id="mission-duration-container">
+                    <label i18n>Durée de mission*</label>
+                    <div class="duration-container d-flex flex-wrap justify-content-between">
+                        <button class="regular" [class.enabled]="freelance.missionDuration == 1" (click)="freelance.missionDuration = 1">
+                          Courte
+                          <div class="duration">1 à 3 mois</div>
+                        </button>
+                        <button class="regular" [class.enabled]="freelance.missionDuration == 2" (click)="freelance.missionDuration = 2">
+                          Moyenne
+                          <div class="duration">3 à 6 mois</div>
+                        </button>
+                        <button class="regular" [class.enabled]="freelance.missionDuration == 3" (click)="freelance.missionDuration = 3">
+                          Longue
+                          <div class="duration">6 et plus</div>
+                        </button>
+                        <button class="regular" [class.enabled]="freelance.missionDuration == 4" (click)="freelance.missionDuration = 4">
+                          Ouvert
+                          <div class="duration">Tous</div>
+                        </button>
+                    </div>
+                </div>
+
+                    <div class="data-block mission-duration-container">
+                        <label for="freelance-mobility" i18n>Je me déplace en</label>
+                        <div class="duration-container flex-wrap d-flex justify-content-between">
+                        <button class="regular"
+                        [class.enabled]="freelance.mobility === mobilityEnum.Car"
+                        (click)="freelance.mobility = mobilityEnum.Car">
+                            <i class="fas fa-car"></i>
+                            <div class="duration">Voiture</div>
+                        </button>
+                        <button class="regular"
+                        [class.enabled]="freelance.mobility === mobilityEnum.Public"
+                        (click)="freelance.mobility = mobilityEnum.Public">
+                            <i class="fas fa-subway"></i>
+                            <div class="duration">Transports en commun</div>
+                        </button>
+                        <button class="regular"
+                        [class.enabled]="freelance.mobility === mobilityEnum.Bike"
+                        (click)="freelance.mobility = mobilityEnum.Bike">
+                            <i class="fas fa-bicycle"></i>
+                            <div class="duration">Vélo / À pied</div>
+                        </button>
+                        <button class="regular"
+                        [class.enabled]="freelance.mobility === mobilityEnum.All"
+                        (click)="freelance.mobility = mobilityEnum.All">
+                            <i class="fas fa-location-arrow"></i>
+                            <div class="duration">Pas de préférences</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="data-block mission-duration-container">
+                    <label>J'interviens</label>
+                    <div class="duration-container d-flex justify-content-between">
+                        <button class="regular"
+                        [class.enabled]="freelance.workingRemotely === remoteEnum.RemoteNone"
+                        (click)="freelance.workingRemotely = remoteEnum.RemoteNone">
+                            <i class="fas fa-building"></i>
+                            <div class="duration">Chez le client</div>
+                        </button>
+                        <button class="regular"
+                        [class.enabled]="freelance.workingRemotely == remoteEnum.RemoteOnly"
+                        (click)="freelance.workingRemotely = remoteEnum.RemoteOnly">
+                            <i class="fas fa-home"></i>
+                            <div class="duration">En remote</div>
+                        </button>
+                        <button class="regular"
+                        [class.enabled]="freelance.workingRemotely == remoteEnum.RemotePartial"
+                        (click)="freelance.workingRemotely = remoteEnum.RemotePartial">
+                            <i class="fas fa-exchange-alt"></i>
+                            <div class="duration">Remote partiel</div>
+                        </button>
+                        
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-md-12">
+                            <label class="label" for="freelance-workingRemotely" i18n>&nbsp;</label>
+                            <div class="switch-container">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="remoteStatusNone">
+                                    <label class="custom-control-label pt-1" for="remoteStatusNone">Chez le client</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="remoteStatusPartial">
+                                    <label class="custom-control-label pt-1" for="remoteStatusPartial">En remote</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="remoteStatusOnly">
+                                    <label class="custom-control-label pt-1" for="remoteStatusOnly">Mixte</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <!-- <div class="data-block-none row">
+                    <div class="col-md-4 pr-md-1">
+                        <div class="data-block sm-container duration-container">
+                            <label for="freelance-mobility" i18n>Je me déplace en</label>
+                            <select>
+                                <option i18n>Voiture</option>
+                                <option i18n>Transports en commun</option>
+                                <option i18n>Vélo / À pied</option>
+                                <option i18n>Tout</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-8 pl-md-2">
+                        <div class="data-block md-container infos-container">
+                            <label>J'interviens</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="label" for="free-regie" i18n>Chez le client</label>
+                                    <div class="switch-container">
+                                        <label class="switch">
+                                            <input type="checkbox" class="switch" id="free-regie" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>Oui</span>
+                                        <span>Non</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="label" for="free-remote" i18n>En remote</label>
+                                    <div class="switch-container">
+                                        <label class="switch">
+                                            <input type="checkbox" class="switch" id="free-remote"/>
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span *ngIf="freelance.workingRemotely">Oui</span>
+                                        <span *ngIf="!freelance.workingRemotely">Non</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->                
+            </div>
+            <div class="modal-footer">
+                <span><sup>*</sup>Champs obligatoires</span>
+                <button type="button" i18n class="dark" (click)="submit()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

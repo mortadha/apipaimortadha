@@ -1,0 +1,46 @@
+<div class="bloc-container">
+  <h6 i18n>Besoins en cours <span>({{ total }} nouveaux besoins)</span></h6>
+  <div class="empty-block" *ngIf="total === 0">
+    <button class="add"></button> &nbsp; <span i18n>Vous n'avez pas de besoin (ajouter un besoin)</span>
+  </div>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Besoin</th>
+        <th scope="col">Client</th>
+        <th scope="col">Date de début</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let need of needs">
+        <td>
+          {{ need.jobTitle }}
+          <span><i class="fas fa-graduation-cap"></i> {{ need.experienceLevel }} ans d'exp.</span>
+        </td>
+        <td>
+          {{ need.companyTitle }}
+          <span><i class="fas fa-map-marker-alt"></i> {{ need.companyCity }}</span>
+        </td>
+        <td>
+          <i class="fas fa-rocket"></i> {{ need.availabilityDate | date:'dd.MM.yyyy' }}
+          <span><i class="far fa-clock"></i>{{ need.createDate | dateFromNow }} </span>
+        </td>
+        <td>
+          <i
+          class="far fa-eye" 
+          routerLink="/agent/besoins/{{need.id}}">
+          </i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-md-12">
+      <button routerLink="/agent/besoins"
+        class="light" i18n>Voir tous les besoins</button>
+    </div>
+  </div>
+</div>

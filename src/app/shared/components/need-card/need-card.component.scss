@@ -1,0 +1,46 @@
+@import 'scene';
+@import 'button';
+@import 'card';
+.card-container {
+    .infos-container {
+        .need-origin {
+            text-align: left;
+            text-transform: uppercase;
+            font-size: .7em;
+            font-style: italic;
+            color: $sunglow;
+            font-weight: 600;
+            span {
+                margin-left: 5px;
+                &.consort {
+                    color: $grenadier;
+                }
+                &.boarding {
+                    color: $scampi;
+                }
+                .fas {
+                    padding: 0;
+                }
+            }
+        }
+        .card-name {
+            margin-bottom: 28px;
+            margin-top: 0;
+        }
+        .mission-details-header {
+            position: relative;
+            button.edit {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+        .mission-details {
+            .card-description {
+                max-height: 200px;
+                overflow: hidden;
+                min-height: 200px;
+            }
+        }
+    }
+}

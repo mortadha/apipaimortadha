@@ -1,0 +1,30 @@
+@import 'scene';
+@import 'variables';
+// .signature-container {
+//     margin-left: $sidebarWidth + 95;
+//     margin-right: 95px;
+//     margin-top: -230px;
+//     padding-bottom: 200px;
+//     .header-container {
+//         display: flex;
+//         justify-content: space-between;
+//         .page-header {
+//             color: #ffffff;
+//             font-weight: 300;
+//             font-size: 46px;
+//         }
+//     }
+// }
+.signature-frame {
+    position: relative;
+    margin-top: 70px;
+    margin-bottom: 1560px;
+    iframe {
+        position: absolute;
+        border: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1530px;
+    }
+}

@@ -1,0 +1,19 @@
+@import 'card';
+@import 'variables';
+
+.card-container {
+    .infos-container {
+      min-height: 250px;
+    }
+    .availability-container {
+      padding: 10px 29px;
+      min-height: 64px;
+      .availability-free {
+        padding: 10px 0;
+      }
+
+      .pp {
+        background-color: white;
+      }
+    }
+}

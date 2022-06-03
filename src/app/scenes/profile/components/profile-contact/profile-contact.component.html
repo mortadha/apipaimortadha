@@ -1,0 +1,24 @@
+<div class="main-profile-infos-container flex-wrap">
+    <!-- <div class="col-md-12 data-container infos"
+    *ngIf="user.type === accountType.Agent || user.type == accountType.Freelance">
+        <h6 i18n>Coordonnées (Contact)</h6>
+        <span><i class="fas fa-envelope"></i> {{ freelance.account.email }}</span>
+        <span><i class="fas fa-phone"></i> {{ freelance.account.phone }}</span>
+    </div> -->
+    <div class="data-container pr-3">
+        <h6 i18n>Email</h6>
+        <div class="data" i18n *ngIf="freelance && freelance.account.email">
+            <a href="mailto:{{ freelance.account.email }}">{{ freelance.account.email | truncate:8 }}</a>
+        </div>
+        <div class="data" i18n *ngIf="freelance && !freelance.account.email">...</div>
+    </div>
+
+    <div class="data-container">
+        <h6 i18n>Téléphone</h6>
+        <div class="data" i18n *ngIf="freelance && freelance.account.phone">{{ freelance.account.phone }}</div>
+        <div class="data" i18n *ngIf="freelance && !freelance.account.phone">...</div>
+    </div>
+
+
+    <button class="edit" *ngIf="user.type !== accountType.Company && freelance" (click)="showDetails()"></button>
+</div>

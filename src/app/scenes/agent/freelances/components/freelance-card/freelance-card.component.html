@@ -1,0 +1,84 @@
+<div class="card-container" [class.desactivated]="freelance.status === statusEnum.Desactivated">
+
+    <div class="infos-container">
+        <div class="card-profil d-flex justify-content-between">
+            <div class="pp-container">
+                <a routerLink="{{ redirectTo() }}"><img [src]="freelance.account.profilePicture.url" *ngIf="hasProfilePicture()" class="pp" /></a>
+                <a routerLink="{{ redirectTo() }}"><img src="/assets/img/blank_pp.svg" *ngIf="!hasProfilePicture()" class="pp" /></a>
+                <div class="availability" [class.orange]="(freelance.availabilityType === availibilityType.StartFrom && isDatePassed === false)" [class.green]="(freelance.availabilityType === availibilityType.Available) || (freelance.availabilityType === availibilityType.StartFrom && isDatePassed === true)"
+                    [class.red]="freelance.availabilityType === availibilityType.Unavailable">
+                </div>
+            </div>
+            <div class="card-note d-flex" *ngIf="freelance.status !== statusEnum.Confirmed">
+                <span class="completion-percentage">{{ 100 - freelance.completion }} %</span>
+                <span class="percentage-label"> Restant</span>
+            </div>
+        </div>
+        <div class="card-name"><a routerLink="{{ redirectTo() }}">{{ freelance.account.firstName }} {{ freelance.account.lastName }}</a></div>
+        <div class="card-role"><a routerLink="{{ redirectTo() }}">{{ freelance.headline }}</a></div>
+        <div class="card-infos d-flex justify-content-between">
+            <span><i class="fas fa-map-marker-alt"></i>{{ freelance.city }}</span>
+            <span *ngIf="freelance.workingRemotely === remoteEnum.RemoteNone">
+                    <i class="fas fa-building"></i>Chez le client
+                </span>
+            <span *ngIf="freelance.workingRemotely === remoteEnum.RemotePartial">
+                    <i class="fas fa-exchange-alt"></i>Remote partiel
+                </span>
+            <span *ngIf="freelance.workingRemotely === remoteEnum.RemoteOnly">
+                        <i class="fas fa-home"></i>Remote
+                </span>
+            <span *ngIf="freelance.status !== statusEnum.Confirmed">
+                <i class="fas fa-check-circle"></i>le {{freelance.account.createDate | date:'dd.MM.yy' | titlecase}}
+            </span>
+        </div>
+        <div class="card-tjm" *ngIf="freelance.status === statusEnum.Confirmed">
+            <label i18n>CJM</label>
+            <div class="tjm">{{ freelance.tjm }}€ / jour</div>
+        </div>
+        <div class="card-techs techs">
+            <label>Technos principales</label>
+            <span *ngFor="let skill of freelance.skills"><img class="data" [src]=[skill.tech.techPictureMediaUrl] placement="bottom" ngbTooltip="{{ skill.tech.name }}" /></span>
+        </div>
+        <div class="card-notes" *ngIf="freelance.status !== statusEnum.Registered">
+            <div class="d-flex justify-content-between">
+                <span>
+                    <label>Perso</label>
+                    <span [ngStyle]="{'color':getColor(freelance.gradePerso)}">
+                        {{ freelance.gradePerso }} %
+                    </span>
+                </span>
+                <span>
+                    <label>Technique</label>
+                    <span [ngStyle]="{'color':getColor(freelance.gradePro)}">
+                        {{ freelance.gradePro }} %
+                    </span>
+
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="availability-container">
+        <div class="row" *ngIf="!mission">
+            <div class="col-md-9">
+                <label i18n>Disponibilité</label>
+                <div class="availability-dates" *ngIf="freelance.availabilityType === availibilityType.Unknown">Non renseigné</div>
+                <div class="availability-dates" *ngIf="freelance.availabilityType === availibilityType.StartFrom && freelance.availabilityDate">Dès {{ freelance.availabilityDate | date:'MMMM' | titlecase}} {{ freelance.availabilityDate | date:'yyy'}}</div>
+                <div class="availability-dates" *ngIf="freelance.availabilityType === availibilityType.Available">Disponible</div>
+                <div class="availability-dates" *ngIf="freelance.availabilityType === availibilityType.Unavailable">Indisponible</div>
+            </div>
+            <div class="col-md-3">
+                <a href="mailto:{{ freelance.account.email }}">
+                    <img src="/assets/img/envelope_icon.svg" />
+                </a>
+            </div>
+        </div>
+        <div class="row" *ngIf="mission">
+            <div class="col-md-9">
+                <label i18n>En poste</label>
+                <div class="availability-dates">Du {{ mission.start | date:'dd.MM.yyy' }} au {{ mission.end | date:'dd.MM.yyy' }}</div>
+            </div>
+        </div>
+
+    </div>
+</div>

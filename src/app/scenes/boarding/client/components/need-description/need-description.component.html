@@ -1,0 +1,31 @@
+<div class="app-container">
+  <div class="header-container">
+    <div class="page-header" i18n>{{ title }}</div>
+  </div>
+  <div class="bloc-container">
+    <div class="data-block description-container">
+      <form [formGroup]="form">
+        <label for="need-description" i18n>Le contexte et les enjeux de la mission sont les suivants</label>
+        <textarea id="need-description" class="no-border full-width full"
+        i18n-placeholder="Description" placeholder="Description" formControlName="description">
+        </textarea>
+        <span class="counter">
+          {{ descriptionLength | async }} / 10000
+        </span>
+      </form>
+      </div>
+      <div *ngIf="descriptionForm.errors && submitted" class="error">
+        <div *ngIf="descriptionForm.errors.required">
+            <i class="fas fa-times"></i> La description ne peut-être vide
+          </div>
+          <div *ngIf="descriptionForm.errors.minlength">
+              <i class="fas fa-times"></i> La description doit contenir au moins 10 caractères
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button class="light" [routerLink]="[link, { outlets: { etape: '2' } }]">Revenir</button>
+        <button class="dark" (click)="next()">Continuer</button>
+        <button class="dark" [routerLink]="[link, { outlets: { etape: '4' } }]" *ngIf="isConsort == false" >Passer</button>
+      </div>
+    </div>
+</div>

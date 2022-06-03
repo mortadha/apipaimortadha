@@ -1,0 +1,53 @@
+@import '../../scene/boarding-client.component.scss';
+
+.duration-container {
+  display: flex;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+
+  button {
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 10px 35px;
+
+    &.enabled {
+      .duration {
+        color: $whiteGrey;
+      }
+    }
+
+    .duration {
+      font-size: 13px;
+      color: $slateGrey;
+    }
+  }
+
+}
+
+#skills-container {
+  .create-skill {
+    position: absolute;
+    left: 300px;
+    margin-top: 25px;
+  }
+
+  .search {
+    margin: 0.925em 0 0.75em;
+    width: 50% !important;
+  }
+
+  .skill-container {
+    padding: 13px 0;
+    border-bottom: 1px solid $silverGrey;
+
+    .skill-title {
+      //margin-top: 2px;
+      line-height: 35px;
+    }
+
+    .slider-container {
+      margin-top: -8px;
+    }
+  }
+}

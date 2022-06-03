@@ -1,0 +1,395 @@
+@import 'scene';
+@import 'button';
+@import 'input';
+@import 'variables';
+.row {
+    margin-bottom: 0px;
+}
+
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    .header-container-options {
+        display: flex;
+        margin-left: auto;
+        align-items: center;
+    }
+    .activate-freelance {
+        // position: absolute;
+        // right: 230px;
+        background: transparent;
+        border: 2px solid #fff;
+        text-transform: uppercase;
+        color: #fff;
+        margin-top: 50px;
+    }
+    .profil-container {
+        display: flex;
+    }
+    .profile-picture-container {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        align-items: flex-end;
+        .profile-picture {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: $quartzGrey;
+            text-align: center;
+            .first-letter {
+                color: $primaryColors;
+                font-size: 38px;
+                font-weight: 300;
+                padding-top: 10px;
+            }
+            .image {
+                width: 80px;
+                height: 80px;
+            }
+            img {
+                width: 100%;
+                border-radius: 50%;
+                height: 80px;
+            }
+        }
+        .status-bubble {
+            background: #8fd246;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            border: solid 4px $primaryColors;
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            &.green {
+                background-color: #8fd246;
+            }
+            &.orange {
+                background-color: orange;
+            }
+            &.red {
+                background-color: #D1152B;
+            }
+            &.add-pp {
+                background: url('/assets/img/add_pp_btn.svg');
+                background-size: cover;
+                border: none;
+                cursor: pointer;
+            }
+            &.edit-pp {
+                background: url('/assets/img/edit_pp_btn.svg');
+                background-size: cover;
+                cursor: pointer;
+                width: 31px;
+                height: 31px;
+                border: none;
+            }
+        }
+    }
+    #profile-picture-uploader {
+        display: none;
+    }
+    .profile-identity {
+        //    position: relative; #to remove
+        margin-left: 40px;
+        color: #fff;
+        font-size: 0.875rem;
+        .profile-name {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 300;
+            font-size: 46px;
+            sup {
+                font-size: .3em;
+                font-style: italic;
+                top: -1.8em;
+            }
+        }
+        .profile-more-infos {
+            .blank-info {
+                cursor: pointer;
+                a {
+                    color: $secondaryColors;
+                }
+            }
+        }
+    }
+}
+
+.profile-activation {
+    padding: 20px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    background: none;
+    padding: 15px 28px;
+    color: #fff;
+    font-size: 11px;
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    &.activate {
+        z-index: 2;
+    }
+    &.activated {
+        z-index: 2;
+    }
+    &:hover {
+        background-color: #fff;
+        color: $primaryColors;
+    }
+}
+
+.profile-completion {
+    //padding: 21px 25px 29px 25px;
+    padding-top: 21px;
+    // position: absolute;
+    // right: 95px;
+    // top: 135px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin-left: 2rem;
+    .percentage {
+        color: $secondaryColors;
+        font-size: 26px;
+        font-weight: 300;
+        position: relative;
+        z-index: 1;
+    }
+    .completed-label {
+        font-size: 13px;
+        color: #FFF;
+        font-weight: 300;
+        position: relative;
+        z-index: 2;
+        margin-top: -5px;
+    }
+    img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 0;
+    }
+}
+
+button.download {
+    background: url('/assets/img/download_button.svg');
+    border: none;
+    width: 44px;
+    height: 44px;
+    // position: absolute;
+    // right: 95px;
+    top: 220px;
+    cursor: pointer;
+}
+
+.availability-box {
+    padding: 25px;
+    background: #42436d;
+    background: rgba($primaryColors, 0.5);
+    // position: absolute;
+    // width: 264px;
+    margin-left: 2rem;
+    display: flex;
+    border: 3px solid $secondaryColors;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition-duration: all 0.4s ease-out;
+    -o-transition-duration: all 0.4s ease-out;
+    transition-duration: all 0.4s ease-out;
+    &:hover {
+        background: $primaryColors;
+    }
+    .ddl {
+        margin-left: auto;
+    }
+    label {
+        letter-spacing: 2px;
+        color: $silverGrey;
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+    .date {
+        color: #fff;
+    }
+    button.download {
+        position: relative;
+        top: 0;
+        left: 0;
+        background: url('/assets/img/download_btn_availability.svg');
+    }
+}
+
+.main-profile-infos-container {
+    background: #fff;
+    width: 100%;
+    padding: 26px 35px;
+    box-sizing: border-box;
+    margin-top: 21px;
+    display: inline-flex;
+    position: relative;
+    .data-container {
+        // margin-right: 15px;
+        // width: 20%;
+        &.button {
+            margin-top: 7px;
+            margin-right: 0;
+            text-align: right;
+        }
+        .title {
+            opacity: 0.57;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: $slateGrey;
+        }
+        .data {
+            font-size: 25px;
+            font-weight: 300;
+            color: $primaryColors;
+            &.notation {
+                font-family: Helvetica, sans-serif;
+                font-size: 14px;
+                color: rgba(108, 108, 110, 0.57);
+                margin-top: 5px;
+                .notation-star {
+                    margin-left: 2px;
+                    width: 18px;
+                    height: 17px;
+                }
+                .notes-count {
+                    position: relative;
+                    top: 3px;
+                    left: 7px;
+                }
+            }
+        }
+    }
+    .infos {
+        button {
+            padding: 9px;
+            margin: 5px;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+#profile-desc,
+#profile-skills {
+    padding-bottom: 21px;
+}
+
+.profile-skills-container {
+    padding: 32px 35px;
+    background: #fff;
+    margin-top: 21px;
+    position: relative;
+    min-height: 100%;
+    .skill-title {
+        color: $primaryColors;
+        font-size: 15px;
+        margin-top: 5px;
+        margin-bottom: -5px;
+    }
+}
+
+.profile-description-container {
+    padding: 32px 35px;
+    background: #fff;
+    margin-top: 21px;
+    position: relative;
+    min-height: 100%;
+    .description {
+        margin-top: 25px;
+        word-wrap: break-word;
+    }
+}
+
+.main-menu {
+    width: 100%;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 11px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    // margin-top: 20px;
+    li {
+        float: left;
+        margin-right: 26px;
+        color: #fff;
+        opacity: 0.4;
+        cursor: pointer;
+        &.active {
+            color: $secondaryColors;
+            opacity: 1;
+            border-bottom: 1px solid $secondaryColors;
+        }
+    }
+}
+
+@media all and (max-device-width: 768px) {
+    .header-container {
+        .profile-identity {
+            margin-left: 20px;
+            font-size: 0.8rem;
+            .profile-name {
+                font-size: 32px;
+                line-height: 1.2em;
+            }
+        }
+        .profile-picture-container {
+            width: 65px;
+            height: 65px;
+            .profile-picture {
+                width: 65px;
+                height: 65px;
+                .image {
+                    width: 65px;
+                    height: 65px;
+                }
+                img {
+                    width: 65px;
+                    height: 65px;
+                }
+            }
+            .status-bubble.edit-pp {
+                width: 21px;
+                height: 21px;
+            }
+        }
+        .profile-completion {
+            padding-top: 15px;
+            width: 80px;
+            height: 80px;
+            .percentage {
+                font-size: 20px;
+            }
+            .completed-label {
+                font-size: 12px;
+            }
+            img {
+                width: 80px;
+            }
+        }
+        .availability-box {
+            padding: 15px;
+        }
+    }
+}

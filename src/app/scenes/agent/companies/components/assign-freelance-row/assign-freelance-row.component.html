@@ -1,0 +1,56 @@
+<div class="card-container">
+  <div class="infos-container freelance" [class.open]="toggleDetails">
+    <div class="card-details-header">
+      <div class="pp-container">
+        <div class="profile-picture-container">
+          <img *ngIf="!hasPicture()" src="/assets/img/blank_pp.svg" />
+          <img class="user-pp" *ngIf="hasPicture()" [src]=[freelance.account.profilePicture.url]>
+        </div>
+      </div>
+
+      <div class="card-infos">
+        <a href="/agent/freelances/profile/{{ freelance.id }}" target="_blank">
+          <div class="card-name">{{ freelance.account.firstName }} {{ freelance.account.lastName }}</div>
+          <div class="card-role">{{ freelance.headline }}</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="row card-exp">
+      <div class="localisation-post col-md-6">
+        <span><i class="fas fa-map-marker-alt"></i> {{ freelance.city }}</span>
+      </div>
+      <div class="free-exp col-md-6" *ngIf="freelance.experienceLevel">
+        <span><i class="fas fa-graduation-cap"></i> {{ freelance.experienceLevel }} ans d'exp.</span>
+      </div>
+    </div>
+
+    <div class="card-dispo">
+      <label>Disponibilité</label>
+      <div class="data">
+        <div class="date" *ngIf="freelance.availabilityType === availabilityType.StartFrom && freelance.availabilityDate">Dès {{freelance.availabilityDate | date:'MMMM' | titlecase}} {{freelance.availabilityDate | date:'yyy'}}</div>
+        <div class="date" *ngIf="freelance.availabilityType === availabilityType.Available">Disponible</div>
+        <div class="date" *ngIf="freelance.availabilityType === availabilityType.Unavailable">Indisponible</div>
+      </div>
+    </div>
+
+    <div class="card-tjm">
+      <label>CJM</label>
+      <div class="data">{{ freelance.tjm }}€ / jour</div>
+    </div>
+
+    <div class="card-techs techs">
+      <label>Technos principales</label>
+      <span *ngFor="let skill of freelance.skills">
+        <img class="data" [src]=[skill.tech.techPictureMediaUrl] placement="bottom" ngbTooltip="{{skill.tech.name}}" />
+      </span>
+    </div>
+
+    <div class="action-buttons">
+      <label>&nbsp;</label>
+      <button class="light large" (click)="detailFreelance()">Proposer</button>
+    </div>
+
+    <div class="separator-margin"></div>
+  </div>
+</div>

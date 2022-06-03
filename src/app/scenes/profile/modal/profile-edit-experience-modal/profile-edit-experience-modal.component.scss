@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'modal';
+@import 'button';
+
+.mat-dialog-content {
+  max-height: 85vh !important;
+}
+
+.reset{
+  margin-left : 10px;
+}

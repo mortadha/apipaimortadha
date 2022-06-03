@@ -1,0 +1,80 @@
+@import 'variables';
+@import 'modal';
+@import 'button';
+@import 'card';
+
+textarea{
+    height: 170px !important;
+}
+
+.mat-dialog-content {
+  max-height: 85vh !important;
+}
+
+.data-block {
+    label {
+        color: $slateGrey;
+        font-size: 11px;
+        text-transform: uppercase;
+        opacity: 0.57;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    .data {
+        color: $charcoalGrey;
+        font-size: 22px;
+        font-weight: 300;
+    }
+
+    .logo {
+        img {
+          width: 62px;
+          height: 62px;
+          border-radius: 50%;            
+        }
+    }
+}
+
+.start {
+    padding-right: 7px;
+}
+
+.end {
+    padding-left: 7px;
+}
+
+.description-container {
+    background: #fff;
+    padding: 20px;
+    margin-top: 10px;
+    width: 100%;
+
+    p {
+      font-size: 15px;
+      color: $primaryColors;
+    }
+
+    .see-more {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+  }
+
+  .techs-listing {
+      img {
+          width: 28px;
+          height: 28px;
+      }
+  }
+
+  .set-need-state {
+      padding: 16px;
+      text-transform: uppercase;
+      border: 1px solid $silverGrey;
+      border-radius: 3px;
+      background: none;
+  }

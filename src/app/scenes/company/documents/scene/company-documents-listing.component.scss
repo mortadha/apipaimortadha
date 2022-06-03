@@ -1,0 +1,313 @@
+@import 'scene';
+@import 'card';
+@import 'variables';
+@import 'schedule';
+.body-container {
+    margin-top: 45px;
+    .page-container {
+        // text-align: center;
+        background: #fff;
+        padding: 30px;
+        // .title {
+        //     font-size: 25px;
+        //     color: $primaryColors;
+        //     margin: 10px 0;
+        // }
+    }
+}
+
+.app-container {
+    .main-menu {
+        margin-top: 30px;
+    }
+}
+
+.app-bills-container {
+    // margin-left: $sidebarWidth + 95;
+    // margin-right: 95px;
+    // margin-top: -230px;
+    // padding-bottom: 200px;
+    .bills-header-container {
+        // display: flex;
+        // justify-content: space-between;
+        .page-header {
+            // color: #ffffff;
+            // font-weight: 300;
+            // font-size: 46px;
+        }
+    }
+    // .main-menu {
+    //     width: 100%;
+    //     display: inline-block;
+    //     text-transform: uppercase;
+    //     letter-spacing: 2px;
+    //     font-weight: 600;
+    //     font-size: 11px;
+    //     list-style-type: none;
+    //     margin: 0;
+    //     padding: 0;
+    //     margin-top: 30px;
+    //     li {
+    //         float: left;
+    //         margin-right: 26px;
+    //         color: #ffffff;
+    //         opacity: 0.4;
+    //         cursor: pointer;
+    //         &.active {
+    //             color: $secondaryColors;
+    //             opacity: 1;
+    //             border-bottom: 1px solid $secondaryColors;
+    //         }
+    //     }
+    // }
+    .action-btns {
+        margin-top: 35px;
+        button {
+            width: 44px;
+            height: 44px;
+            border: none;
+            margin-right: 10px;
+            outline: none;
+            background: none;
+            &.delete {
+                background-image: url('/assets/img/delete_header_btn.svg');
+            }
+            &.print {
+                background-image: url('/assets/img/print_header_btn.svg');
+            }
+            &.download {
+                background-image: url('/assets/img/download_header_btn.svg');
+            }
+        }
+    }
+}
+
+.doc-head {
+    color: $slateGrey;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding-bottom: 15px;
+    margin-bottom: 1em;
+    font-weight: bold;
+    opacity: 0.57;
+    border-bottom: 1px solid $silverGrey;
+}
+
+.client {
+    color: $primaryColors;
+    font-weight: 600;
+}
+
+.link {
+    font-size: 12px;
+    color: $slateGrey;
+    text-decoration: underline;
+    font-weight: 300;
+}
+
+.date,
+.amount,
+.title {
+    color: $slateGrey;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.docs-wrapper {
+    .fa-download {
+        display: inline-block;
+        margin-left: 15px;
+    }
+}
+
+.docs-wrapper.collapsed {
+    .fa-chevron-down {
+        transform: rotate(-90deg);
+    }
+    .fa-download {
+        display: none;
+    }
+}
+
+// .docs-wrapper {
+//     .fa-chevron-down {
+//         transform: rotate(0deg);
+//     }
+//      {
+//         .fa-chevron-down {
+//             transform: rotate(-90deg);
+//         }
+//     }
+// }
+.fill-name {
+    padding: .5em 1em;
+    font-size: .9em;
+    a {
+        color: $primaryColors;
+        &:hover {
+            color: $secondaryColors;
+        }
+    }
+    .date,
+    .amount,
+    .actions {
+        text-align: center;
+    }
+}
+
+table {
+    width: 100%;
+    border-spacing: 20px;
+    border-collapse: collapse;
+    // margin-top: 100px;
+    /* Customize the label (the container) */
+    label {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    /* Hide the browser's default checkbox */
+    label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: transparent;
+        border: 1px solid $silverGrey;
+        border-radius: 3px;
+    }
+    /* On mouse-over, add a grey background color */
+    label:hover input~.checkmark {
+        background-color: transparent;
+    }
+    /* When the checkbox is checked, add a blue background */
+    label input:checked~.checkmark {
+        background-color: $primaryColors;
+    }
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    /* Show the checkmark when checked */
+    label input:checked~.checkmark:after {
+        display: block;
+    }
+    /* Style the checkmark/indicator */
+    label .checkmark:after {
+        left: 4px;
+        top: 1px;
+        width: 5px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 1px 1px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    thead {
+        color: $slateGrey;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 2px;
+        padding-bottom: 25px;
+        tr {
+            th {
+                &:first-child {
+                    padding-left: 30px;
+                }
+                &:nth-child(n+2) {
+                    opacity: 0.57;
+                }
+            }
+        }
+    }
+    tbody {
+        &:before {
+            content: "-";
+            display: block;
+            line-height: 1em;
+            color: transparent;
+        }
+        tr th {
+            padding: 30px 0;
+            background: #fff;
+            &.client {
+                color: $primaryColors;
+            }
+            &.link {
+                font-size: 12px;
+                color: $slateGrey;
+                text-decoration: underline;
+                font-weight: 300;
+            }
+            &.date,
+            &.amount,
+            &.title {
+                color: $slateGrey;
+                font-size: 14px;
+                font-weight: 300;
+            }
+            &:first-child {
+                padding-left: 30px;
+            }
+        }
+    }
+}
+
+.card-docmission {
+    .infos-container {
+        min-height: auto;
+        .info-free {
+            border-right: 1px solid $slateGrey;
+            text-align: center;
+        }
+        .logo,
+        .pp {
+            width: 76px;
+            height: 76px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+        .free-title {
+            font-weight: 400;
+            color: $primaryColors;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .client-title {
+            font-size: 12px;
+            font-weight: 400;
+        }
+        .free-name {
+            font-weight: 600;
+            color: $slateGrey;
+            font-size: 12px;
+        }
+        table {
+            margin-top: 0;
+            tr {
+                font-size: .9em;
+            }
+            td {
+                font-style: italic;
+            }
+        }
+    }
+}

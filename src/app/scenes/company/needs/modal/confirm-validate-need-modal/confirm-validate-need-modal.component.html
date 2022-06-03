@@ -1,0 +1,38 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div>
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Validation de la mission</h4>
+        <button mat-button
+        (click)="close(true)"
+        class="close"
+        aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="data-block">
+          <label for="finalTJM" i18n>TJM final pour l'entreprise*</label>
+          <input class="cjmInput no-border" type="number" placeholder="800" id="finalTJM" [(ngModel)]="finalTJM">
+        </div>
+
+        <div class="data-block">
+          <label for="finalCJM" i18n>CJM final pour le freelance*</label>
+          <input class="cjmInput no-border" type="number" placeholder="800" id="finalCJM" [(ngModel)]="finalCJM">
+        </div>
+
+        <div class="data-block">
+          <label for="startingDate" i18n>Date de début de mission*</label>
+          <input matInput [matDatepicker]="startDp" id="startingDate" placeholder="Date de démarrage"
+          i18n-placeholder="Date de démarrage" [(ngModel)]="startingDate">
+          <mat-datepicker-toggle matSuffix [for]="startDp"></mat-datepicker-toggle>
+          <mat-datepicker #startDp startView="multi-year" panelClass="example-month-picker">
+          </mat-datepicker>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal-footer">
+        <span><sup>*</sup>Champs obligatoires</span>
+        <button class="dark" (click)="close(false)" i18n>Confirmer</button>
+    </div>
+  </div>
+</mat-dialog-content>

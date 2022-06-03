@@ -1,0 +1,100 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="edit-parcours-modal" id="edit-school-modal">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ modalTitle }}</h4>
+        <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="data-block add-parcours" [class.drop-shadow]="autoCompFieldIsFocused">
+          <div class="row" *ngIf="!isAddingNewUniversity">
+            <div class="col-md-12">
+              <label for="educationName" i18n>École*</label>
+              <input autocomplete="off" type="text" class="no-border full-width" i18n-placeholder="École..." id="educationName" required [(ngModel)]="currentText" (input)="schoolInputChange($event)" (focus)="autoCompFieldIsFocused = !autoCompFieldIsFocused" (focusout)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+                placeholder="École..." />
+            </div>
+          </div>
+          <div class="row" *ngIf="isAddingNewUniversity">
+            <div class="col-md-9">
+              <label for="educationName" i18n>École*</label>
+              <input type="text" class="no-border full-width" i18n-placeholder="École..." id="educationName" required [(ngModel)]="currentText" (input)="schoolInputChange($event)" (focus)="autoCompFieldIsFocused = !autoCompFieldIsFocused" (focusout)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+                placeholder="École..." />
+            </div>
+<!--
+            <div class="col-md-3 picture-uploader">
+              <label for="profile-picture-uploader-university">
+                <button class="add-profile-picture-parcours" *ngIf="isAddingNewUniversity" [ngStyle]="{'background-image': 'url(' + newUniversityImage + ')'}"></button>
+                <input type="file" id="profile-picture-uploader-university" *ngIf="isAddingNewUniversity" (change)="fileUploaded($event)" />
+              </label>
+            </div> -->
+          </div>
+          <div class="add-parcours-container" *ngIf="noUniversities === true">
+            <div class="row" *ngIf="isAddingNewUniversity">
+              <div class="col-md-6">
+                <input type="text" class="full-width" [(ngModel)]="newUniversityCity" placeholder="Ville" />
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="full-width" [(ngModel)]="newUniversityCountry" placeholder="Pays" />
+              </div>
+              <div class="col-md-12">
+              </div>
+            </div>
+            <button class="dark" (click)="addUniversity()" *ngIf="!isAddingNewUniversity" i18n>Ajouter cette école</button>
+            <button class="light" (click)="reset()" *ngIf="isAddingNewUniversity" i18n>Annuler</button>
+            <button class="dark reset" (click)="createNewUniversity()" *ngIf="isAddingNewUniversity" i18n>Valider</button>
+          </div>
+          <div class="autocomplete-container" *ngIf="autocompleteUniversities.length > 0">
+            <ul>
+              <li (click)="addUniversity()">
+                  <button class="dark" (click)="addUniversity()"> Ajouter une nouvelle école</button>
+              </li>
+              <li *ngFor="let school of autocompleteUniversities" (click)="selectUniversity(school)">
+                <div class="name">{{ school.name }}</div>
+                <div class="location">{{ school.city }}, {{ school.country }}</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="data-block">
+          <label for="education-certificate" i18n>Diplôme*</label>
+          <input type="text" required id="education-certificate" class="no-border full-width" i18n-placeholder="Ex : Licence en développement web" [(ngModel)]="education.certificate" placeholder="Ex : Licence en développement web" />
+        </div>
+        <div class="data-block">
+          <label i18n>Dates*</label>
+          <div class="start-date-container">
+            <div class="start-label" i18n>De</div>
+            <input matInput [matDatepicker]="startDp" required [(ngModel)]="education.startedAt" i18n-placeholder="Mois & Année" placeholder="Mois & Année">
+            <mat-datepicker-toggle matSuffix [for]="startDp"></mat-datepicker-toggle>
+            <mat-datepicker #startDp
+                            startView="multi-year"
+                            (yearSelected)="chosenStartYearHandler($event)"
+                            (monthSelected)="chosenStartMonthHandler($event, startDp)"
+                            panelClass="example-month-picker">
+            </mat-datepicker>
+          </div>
+          <div class="end-date-container">
+            <div class="end-label" i18n>à</div>
+            <input matInput [matDatepicker]="endDp" [(ngModel)]="education.endedAt" i18n-placeholder="Mois & Année" required placeholder="Mois & Année">
+            <mat-datepicker-toggle matSuffix [for]="endDp">
+            </mat-datepicker-toggle>
+            <mat-datepicker #endDp
+                            startView="multi-year"
+                            (yearSelected)="chosenEndYearHandler($event)"
+                            (monthSelected)="chosenEndMonthHandler($event, endDp)"
+                            panelClass="example-month-picker">
+            </mat-datepicker>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" *ngIf="data.isNew === false" (click)="deleteEducation()" class="light flexleft" i18n>
+          Supprimer
+        </button>
+        <button type="submit" [disabled]="!education.university || !education.certificate || !education.startedAt || !education.endedAt" (click)="submit()" class="dark" i18n>
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

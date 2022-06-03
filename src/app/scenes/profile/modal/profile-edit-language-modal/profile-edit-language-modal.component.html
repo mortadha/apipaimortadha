@@ -1,0 +1,42 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="edit-parcours-modal" id="edit-school-modal">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ modalTitle }}</h4>
+        <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="data-block">
+            <div class="row">
+                <div class="col-md-12">
+          <label for="languageName" i18n>Nom</label>
+          <input type="text" required id="languageName" class="no-border full-width" i18n-placeholder="Ex : Anglais" [(ngModel)]="language.name" placeholder="Ex : Anglais" />
+        </div>
+        </div>
+        </div>
+        <div class="data-block">
+            <div class="row">
+                <div class="col-md-12">
+          <label i18n>Niveau*</label>
+          <select [(ngModel)]="language.level">
+            <option [ngValue]="languageLevelEnum.Notions">Notions élémentaires</option>
+            <option [ngValue]="languageLevelEnum.LimitedPro">Compétence professionnelle limitée</option>
+            <option [ngValue]="languageLevelEnum.Pro">Compétence professionnelle</option>
+            <option [ngValue]="languageLevelEnum.CompletePro">Compétence professionnelle complète</option>
+            <option [ngValue]="languageLevelEnum.Bilingual">Bilingue ou langue natale</option>
+          </select>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" *ngIf="data.isNew === false" (click)="deleteLanguage()" class="light flexleft" i18n>
+          Supprimer
+        </button>
+        <button type="submit" [disabled]="" (click)="submit()" class="dark" i18n>
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

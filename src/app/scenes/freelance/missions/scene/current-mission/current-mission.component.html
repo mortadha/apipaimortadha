@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-container">
+                <div class="missions-header-container header-container">
+                    <div class="page-header" i18n>Ma mission</div>
+                </div>
+                <div class="menu-container my-4">
+                    <ul class="main-menu">
+                        <li [class.active]="activeTab === missionTabs.cra" (click)="switchTab(missionTabs.cra);" i18n>CRA</li>
+                        <li [class.active]="activeTab === missionTabs.documents" (click)="switchTab(missionTabs.documents);" i18n>Documents</li>
+                    </ul>
+
+                </div>
+
+                <!-- <button class="white-btn">
+                    <label class="docs" for="inputGroupFile">Charger un fichier
+                        <input type="file" id="inputGroupFile">
+                    </label>
+
+                </button> -->
+
+                <!-- <label class="docs" for="inputGroupFile">
+                        <div class="upload-docs">
+                            <p>glissez-déposez vos fichier</p>
+                            <span>Ou <span>choisissez vos fichier</span></span>
+                        </div>
+                        <input type="file" id="inputGroupFile" (change)="fileUploaded($event)">
+                    </label> -->
+
+                <div class="calendar-wrapper" *ngIf="activeTab === missionTabs.cra">
+                    <app-cra-detail [currentMission]="currentMission" (emitDocumentTab)="allDocument()"></app-cra-detail>
+                </div>
+                <div *ngIf="activeTab === missionTabs.documents">
+                    <div class="body-container">
+                        <div class="page-container">
+                            <app-document-list [currentMission]="currentMission"></app-document-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>

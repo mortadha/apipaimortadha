@@ -1,0 +1,514 @@
+/* You can add global styles to this file, and also import other style files */
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    background-color: #ebebeb;
+}
+
+body.login,
+body.boarding {
+    /* background-size: cover;
+    background-repeat: ; */
+    /* height: 100%; */
+    /* background-color: ; */
+    background: #1c1e52 url("/assets/img/bg.jpg") no-repeat top right fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h6 {
+    letter-spacing: 2px;
+    color: #6c6c6e;
+    opacity: 0.57;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 21px;
+    font-weight: 300;
+    color: #1c1e52;
+}
+
+a {
+    color: #59ddf4;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition-duration: all 0.4s ease-out;
+    -o-transition-duration: all 0.4s ease-out;
+    transition-duration: all 0.4s ease-out;
+}
+
+a:hover {
+    color: #1c1e52;
+    text-decoration: none;
+}
+
+.fa,
+.fas {
+    padding-right: 3px;
+}
+
+div {
+    word-break: keep-all;
+    /** break-all */
+}
+
+
+/**
+  Bootstrap overrides
+ */
+
+main {
+    margin-top: -240px;
+    -webkit-transition: 0.2s ease-out;
+    -moz-transition-duration: 0.2s ease-out;
+    -o-transition-duration: 0.2s ease-out;
+    transition-duration: 0.2s ease-out;
+}
+
+.open-menu {
+    margin-top: -160px;
+}
+
+
+/**
+  Bootstrap overrides
+ */
+
+.show-bs-tooltip-bottom {
+    margin-top: 10px;
+}
+
+.tooltip .tooltip-inner {
+    background-color: #302F3A;
+}
+
+.tooltip .arrow::before {
+    border-bottom-color: #302F3A;
+}
+
+.modal-content {
+    background-color: #EBEBEB;
+    border-radius: 0;
+    padding: 8px 20px 20px 20px;
+}
+
+.modal-title {
+    font-size: 28px;
+    font-weight: 300;
+    color: #6C6C6E;
+}
+
+.modal-content .close {
+    width: 18px;
+    height: 18px;
+    background-image: url('./assets/img/close_modal_btn.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    margin-top: 10px;
+    outline: none;
+}
+
+html.cdk-global-scrollblock {
+    width: initial;
+    position: initial;
+    overflow-y: initial;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+body.modal-open .cdk-global-overlay-wrapper {
+    display: block !important;
+    overflow: auto;
+    padding: 30px 0;
+}
+
+body.modal-open .cdk-global-overlay-wrapper:not(:root:root) {
+    pointer-events: auto;
+}
+
+body.modal-open .cdk-overlay-pane {
+    pointer-events: auto;
+    margin: auto !important;
+}
+
+body.modal-open .mat-datepicker-popup {
+    position: absolute !important;
+}
+
+.cdk-overlay-backdrop {
+    position: fixed !important;
+}
+
+.modal-no-padding .mat-dialog-container {
+    margin: 0 auto 30px !important;
+    padding: 0;
+    max-height: 85vh !important;
+}
+
+.mat-dialog-content {
+    max-width: none !important;
+    max-height: 85vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/*.data-block {
+  background: #fff;
+  padding: 15px 20px;
+  margin-top: 10px;
+  position: relative;
+}*/
+
+.data-block.drop-shadow {
+    -webkit-box-shadow: 0px 2px 14px 5px rgba(6, 6, 15, 0.16);
+    box-shadow: 0px 2px 14px 5px rgba(6, 6, 15, 0.16);
+}
+
+.empty-block {
+    border: 1px dashed #979797;
+    border-radius: 3px;
+    padding: 21px 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1C1E52;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 19px;
+    cursor: pointer;
+    display: flex;
+}
+
+.empty-block span {
+    line-height: 27px
+}
+
+.full-width {
+    width: 100%;
+}
+
+.modal-header {
+    padding: 1rem 1rem 0 1rem;
+}
+
+
+/**
+  Angular material overrides
+ */
+
+
+/* .cdk-overlay-container {
+  position: relative;
+  z-index: 2000 !important;
+}  */
+
+.mat-datepicker-content {
+    background: #fff;
+}
+
+[disabled] {
+    opacity: 0.5;
+}
+
+input[disabled],
+textarea[disabled] {
+    background: none;
+}
+
+.mat-form-field-label {
+    display: none !important;
+}
+
+.mat-input-element::placeholder {
+    color: red;
+    opacity: 1;
+    display: block;
+}
+
+.waiting-client-confirmation {
+    font-weight: 600;
+    font-size: 11px;
+    color: #9E7B36;
+    max-width: 80px;
+    position: absolute;
+    top: 10px;
+    left: 7px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0.375em 0 !important;
+    width: 155px !important;
+    border-top: 20px solid transparent !important;
+    border-bottom: 0 !important;
+}
+
+.calendar-header .mat-form-field-appearance-legacy .mat-form-field-infix {
+    width: 180px !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0 !important;
+}
+
+.mat-datepicker-toggle .mat-icon-button {
+    font-size: 0 !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: url('./assets/img/calendar_datepicker_icon.svg') !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    top: -13px !important;
+    right: 125px !important;
+    background: none !important;
+    right: 35px !important;
+    top: -5px !important;
+}
+
+.mat-autocomplete-panel {
+    /* max-height: 100% !important; */
+}
+
+.date-picker-container .mat-input-element {
+    position: relative;
+    top: -12px;
+    left: 60px;
+    color: #302F3A;
+    font-size: 14px;
+}
+
+.date-picker-arrow {
+    position: absolute;
+    right: -12px;
+    top: -8px;
+    z-index: 1000;
+    width: 25px;
+    height: 25px;
+    background-image: url('./assets/img/datepicker-date-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.mat-select-panel {
+    margin-left: 20px;
+}
+
+.mat-select-arrow {
+    display: none;
+}
+
+.mission-and-calendar-container .mat-datepicker-toggle .mat-icon-button {
+    right: 0px !important;
+    top: -7px !important;
+    background-repeat: no-repeat !important;
+}
+
+.edit-experience-modal .mat-datepicker-toggle .mat-icon-button,
+.edit-school-modal .mat-datepicker-toggle .mat-icon-button {
+    background: none !important;
+}
+
+.edit-experience-modal .mat-datepicker-toggle .mat-icon-button,
+.edit-school-modal .mat-datepicker-toggle .mat-icon-button {
+    top: -10px !important;
+    right: 35px !important;
+}
+
+.create-need-modal .mat-form-field-appearance-legacy .mat-form-field-infix,
+.create-need-modal .mat-form-field-appearance-legacy .mat-form-field-infix input {
+    width: 300px !important;
+}
+
+.app-freelance-container .date-picker-container .mat-icon-button {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.app-freelance-container .mat-icon-button {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.mat-option.mat-active {
+    background: #fff !important;
+}
+
+.mat-option.mat-active:hover {
+    background: #f5f5f5 !important;
+}
+
+.mat-form-field-underline {
+    display: none !important;
+}
+
+.edit-profile-main-modal .mat-form-field {
+    width: 400px !important;
+}
+
+.experience-details,
+.description,
+.mission-description,
+.comment-details {
+    white-space: pre-wrap;
+}
+
+.mat-form-field-wrapper {
+    padding: 0 !important;
+}
+
+.mat-form-field-infix {
+    border: 0 !important;
+}
+
+.mat-select-value-text {
+    margin-left: 15px
+}
+
+canvas {
+    margin-top: 15px;
+    /* width: 100%; */
+}
+
+.custom-file-label::placeholder {
+    color: red;
+}
+
+.custom-file-label::after {
+    content: "Parcourir";
+}
+
+
+/**
+ Override on Mat Select Options
+*/
+
+.mat-select-content .mat-option {
+    padding: 0;
+}
+
+.mat-select-content .mat-option-text a {
+    display: block;
+    padding: 0 16px;
+}
+
+
+/**
+ Override on MatAutocomplete Select Options
+*/
+
+.cdk-overlay-pane .mat-autocomplete-panel {
+    /* height: 60vh;
+    min-height: 24vh;
+    max-height: 60vh !important; */
+}
+
+
+/**
+Override mat-tab-nav-bar 
+*/
+
+.my-entreprise {
+    border-bottom: 0 !important;
+}
+
+.mat-tab-links {
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+}
+
+.my-entreprise .mat-tab-link {
+    opacity: 1 !important;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    padding: .5rem 1rem;
+    height: inherit;
+    flex-grow: 1;
+}
+
+
+/**
+  Start Form Styles
+ */
+
+
+/**
+   End Form Styles
+  */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+}
+
+
+/**
+Start Responsive Rules
+*/
+
+
+@media (max-width: 767px) {
+    main {
+        margin-top: -390px;
+    }
+
+    main.open-menu {
+        margin-top: -130px;
+    }
+}
+
+@media (max-width: 414px) {
+    main {
+        margin-top: -500px;
+    }
+
+    main.open-menu {
+        margin-top: -240px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+/**
+   End Responsive Rules
+  */

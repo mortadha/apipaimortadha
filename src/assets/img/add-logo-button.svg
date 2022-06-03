@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Freelance" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Freelance_Profil-formation-add_logo" transform="translate(-962.000000, -169.000000)">
+            <g id="Group-11" transform="translate(400.000000, 60.000000)">
+                <g id="Group-5" transform="translate(562.000000, 109.000000)">
+                    <rect id="Rectangle-3" fill="#D8D8D8" x="0" y="0" width="68" height="68"></rect>
+                    <g id="Group-3" transform="translate(20.000000, 19.000000)">
+                        <g id="Picto-photo" transform="translate(4.000000, 0.000000)">
+                            <path d="M5.33333333,2.61538462 L5.33333333,1.95 C5.33333333,0.873044738 6.20637807,4.19878077e-16 7.28333333,2.22044605e-16 L12.7166667,2.22044605e-16 C13.7936219,2.42111327e-17 14.6666667,0.873044738 14.6666667,1.95 L14.6666667,2.61538462 L18.7,2.61538462 C19.4179702,2.61538462 20,3.19741444 20,3.91538462 L20,15.7 C20,16.4179702 19.4179702,17 18.7,17 L1.3,17 C0.582029825,17 7.54059802e-16,16.4179702 6.66133815e-16,15.7 L0,3.91538462 C-8.79259876e-17,3.19741444 0.582029825,2.61538462 1.3,2.61538462 L5.33333333,2.61538462 Z" id="Combined-Shape" fill="#6C6C6E"></path>
+                            <path d="M10,13.0769231 C11.8409492,13.0769231 13.3333333,11.6132386 13.3333333,9.80769231 C13.3333333,8.00214601 11.8409492,6.53846154 10,6.53846154 C8.15905083,6.53846154 6.66666667,8.00214601 6.66666667,9.80769231 C6.66666667,11.6132386 8.15905083,13.0769231 10,13.0769231 Z M10,14.3846154 C7.42267117,14.3846154 5.33333333,12.3354571 5.33333333,9.80769231 C5.33333333,7.27992749 7.42267117,5.23076923 10,5.23076923 C12.5773288,5.23076923 14.6666667,7.27992749 14.6666667,9.80769231 C14.6666667,12.3354571 12.5773288,14.3846154 10,14.3846154 Z" id="Oval-3" fill="#D8D8D8" fill-rule="nonzero"></path>
+                        </g>
+                        <text id="Logo" font-family="OpenSans-Bold, Open Sans" font-size="10" font-weight="bold" fill="#6C6C6E">
+                            <tspan x="0.095703125" y="32">LOGO</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

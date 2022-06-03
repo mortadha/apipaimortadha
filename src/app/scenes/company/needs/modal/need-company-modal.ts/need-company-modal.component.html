@@ -1,0 +1,70 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="edit-parcours-modal" id="edit-experience-modal">
+      <div class="modal-header">
+        <h4 class="modal-title" i18n>Assigner le besoin à une entreprise</h4>
+      </div>
+      <div class="modal-body">
+        <div class="data-block">
+          <div class="col-md-12">
+            Pour le bon fonctionnement de la plateforme ce besoin doit être assigné à une Entreprise.
+          </div>
+        </div>
+        <div class="data-block">
+          <div class="col-md-12">
+              <label for="companyUser" i18n>Email du contact*</label>
+              <input autocomplete="off" type="text" id="companyUser" class="no-border full-width" [(ngModel)]="need.accountCompany.email" disabled />
+          </div>
+        </div>
+        <div class="data-block add-parcours" [class.drop-shadow]="autoCompFieldIsFocused">
+          <div class="col-md-12">
+            <div class="row" *ngIf="!isAddingNewCompany">
+              <label for="companyName" i18n>Entreprise*</label>
+              <input autocomplete="off" type="text" id="companyName" class="no-border full-width"
+              [(ngModel)]="currentText" i18n-placeholder="Entreprise..." 
+              (input)="companyInputChange($event)" (focus)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+              (focusout)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+              placeholder="Entreprise..." />
+            </div>
+            <div class="row" *ngIf="isAddingNewCompany">
+              <div class="col-md-9">
+                <label for="companyName" i18n>Entreprise*</label>
+                <input autocomplete="off" type="text" id="companyName" class="no-border full-width" [(ngModel)]="currentText" i18n-placeholder="Entreprise..." (input)="companyInputChange($event)" (focus)="autoCompFieldIsFocused = !autoCompFieldIsFocused" (focusout)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+                  placeholder="Entreprise..." />
+              </div>
+            </div>
+            <div class="add-parcours-container" *ngIf="noCompanies === true">
+              <div class="row" *ngIf="isAddingNewCompany">
+                <div class="col-md-6">
+                  <input type="text" class="full-width" [(ngModel)]="newCompanyCity" placeholder="Ville" />
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="full-width" [(ngModel)]="newCompanyCountry" placeholder="Pays" />
+                </div>
+                <div class="col-md-12">
+                </div>
+              </div>
+              <button class="dark" (click)="addNewCompany()" *ngIf="!isAddingNewCompany" i18n>Ajouter cette entreprise</button>
+              <button class="light" (click)="reset()" *ngIf="isAddingNewCompany" i18n>Annuler</button>
+              <button class="dark reset" (click)="createNewCompany()" *ngIf="isAddingNewCompany" i18n>Valider</button>
+            </div>
+            <div class="autocomplete-container" *ngIf="autocompleteCompanies.length > 0">
+              <ul>
+                <li (click)="addNewCompany()">
+                  <button class="dark" (click)="addNewCompany()"> Ajouter une nouvelle entreprise</button>
+                </li>
+                <li *ngFor="let company of autocompleteCompanies" (click)="selectCompany(company)">
+                  <div class="name">{{ company.name }}</div>
+                  <div class="location">{{ company.city }}, {{ company.country }}</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button class="dark" (click)="closeModal()" [disabled]="!submit" i18n>Valider</button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

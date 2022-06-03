@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-needs-listing-container app-container">
+                <div class="needs-header-container header-container">
+                    <div class="page-header" i18n>Mes besoins</div>
+                </div>
+                <!-- <ul class="main-menu">
+          <li [class.active]="activeTab === tabs.current" (click)="switchTab(tabs.current)">En cours</li>
+          <li [class.active]="activeTab === tabs.ended" (click)="switchTab(tabs.ended)">Terminés</li>
+        </ul> -->
+                <div class="menu-container my-4">
+                    <button class="white-btn" (click)="createNeed()">Créer un besoin</button>
+                </div>
+
+                <div class="listing-container card-list">
+                    <div class="row" *ngIf="company">
+
+                        <div class="body-container">
+                            <div class="row" *ngIf="needs && needs.length == 0">
+
+                                <div class="col-md-12">
+                                    <div class="page-not-found-container">
+                                        <div class="title">Le profil idéal en 3 étapes !</div>
+                                        <div class="row flex-md-column-reverse">
+                                            <div class="col-md-12 col-lg-4 offset-lg-1">
+                                                <dl class="dl-horizontal">
+                                                    <dt><i class="fas fa-comments"></i></dt>
+                                                    <dd><span>1.</span> Décrivez la mission proposée et le profil recherché.</dd>
+                                                    <p>Donnez-nous le maximum de détails afin que nos équipes dédiées qualifient le(s) freelance(s) le(s) plus adapté(s) au projet proposé.</p>
+                                                </dl>
+                                                <dl class="dl-horizontal">
+                                                    <dt><i class="far fa-calendar-check"></i></dt>
+                                                    <dd><span>2.</span> Planifiez une réunion technique avec le freelance présélectionné.</dd>
+                                                    <p>Vous avez la possibilité de planifier en ligne un ou plusieurs entretiens avec les profils ayant retenu votre attention.</p>
+                                                </dl>
+                                                <dl class="dl-horizontal">
+                                                    <dt><i class="fab fa-rocketchat"></i></dt>
+                                                    <dd><span>3.</span> C’est parti ! Validons ensemble les modalités de démarrage, tout est sous contrôle.</dd>
+                                                    <p>Une fois la bonne ressource identifiée, vous recevez automatiquement l’ensemble des éléments contractuels afin de démarrer le projet sereinement.</p>
+                                                </dl>
+                                            </div>
+                                            <div class="col-md-12 col-lg-6">
+                                                <img class="img-fluid" src="/assets/img/launch-free.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-3" *ngFor="let need of needs">
+                            <app-company-need-card [need]="need" companyId="company.id"></app-company-need-card>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>

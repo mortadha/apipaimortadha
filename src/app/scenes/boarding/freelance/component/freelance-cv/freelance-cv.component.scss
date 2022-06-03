@@ -1,0 +1,59 @@
+@import '../../scene/boarding-freelance.component.scss';
+
+/* The switch - the box around the slider */
+
+// .switch {
+// }
+
+/* Hide default HTML checkbox */
+
+
+/* The slider */
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $whiteGrey;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+input:checked+.slider {
+    background-image: linear-gradient(-90deg, $primaryColors 0%, $secondaryColors 100%);
+}
+
+// input:focus + .slider {
+// }
+input:checked+.slider:before {
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+    margin-left: 0 !important;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

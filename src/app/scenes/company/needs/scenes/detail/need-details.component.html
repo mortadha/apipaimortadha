@@ -1,0 +1,136 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-need-details-container app-container">
+                <div class="need-header-container header-container">
+                    <div class="page-header" i18n>
+                        {{ need.jobTitle }}
+                        <sup class="action-buttons" *ngIf="user.type === accountType.Agent">
+                            <span class="win light"*ngIf="!need.enabled && need.status == 1"> <i class="fas fa-check"></i> Gagné </span>
+                            <span class="lost light" *ngIf="!need.enabled&& need.status == 2"> <i class="fas fa-times"></i> Perdu </span>
+                        </sup>
+                    </div>
+
+
+                    <div class="profile-more-infos">
+                        <span class="blank-info">
+                        <a target="_blank" href="https://www.google.com/maps/place/{{ need.companyCity }}">
+                          {{ need.companyTitle }}
+                          <span *ngIf="need.companyTitle && need.companyCity">,</span> {{ need.companyCity }}
+                        </a>
+                        </span>
+                        <br />
+                    </div>
+
+                    <div class="need-actions my-3">
+                        <button *ngIf="user.type === accountType.Agent && need.enabled" class="light" (click)="assignFreelance()" i18n>Assigner</button>
+                        <button class="white-btn" (click)="editNeed()" i18n>Mettre à jour</button>
+                    </div>
+                </div>
+                <div class="body-container">
+                    <div class="row">
+                        <div class="mission-details-container col-md-5 col-lg-3">
+                            <div class="title">Mon besoin</div>
+                            <div class="row details">
+                                <div *ngIf="user.type === accountType.Agent" class="col-md-6">
+                                    <label>Source</label>
+                                    <div class="need-origin">
+                                        <span *ngIf="need.source === needSource.Agent" class="data">Neadz</span>
+                                        <span *ngIf="need.source === needSource.Consort" class="data consort">Consort</span>
+                                        <span *ngIf="need.source === needSource.Boarding" class="data boarding"><i class="fas fa-hashtag"></i>Boarding</span>
+                                    </div>
+                                </div>
+                                <div *ngIf="user.type === accountType.Agent" class="col-md-6">
+                                    <label>{{ need.source === needSource.Consort ? 'IA' : 'Client'}}</label>
+                                    <div *ngIf="need.source === needSource.Consort" class="data">{{ need.emailConsort }}</div>
+                                    <div *ngIf="need.source !== needSource.Consort && need.accountCompany" class="data">{{ need.accountCompany.firstName }} {{ need.accountCompany.lastName }}</div>
+                                </div>
+                                <div class="col-md-12">
+                                    <hr />
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Niveau</label>
+                                    <div class="xp-levels">
+                                        <div *ngIf="need.experienceLevel === 2">Junior</div>
+                                        <div *ngIf="need.experienceLevel === 4">Confirmé</div>
+                                        <div *ngIf="need.experienceLevel === 8">Expert</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Budget</label>
+                                    <div class="data" *ngIf="need.tjm > 0">{{ need.tjm }}€ / jour</div>
+                                    <div class="data" *ngIf="need.tjm === 0">Non renseigné</div>
+                                </div>
+                                <div class="col-md-12">
+                                    <hr />
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Début</label>
+                                    <div *ngIf="need.availabilityType === availabilityType.After" class="data">
+                                        {{ need.availabilityDate | date:'MM/yyy'}}
+                                    </div>
+                                    <div *ngIf="need.availabilityType == availabilityType.Asap" class="data">
+                                        Dès que possible
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Durée</label>
+                                    <div class="data">{{ need.durationLast }}
+                                        <span *ngIf="need.durationType === durationType.Week">semaine(s)</span>
+                                        <span *ngIf="need.durationType === durationType.Month">mois</span>
+                                        <span *ngIf="need.durationType === durationType.Year">année(s)</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 techs">
+                                    <hr />
+                                    <label>Compétences</label><br />
+                                    <span *ngFor="let skill of need.skills">
+                    <img [src]=[skill.tech.techPictureMediaUrl] placement="bottom" ngbTooltip="{{skill.tech.name}} - {{skill.level / 10}} an(s)" />
+                  </span>
+                                </div>
+                                <div class="col-md-12 desc">
+                                    <hr />
+                                    <label>Description</label><br />
+                                    <p class="description-container">
+                                        {{ need.description | truncate:350 }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="freelance-proposals col-md-7 col-lg-9 pl-4">
+                            <div class="title" i18n>Mes solutions</div>
+                            <div class="row cards">
+                                <div class="col-md-12 col-lg-4" *ngIf="need.freelanceNeeds?.length == 0 && need.enabled">
+                                    <div class="add-card" (click)="assignFreelance()" *ngIf="user.type === accountType.Agent">
+                                        <button class="add"></button>
+                                        <div class="add-card-label">Assigner un Freelance</div>
+                                    </div>
+                                    <div class="empty-card" *ngIf="user.type === accountType.Company">
+                                        <i class="fas fa-search"></i>
+                                        <div class=""><span>Neadz</span> traite votre demande</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-4" *ngFor="let freelance of need.freelanceNeeds">
+                                    <app-freelance-proposal-card [need]="need" [companyId]="companyId" [freelanceNeed]="freelance"></app-freelance-proposal-card>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="old-freelance-proposals col-md-9" *ngIf="need.oldFreelanceNeeds && need.oldFreelanceNeeds?.length > 0">
+                    <div class="title" i18n>Historique</div>
+                    <div class="row cards">
+                        <div class="col-md-12 col-lg-4" *ngFor="let freelance of need.oldFreelanceNeeds">
+                            <app-freelance-proposal-card [need]="need" [companyId]="companyId" [freelanceNeed]="freelance"></app-freelance-proposal-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>

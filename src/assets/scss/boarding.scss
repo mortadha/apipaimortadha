@@ -1,0 +1,155 @@
+@import "scene";
+@import "card";
+@import "button";
+@import "input";
+@import "variables";
+@import "src/app/shared/components/header/header.component.scss";
+@import "src/app/shared/components/footer/footer.component.scss";
+.app-header-container {
+    background: #fff;
+    height: auto;
+    .header {
+        padding: 25px;
+        border-bottom: 0;
+        flex-direction: column;
+        text-align: center;
+        .singleline {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 11px;
+            color: $primaryColors;
+            margin-top: 1em;
+            display: block;
+        }
+    }
+}
+
+.app-container {
+    .header-container {
+        justify-content: center;
+    }
+}
+
+main {
+    margin: inherit;
+    // background-color: $primaryColors;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.error {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: $redPunch;
+}
+
+.container-boarding {
+    background: $primaryColors url("/assets/img/bg.jpg") no-repeat;
+    background-size: cover;
+}
+
+.main {
+    // background: $primaryColors url("/assets/img/header_bg_path.png") no-repeat;
+    // background-size: contain;
+    .rowboard {
+        margin-bottom: 0;
+        min-height: 670px;
+    }
+}
+
+.card-container {
+    text-align: center;
+    .infos-container {
+        padding: 20px 10px 0 10px;
+        min-height: 270px;
+        .pp-container {
+            position: inherit;
+            width: 160px;
+            margin: 0 auto;
+            .pp {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    }
+}
+
+input[matinput],
+input[type="date"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="phone"],
+input[type="tel"],
+input[type="text"] {
+    border-radius: 0;
+    &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: rgba($slateGrey, 0.3);
+    }
+    &::-moz-placeholder {
+        /* Firefox 19+ */
+        color: rgba($slateGrey, 0.3);
+    }
+    &:-ms-input-placeholder {
+        /* IE 10+ */
+        color: rgba($slateGrey, 0.3);
+    }
+    &:-moz-placeholder {
+        /* Firefox 18- */
+        color: rgba($slateGrey, 0.3);
+    }
+    &.no-border {
+        border: none;
+        border-bottom: 1px solid $silverGrey;
+        font-size: 22px;
+        font-weight: 300;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        padding: 0;
+        width: 100%;
+    }
+    &:focus {
+        border-bottom: 1px solid $primaryColors;
+    }
+    &:required {
+        box-shadow: none;
+    }
+    &:invalid.ng-dirty {
+        border: 0;
+        border-bottom: 1px solid $strawBerry;
+        color: $strawBerry;
+    }
+}
+
+.duration-container {
+    flex-wrap: wrap;
+    button {
+        margin-right: 10px;
+        margin-top: 10px;
+        font-size: 15px;
+        padding: 10px 35px;
+        flex-grow: 1;
+        &.enabled {
+            .duration {
+                color: $whiteGrey;
+            }
+        }
+        .duration {
+            font-size: 13px;
+            color: $slateGrey;
+        }
+    }
+}
+
+footer {
+    ul[_ngcontent-c1] {
+        color: $slateGrey;
+        a {
+            color: $secondaryColors !important;
+        }
+    }
+}

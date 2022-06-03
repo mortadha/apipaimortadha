@@ -1,0 +1,56 @@
+<mat-dialog-content>
+  <div class="modal-content">
+    <div class="edit-parcours-modal" id="edit-school-modal">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ modalTitle }}</h4>
+        <button type="button" (click)="close()" class="close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="data-block">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="certificationName" i18n>Titre</label>
+              <input type="text" required id="certificationName" class="no-border full-width"
+              i18n-placeholder="Ex : Certification AWS" [(ngModel)]="certification.title" placeholder="Ex : Certification AWS" />
+            </div>
+          </div>
+        </div>
+        <div class="data-block">
+          <label>Date d'obtention de la certification</label>
+          <div class="start-date-container">
+              <input matInput [matDatepicker]="startDp" i18n-placeholder="Année" [(ngModel)]="certification.obtainingDate" placeholder="Année">
+              <mat-datepicker-toggle matSuffix [for]="startDp"></mat-datepicker-toggle>
+              <mat-datepicker #startDp
+                              startView="multi-year"
+                              (yearSelected)="chosenStartYearHandler($event, startDp)"
+                              panelClass="example-month-picker">
+            </mat-datepicker>
+          </div>
+        </div>
+        <div class="data-block">
+          <div class="row">
+            <div class="col-md-12">
+              <label i18n>Description</label>
+              <textarea id="experience-description"
+              class="no-border full-width full"
+              [(ngModel)]="certification.description"
+              i18n-placeholder="Décrivez brièvement en quoi consiste votre certification"
+              placeholder="Décrivez brièvement en quoi consiste votre certification">
+              </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" *ngIf="data.isNew === false" (click)="deleteCertification()"
+        class="light flexleft" i18n>
+          Supprimer
+        </button>
+        <button type="submit" [disabled]="" (click)="submit()" class="dark" i18n>
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

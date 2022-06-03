@@ -1,0 +1,67 @@
+<div class="modal-content">
+  <div class="assign-freelance">
+    <div class="modal-header">
+      <button mat-button class="back" (click)="back()" aria-label="Back"></button>
+      <h4 class="modal-title" i18n>Assigner {{ freelance?.account.firstName }} {{ freelance?.account.lastName }}</h4>
+      <button mat-button [mat-dialog-close]="false" class="close" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="freelance">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="profile-picture-container">
+              <img *ngIf="!hasPicture()" src="/assets/img/blank_pp.svg" />
+              <img class="user-pp" *ngIf="hasPicture()" [src]=[freelance.account.profilePicture.url]>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="card-infos">
+              <div class="card-name">{{ freelance.account.firstName }} {{ freelance.account.lastName }}</div>
+              <div class="card-role">{{ freelance.headline }}</div>
+            </div>
+            <hr />
+            <div class="row card-exp">
+              <div class="localisation-post col-md-6">
+                <span><i class="fas fa-map-marker-alt"></i> {{ freelance.city }}</span>
+              </div>
+              <div class="free-exp col-md-6" *ngIf="freelance.experienceLevel">
+                <span><i class="fas fa-graduation-cap"></i> {{ freelance.experienceLevel }} ans d'exp.</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 card-dispo">
+                <label>Disponibilité</label>
+                <div class="data">
+                  <div class="date" *ngIf="freelance?.availabilityType === availabilityType.StartFrom && freelance.availabilityDate">Dès {{freelance.availabilityDate | date:'MMMM' | titlecase}} {{freelance.availabilityDate | date:'yyy'}}</div>
+                  <div class="date" *ngIf="freelance?.availabilityType === availabilityType.Available">Disponible</div>
+                  <div class="date" *ngIf="freelance?.availabilityType === availabilityType.Unavailable">Indisponible</div>
+                </div>
+              </div>
+
+              <div class="col-md-2 card-cjm">
+                <label>Cjm</label>
+                <div class="data">{{ freelance?.tjm }}€</div>
+              </div>
+
+              <div class="col-md-6 techs">
+                <label>Technos principales</label>
+                <span *ngFor="let skill of freelance?.skills">
+                  <img class="data" [src]=[skill.tech.techPictureMediaUrl] placement="bottom" ngbTooltip="{{skill.tech.name}}" />
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="freelance cjm">
+        <div>
+          <label>TJM</label>
+          <input class="cjmInput no-border" type="number" [placeholder]="tjmDefault" [(ngModel)]="tjmProposal" autofocus> € / Jour
+        </div>
+      </div>
+      <button class="dark assign" (click)="submit()">Assigner</button>
+    </div>
+  </div>
+</div>

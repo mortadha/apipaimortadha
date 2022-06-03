@@ -1,0 +1,52 @@
+<div class="tab-pane fade show active" id="pro" role="tabpanel" aria-labelledby="pro-tab">
+  <h4 class="" i18n>Coordonnées professionnelles</h4>
+  <p>Ces informations sont nécessaires. Elles n'apparaitront pas sur votre profil.</p>
+  <div class="col-lg-6 offset-lg-3">
+    <form>
+      <div class="form-group">
+        <label for="freelance-companyName" i18n>Raison social*</label>
+        <input id="freelance-companyName" class="no-border" type="text" name="freelance-companyName"
+          placeholder="Nom de votre entreprise..." [(ngModel)]="freelance.legal.companyName" />
+      </div>
+      <div class="form-group">
+        <label i18n>Forme juridique</label>
+        <select [(ngModel)]="freelance.legal.status" name="freelance.legal.status">
+          <option i18n [ngValue]="0">Auto-entreprise</option>
+          <option i18n [ngValue]="1">EI (entreprise individuelle)</option>
+          <option i18n [ngValue]="2">EIRL</option>
+          <option i18n [ngValue]="3">MDA</option>
+          <option i18n [ngValue]="4">SARL</option>
+          <option i18n [ngValue]="5">EURL</option>
+          <option i18n [ngValue]="6">SAS/SASU</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="freelance-siret" i18n>Numéro siret*</label>
+        <input id="freelance-siret" class="no-border" type="text" name="freelance-siret"
+          placeholder="Numéro siret..."  [(ngModel)]="freelance.legal.siret"/>
+      </div>
+      <div class="form-group">
+        <label for="freelance-streetPro" i18n>Adresse</label>
+        <input id="freelance-streetPro" class="no-border" type="text" name="freelance-streetPro"
+          i18n-placeholder="Adresse..." placeholder="Adresse..." [(ngModel)]="freelance.legal.street"/>
+      </div>
+
+      <div class="form-group">
+        <label for="freelance-zipcode" i18n>Code Postal*</label>
+        <input id="freelance-zipcode" class="no-border" type="text" name="zipcode"
+          i18n-placeholder="Code Postal..." placeholder="Code Postal..." [(ngModel)]="zipcode"/>
+      </div>
+      <div class="form-group">
+        <label for="freelance-city" i18n>Ville</label>
+        <input id="freelance-city" class="no-border" type="text" name="freelance-city"
+          i18n-placeholder="Ville..." placeholder="Ville..." [(ngModel)]="freelance.legal.city"/>
+      </div>
+
+      <div class="form-group form-footer">
+        <span><sup>*</sup>Champs obligatoires</span>
+        <button type="button" i18n class="dark" (click)="submit()">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+
+</div>

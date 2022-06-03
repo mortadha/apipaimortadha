@@ -1,0 +1,107 @@
+@import 'scene';
+@import 'variables';
+@import 'button';
+@import 'card';
+.app-container {
+    .header-container {
+        min-height: 120px;
+        display: inherit;
+        button.light {
+            color: #fff;
+            border-color: #fff;
+            margin-top: 14px;
+            &:hover {
+                background-color: #fff;
+                color: $primaryColors;
+            }
+        }
+        .white-btn {
+            margin-left: auto;
+            position: inherit;
+            float: inherit;
+        }
+    }
+    .body-container {
+        margin-top: 45px;
+        .mission-details-container {
+            // width: 300px;
+            background: #fff;
+            padding: 30px 26px;
+            // float: left;
+            .title {
+                font-size: 22px;
+                color: $primaryColors;
+            }
+            .details {
+                margin-top: 15px;
+                label {
+                    font-weight: 800;
+                    color: $slateGrey;
+                    font-size: 11px;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    margin-bottom: 0;
+                    opacity: 0.5;
+                }
+                .data {
+                    font-size: 14px;
+                    color: $primaryColors;
+                }
+                .techs {
+                    img {
+                        width: 28px;
+                        height: 28px;
+                        margin-right: 10px;
+                        margin-top: 5px;
+                    }
+                }
+                .desc {
+                    color: $primaryColors;
+                    font-size: 14px;
+                    line-height: 23px;
+                }
+                button.light {
+                    padding: 4px 16px;
+                    border: 1px solid $silverGrey;
+                }
+            }
+        }
+    }
+    .freelance-proposals,
+    .old-freelance-proposals {
+        margin-top: 95px;
+        position: relative;
+        // left: 40px;
+        // width: 720px;
+        // float: left;
+        .cards {
+            margin-top: 30px;
+            padding-left: 15px;
+            >div {
+                padding: 0;
+                padding-right: 12px;
+            }
+        }
+        .title {
+            font-size: 22px;
+            color: $charcoalGrey;
+        }
+    }
+    .old-freelance-proposals {
+        margin-top: 45px;
+    }
+    .description-container {
+        // max-height: 70px;
+        // overflow: hidden;
+        &.shown {
+            max-height: 1000px;
+            overflow: visible;
+        }
+    }
+    .action-buttons {
+        text-align: right;
+        .light {
+            margin-bottom: 10px;
+        }
+    }
+}

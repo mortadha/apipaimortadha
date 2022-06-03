@@ -1,0 +1,51 @@
+<div class="tab-pane fade show active" id="bancaires" role="tabpanel" aria-labelledby="bancaires-tab">
+  <h4 class="" i18n>Coordonnées bancaires</h4>
+  <p></p>
+    <div class="col-lg-6 offset-lg-3">
+      <form>
+        <div class="form-group">
+          <label for="freelance-companyName" i18n>Nom et prénom</label>
+          <input id="freelance-companyName" class="no-border" name="fullname" type="text" placeholder="Nom et prénom" [(ngModel)]="freelanceBank.fullname" />
+        </div>
+        <div class="form-group">
+          <label for="freelance-siret" i18n>Adresse du titulaire</label>
+          <input id="freelance-siret" class="no-border" type="text" placeholder="Adresse du titulaire..." name="address" [(ngModel)]="freelanceBank.address" />
+        </div>
+        <div class="form-group">
+          <label for="freelance-zipcode" i18n>Code Postal</label>
+          <input id="freelance-zipcode" class="no-border" type="text" i18n-placeholder="Code Postal..." placeholder="Code Postal..." name="zipcode" [(ngModel)]="freelanceBank.zipcode"/>
+        </div>
+        <div class="form-group">
+          <label for="freelance-city" i18n>Ville</label>
+          <input id="freelance-city" class="no-border" type="text" i18n-placeholder="Ville..." placeholder="Ville..." name="city" [(ngModel)]="freelanceBank.city" />
+        </div>
+        <div class="form-group">
+          <label for="freelance-country" i18n>Pays</label>
+          <select name="country" [(ngModel)]="freelanceBank.country">
+            <option i18n [ngValue]="0">France</option>
+            <option i18n [ngValue]="1">Belgique</option>
+            <option i18n [ngValue]="2">Espagne</option>
+            <option i18n [ngValue]="3">Suisse</option>
+            <option i18n [ngValue]="4">Luxembourg</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="freelance-iban" i18n>iban</label>
+          <input id="freelance-iban" class="no-border" type="text" i18n-placeholder="IBAN" placeholder="IBAN" name="iban" [(ngModel)]="freelanceBank.iban"/>
+        </div>
+        <p>Ex : FR14 2004 1010 0505 0001 3M02 606</p>
+        <div class="form-group form-footer">
+          <!-- <span><sup>*</sup>Champs obligatoires</span> -->
+        </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="validatedCustomFile" name="rib" (change)="onFileChange($event)" required>
+          <label class="custom-file-label" for="validatedCustomFile">{{freelanceBank.rib?.fileName}}</label>
+          <div style="display:block" class="valid-feedback" *ngIf="freelanceBank.rib">RIB téléverser <i class="fas fa-check"></i></div>
+          <div style="display:block" class="invalid-feedback" *ngIf="!freelanceBank.rib">Aucun fichier <i class="fas fa-times"></i></div>
+        </div>
+        <div class="form-group form-footer">
+          <button type="button" i18n class="dark" (click)='submit()'>Valider</button>
+        </div>
+      </form>
+    </div>
+</div>

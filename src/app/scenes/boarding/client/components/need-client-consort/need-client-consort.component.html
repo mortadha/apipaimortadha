@@ -1,0 +1,151 @@
+<div class="app-container">
+    <div class="header-container">
+        <div class="page-header" i18n>
+            Qualifiez le client/prospect émetteur du besoin
+        </div>
+    </div>
+    <div class="bloc-container">
+        <h5>J’identifie l’entreprise (client/prospect)</h5>
+        <form [formGroup]="form">
+
+            <div class="data-block add-parcours" [class.drop-shadow]="autoCompFieldIsFocused">
+                <div class="row" *ngIf="!isAddingNewCompany">
+                    <div class="col-md-12">
+                        <label for="companyName" i18n>Entreprise*</label>
+                        <input autocomplete="off" type="text" id="companyName" class="no-border full-width" formControlName="currentText" i18n-placeholder="Entreprise..." (input)="companyInputChange($event)" (focus)="autoCompFieldIsFocused = !autoCompFieldIsFocused" (focusout)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+                            placeholder="Entreprise..." />
+                    </div>
+                    <div *ngIf="!company.name && submitted" class="error">
+                        <div>
+                            Merci de sélectionner une entreprise
+                        </div>
+                    </div>
+                </div>
+                <div class="row addnewcompany" *ngIf="isAddingNewCompany">
+                    <div class="col-md-9">
+                        <label for="companyName" i18n>Raison sociale de l’entreprise*</label>
+                        <input autocomplete="off" type="text" id="companyName" class="no-border full-width" formControlName="currentText" i18n-placeholder="Entreprise..." (input)="companyInputChange($event)" (focus)="autoCompFieldIsFocused = !autoCompFieldIsFocused" (focusout)="autoCompFieldIsFocused = !autoCompFieldIsFocused"
+                            placeholder="Entreprise..." />
+                    </div>
+                </div>
+
+                <div class="add-parcours-container addnewcompany" *ngIf="noCompanies === true">
+                    <div class="row" *ngIf="isAddingNewCompany">
+                        <div class="col-md-12">
+                            <label for="company-street" i18n>Adresse</label>
+                            <input id="company-street" class="no-border" type="text" formControlName="street" required placeholder="Rue" i18n-placeholder="Rue" />
+                            <div *ngIf="submitted && companySteetForm.errors" class="error">
+                                <div *ngIf="companySteetForm.errors.required">
+                                    La rue ne peut être vide
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="company-zipcode" i18n>Code Postal</label>
+                            <input id="company-zipcode" class="no-border" type="text" formControlName="zipcode" required placeholder="Code postal" i18n-placeholder="Code postal" />
+                            <div *ngIf="submitted && companyZipcodeForm.errors" class="error">
+                                <div *ngIf="companyZipcodeForm.errors.required">
+                                    Le code postal ne peut être vide
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="company-city" i18n>Ville</label>
+                            <input id="company-city" class="no-border" type="text" formControlName="city" required placeholder="Ville" i18n-placeholder="Ville" />
+                            <div *ngIf="submitted && companyCityForm.errors" class="error">
+                                <div *ngIf="companyCityForm.errors.required">
+                                    La ville ne peut être vide
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="company-country" i18n>Pays</label>
+                            <input id="company-country" class="no-border" type="text" formControlName="country" required placeholder="Pays" i18n-placeholder="Pays" />
+                            <div *ngIf="submitted && companyCountryForm.errors" class="error">
+                                <div *ngIf="companyCountryForm.errors.required">
+                                    Le pays ne peut être vide
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="dark" (click)="addNewCompany()" *ngIf="!isAddingNewCompany" i18n>
+                  Ajouter cette entreprise
+                </button>
+                    <button class="light" (click)="reset()" *ngIf="isAddingNewCompany" i18n>Annuler</button>
+                    <!-- <button class="dark reset" (click)="createNewCompany()"
+                *ngIf="isAddingNewCompany" i18n>
+                  Valider
+                </button> -->
+                </div>
+
+                <div class="autocomplete-container" *ngIf="autocompleteCompanies.length > 0">
+                    <ul>
+                        <li (click)="addNewCompany()">
+                            <button class="dark" (click)="addNewCompany()">
+                      Ajouter une nouvelle entreprise
+                    </button>
+                        </li>
+                        <li *ngFor="let company of autocompleteCompanies" (click)="selectCompany(company)">
+                            <div class="name">{{ company.name }}</div>
+                            <div class="location">{{ company.city }}, {{ company.country }}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h5>J’identifie mon contact au sein de cette entreprise</h5>
+            <div class="data-block col-md-12">
+                <label for="account-lastName">Nom du client*</label>
+                <input id="account-lastName" class="no-border" type="text" required placeholder="Nom" i18n-placeholder="lastname" formControlName="lastName" />
+                <div *ngIf="lastNameForm.errors && submitted" class="error">
+                    <div *ngIf="lastNameForm.errors.required">
+                        Le nom de famille ne peut être vide
+                    </div>
+                </div>
+            </div>
+            <div class="data-block col-md-12">
+                <label for="account-firstName">Prénom du client*</label>
+                <input id="account-firstName" class="no-border" type="text" required placeholder="Prénom" i18n-placeholder="firstname" formControlName="firstName" />
+                <div *ngIf="firstNameForm.errors && submitted" class="error">
+                    <div *ngIf="firstNameForm.errors.required">
+                        Le prénom ne peut être vide
+                    </div>
+                </div>
+            </div>
+            <div class="data-block col-md-12">
+                <label for="account-title">Fonction du client*</label>
+                <input id="account-title" class="no-border" type="text" required placeholder="Poste" i18n-placeholder="poste" formControlName="title" />
+                <div *ngIf="titleForm.errors && submitted" class="error">
+                    <div *ngIf="titleForm.errors.required">
+                        Le poste ne peut être vide
+                    </div>
+                </div>
+            </div>
+            <div class="data-block col-md-12">
+                <label for="account-phone">Téléphone du client*</label>
+                <input id="account-phone" class="no-border" type="text" required placeholder="Téléphone" i18n-placeholder="mobile" formControlName="phone" />
+                <div *ngIf="phoneForm.errors && submitted" class="error">
+                    <div *ngIf="phoneForm.errors.required">
+                        Le téléphone ne peut être vide
+                    </div>
+                </div>
+            </div>
+            <div class="data-block col-md-12">
+                <label for="account-email">Email du client*</label>
+                <input id="account-email" class="no-border" type="text" required placeholder="Email" i18n-placeholder="email" formControlName="email" />
+                <div *ngIf="emailForm.errors && submitted" class="error">
+                    <div *ngIf="emailForm.errors.required">
+                        Le mail ne peut être vide
+                    </div>
+                    <div *ngIf="emailForm.errors.ValidateMail && !emailForm.errors.email && !emailForm.errors.required">
+                        Merci de renseigner un mail professionel valide
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button class="light" [routerLink]="['/boarding/consort', { outlets: { etape: '4' } }]">Revenir</button>
+            <button class="dark" (click)="submit()">Envoyer</button>
+        </div>
+    </div>
+</div>

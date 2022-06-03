@@ -1,0 +1,9 @@
+@import 'card';
+@import 'button';
+@import 'variables';
+
+.card-container {
+  button.contact {
+    border-color: $silverGrey;
+  }
+}

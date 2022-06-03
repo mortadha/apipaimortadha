@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="14px" viewBox="0 0 12 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop/Entreprise/Besoins/Vignette-find" transform="translate(-302.000000, -131.000000)" fill="#F4272E" fill-rule="nonzero">
+            <g id="Desktop/icon/header-alerte" transform="translate(282.000000, 121.000000)">
+                <g id="Group" transform="translate(20.000000, 6.000000)">
+                    <path d="M6.00001449,18 C6.660092,18 7.2,17.3000374 7.2,16.4444444 L4.8,16.4444444 C4.8,17.3000374 5.33993697,18 6.00001449,18 Z M10.5882614,14.248366 L10.5882614,10.2222222 C10.5882614,7.98954248 9.07067045,6.0863449 7.05882955,5.61042232 L7.05882955,5.09803922 C7.05882955,4.47574661 6.60006818,4 6,4 C5.39993182,4 4.94117045,4.47574661 4.94117045,5.09803922 L4.94117045,5.61042232 C2.92929545,6.0863449 1.41173864,7.98954248 1.41173864,10.2222222 L1.41173864,14.248366 L0,15.7124183 L0,16.4444444 L12,16.4444444 L12,15.7124183 L10.5882614,14.248366 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

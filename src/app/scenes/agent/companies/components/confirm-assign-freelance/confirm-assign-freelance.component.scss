@@ -1,0 +1,102 @@
+@import 'variables';
+@import 'modal';
+@import 'button';
+
+.assign-freelance {
+    .freelance {
+        // font-weight: 300;
+        background: #fff;
+        // margin-bottom: 10px;
+        padding: 20px;
+        margin: 0;
+        box-sizing: border-box;
+        // transition-property: all;
+        // transition-duration: 250ms;
+        // overflow: hidden;
+
+        label {
+            font-weight: 800;
+        }
+
+    }
+
+    .freelance-toggle {
+        margin-top: 13px;
+    }
+
+    .cjm{
+        width: 40%;
+        margin-top: 3%;
+    }
+
+    .assign{
+        float: right;
+    }
+
+    .cjmInput {
+        width: 33%;
+        outline: none;
+        border: none;
+        text-align: right;
+    }
+
+    .modal-footer {
+        // position: absolute;
+        // left: 45%;
+        // border: none;
+        // margin-top: -90px;
+        padding: 0 1rem;
+        display: flex;
+        justify-content: center;
+
+        button {
+            padding: 15px 19px;
+        }
+    }
+
+    .user-pp {
+        width: 79px;
+        height: 79px;
+        border-radius: 50%;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    .techs {
+      img {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+        margin-top: 5px;
+      }
+    }
+}
+
+
+.card-name {
+  font-size: 22px;
+  color: $primaryColors;
+}
+
+.card-role {
+  margin-top: 5px;
+  color: $slateGrey;
+}
+
+.card-exp {
+    font-style: italic;
+    color: $silverGrey;
+    font-size: .9em;
+}
+
+.card-dispo,
+.card-cjm,
+.techs {
+    margin-top: 25px;
+    color: $primaryColors;
+}

@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+            <app-sidebar></app-sidebar>
+        </nav>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app-freelance-container app-container">
+                <div class="freelance-header-container header-container">
+                    <div class="page-header" i18n>Freelances</div>
+                    <div class="analytics-card">
+                        <app-stats-counter [stats]='stats'></app-stats-counter>
+                    </div>
+                </div>
+                <div class="menu-container my-4">
+                    <ul class="main-menu">
+                        <li [class.active]="activeTab === tabsType.valide" data-target="#tabsType.valide" (click)="selectTab(tabsType.valide);">Validés</li>
+                        <li [class.active]="activeTab === tabsType.qualifie" data-target="#tabsType.qualifie" (click)="selectTab(tabsType.qualifie);" id="candidats">Qualifiés</li>
+                        <li [class.active]="activeTab === tabsType.boarding" data-target="#tabsType.boarding" (click)="selectTab(tabsType.boarding);" id="candidats">Inscrits</li>
+                        <li [class.active]="activeTab === tabsType.refuse" data-target="#tabsType.refuse" (click)="selectTab(tabsType.refuse);" id="candidats">Désactivés</li>
+                    </ul>
+
+                </div>
+
+                <div class="search-box-container">
+                    <img src="/assets/img/search_icon_big.svg" class="search-icon" />
+                    <input autocomplete="off" type="text" placeholder="Rechercher un freelance, une techno…" (input)="searchFreelance($event)" [(ngModel)]="search">
+                    <div class="or">
+                        ou
+                    </div>
+                    <button (click)="createNewFreelance()" id="addFreelance">Ajouter un freelance</button>
+                </div>
+                <div class="mt-5 d-flex justify-content-center" *ngIf="search">
+                    Votre recherche a donné : {{ total }} résultat(s)
+                </div>
+                <!-- <div class="date-picker-container" *ngIf="user.type !== accountType.Company">
+          <mat-form-field>
+            <div class="date-picker-arrow" (click)="picker.open()"></div>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div> -->
+                <div class="row card-list freelance-list" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 freelance-card-container" *ngFor="let freelance of freelances">
+                        <app-freelance-card [freelance]="freelance"></app-freelance-card>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+<app-footer></app-footer>
